@@ -113,8 +113,8 @@
   .btn:hover { text-decoration: none; transform: translateY(-2px); }
   .btn-primary { background: var(--accent); color: var(--pure-white); box-shadow: 0 10px 24px rgba(255, 107, 74, 0.30); }
   .btn-primary:hover { box-shadow: 0 14px 30px rgba(255, 107, 74, 0.42); }
-  .btn-ghost { background: transparent; color: var(--pure-white); border-color: rgba(255,255,255,0.5); }
-  .btn-ghost:hover { background: rgba(255,255,255,0.12); border-color: var(--pure-white); }
+  .btn-ghost { background: transparent; color: var(--ink); border: 2px solid var(--ink); }
+  .btn-ghost:hover { background: rgba(56, 56, 55, 0.05); border-color: var(--ink); }
   .btn-dark { background: var(--ink); color: var(--pure-white); }
   .btn-dark:hover { background: var(--primary); }
   .btn-arrow::after { content: '→'; font-weight: 400; }
@@ -147,14 +147,14 @@
      HERO
      =================================================================== */
   .hero {
-    background: var(--spinwave-blue);
-    color: var(--pure-white);
+    background: var(--pure-white);
+    color: var(--ink);
     position: relative;
     overflow: hidden;
     padding: 100px 0 120px;
   }
-  .hero h1, .hero h2 { color: var(--pure-white); }
-  .hero p { color: rgba(255,255,255,0.85); }
+  .hero h1, .hero h2 { color: var(--ink); }
+  .hero p { color: rgba(56, 56, 55, 0.85); }
 
   .hero-grid {
     display: grid;
@@ -189,8 +189,8 @@
     text-align: center;
     padding: 18px 8px;
     border-radius: var(--radius-md);
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(58, 67, 153, 0.04);
+    border: 1px solid rgba(58, 67, 153, 0.15);
   }
   .pillar-icon { width: 28px; height: 28px; margin: 0 auto 8px; display: block; color: var(--accent); }
   .pillar-label {
@@ -204,12 +204,12 @@
   }
   .hero-deco.d1 {
     width: 520px; height: 520px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(58, 67, 153, 0.06) 0%, transparent 70%);
     top: -200px; right: -150px;
   }
   .hero-deco.d2 {
     width: 380px; height: 380px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(147, 182, 181, 0.18) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(147, 182, 181, 0.28) 0%, transparent 70%);
     bottom: -180px; left: -120px;
   }
 
@@ -692,7 +692,7 @@
       </h1>
       <p class="hero-sub">
         Spinwave Laundry is opening at 112 S. Pacific Ave. — a bright, modern, fully attended
-        laundromat designed around four promises: <strong style="color:#fff">clean, fast, friendly, and safe</strong>.
+        laundromat designed around four promises: <strong style="color:var(--ink)">clean, fast, friendly, and safe</strong>.
       </p>
       <div class="hero-ctas">
         <a href="#notify" class="btn btn-primary btn-arrow">Get Opening Updates</a>
