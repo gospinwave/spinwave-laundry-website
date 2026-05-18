@@ -3,30 +3,39 @@
 
 User-agent: *
 Allow: /
+Disallow: /team.html
 
-# Allow common AI agents explicitly
+# Allow common AI agents explicitly (but keep them out of /team.html too)
 User-agent: GPTBot
 Allow: /
+Disallow: /team.html
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /team.html
 
 User-agent: Claude-Web
 Allow: /
+Disallow: /team.html
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /team.html
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /team.html
 
 User-agent: CCBot
 Allow: /
+Disallow: /team.html
 
 User-agent: Bingbot
 Allow: /
+Disallow: /team.html
 
 User-agent: Applebot
 Allow: /
+Disallow: /team.html
 
 Sitemap: https://spinwavelaundry.com/sitemap.xml
