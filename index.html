@@ -1266,7 +1266,22 @@
       <p>Sign up and we'll send a single email when Spinwave opens its doors — plus a grand-opening offer just for early supporters.</p>
     </div>
 
-    <form class="notify-form" id="contactForm" novalidate>
+    <form
+      class="notify-form"
+      id="contactForm"
+      name="notify"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      novalidate
+    >
+      <!-- Required by Netlify Forms to route the submission -->
+      <input type="hidden" name="form-name" value="notify" />
+      <!-- Honeypot: bots fill this in, real humans don't see it -->
+      <p style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true">
+        <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+      </p>
+
       <div class="field">
         <label for="name">Your name</label>
         <input type="text" id="name" name="name" required placeholder="Jamie Lee" />
@@ -1276,13 +1291,15 @@
         <input type="email" id="email" name="email" required placeholder="you@example.com" />
       </div>
       <div class="field">
+        <label for="phone">Phone <span style="color:var(--cool-grey);font-weight:400">(optional — for opening-day text updates)</span></label>
+        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" autocomplete="tel" />
+      </div>
+      <div class="field">
         <label for="message">Anything else? <span style="color:var(--cool-grey);font-weight:400">(optional)</span></label>
         <textarea id="message" name="message" placeholder="Questions or suggestions for us..."></textarea>
       </div>
       <button type="submit" class="btn btn-primary btn-arrow">Notify Me</button>
-      <div class="form-feedback" id="formFeedback">
-        Thanks! Your email client will open with the message ready to send.
-      </div>
+      <div class="form-feedback" id="formFeedback" role="status" aria-live="polite"></div>
     </form>
   </div>
 </section>
@@ -1334,30 +1351,56 @@
   // Footer year
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Contact / notify form: opens user's email client with prefilled message
+  // Contact / notify form: AJAX submission to Netlify Forms.
+  // Submissions land in Netlify dashboard → Forms → "notify". Email
+  // notifications are configured in Netlify dashboard → Forms → Notifications.
   document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
+    var form = e.target;
     var name = document.getElementById('name').value.trim();
     var email = document.getElementById('email').value.trim();
-    var message = document.getElementById('message').value.trim();
 
     if (!name || !email) {
       alert('Please share your name and email so we can let you know when we open.');
       return;
     }
 
-    var to = 'info@gospinwave.com';
-    var subject = encodeURIComponent('[Notify Me] ' + name + ' wants to know when Spinwave opens');
-    var body = encodeURIComponent(
-      'Hi Spinwave team,\n\n' +
-      'Please notify me when you open!\n\n' +
-      'Name: ' + name + '\n' +
-      'Email: ' + email + '\n\n' +
-      (message ? ('Message:\n' + message + '\n\n') : '') +
-      'Thanks!\n'
-    );
-    window.location.href = 'mailto:' + to + '?subject=' + subject + '&body=' + body;
-    document.getElementById('formFeedback').classList.add('show');
+    var btn = form.querySelector('button[type=submit]');
+    var originalBtnText = btn.innerHTML;
+    var feedback = document.getElementById('formFeedback');
+    btn.disabled = true;
+    btn.innerHTML = 'Sending…';
+    feedback.classList.remove('show');
+
+    var formData = new FormData(form);
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString()
+    })
+    .then(function(response) {
+      if (!response.ok) throw new Error('Submission failed (' + response.status + ')');
+      // Success
+      feedback.textContent = "Thanks! We've got you on the list. We'll reach out the moment Spinwave opens.";
+      feedback.style.background = '#D7EBE9';
+      feedback.style.color = '#1F3F3D';
+      feedback.classList.add('show');
+      form.reset();
+      btn.innerHTML = 'Sent ✓';
+      setTimeout(function() {
+        btn.disabled = false;
+        btn.innerHTML = originalBtnText;
+      }, 5000);
+    })
+    .catch(function() {
+      feedback.textContent = "Oops — something went wrong on our end. Please email ricardo@gospinwave.com directly and we'll add you to the list.";
+      feedback.style.background = '#FEE2E2';
+      feedback.style.color = '#7F1D1D';
+      feedback.classList.add('show');
+      btn.disabled = false;
+      btn.innerHTML = originalBtnText;
+    });
   });
 </script>
 
