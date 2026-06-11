@@ -139,21 +139,72 @@
   }
   .hero-art img { width: 100%; height: auto; display: block; }
 
+  /* ============ FOUNDER NOTE ============ */
+  .note {
+    background: var(--pure-white);
+    border-radius: var(--radius-lg);
+    padding: 26px 24px;
+    margin: 4px 0 24px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(58, 67, 153, 0.08);
+    position: relative;
+  }
+  .note-eyebrow {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--primary);
+    background: var(--linen-cream);
+    padding: 5px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+  .note p {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: var(--dark-grey);
+    margin: 0 0 12px;
+  }
+  .note p:last-of-type { margin-bottom: 16px; }
+  .note strong { color: var(--ink); font-weight: 600; }
+  .note .signature {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-style: italic;
+    font-size: 1.02rem;
+    color: var(--primary);
+    margin: 0;
+    padding-top: 12px;
+    border-top: 1px solid var(--linen-cream);
+  }
+  .note .signature-role {
+    display: block;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.82rem;
+    color: var(--cool-grey);
+    margin-top: 2px;
+    letter-spacing: 0.04em;
+  }
+
   /* ============ PERKS ============ */
   .perks {
     display: grid;
-    gap: 10px;
-    margin: 24px 0 32px;
+    gap: 4px;
+    margin: 20px 0 28px;
   }
   .perk {
     display: flex;
     align-items: center;
-    gap: 14px;
-    background: var(--pure-white);
-    border-radius: var(--radius-md);
-    padding: 14px 18px;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid rgba(58, 67, 153, 0.06);
+    gap: 12px;
+    background: transparent;
+    border-radius: 0;
+    padding: 10px 4px;
+    box-shadow: none;
+    border: 0;
   }
   .perk-icon {
     flex-shrink: 0;
@@ -186,9 +237,17 @@
   }
   .form-intro {
     text-align: center;
-    font-size: 0.92rem;
+    font-size: 0.96rem;
+    color: var(--dark-grey);
+    margin: 0 0 6px;
+    line-height: 1.5;
+  }
+  .form-microcopy {
+    text-align: center;
+    font-size: 0.78rem;
     color: var(--cool-grey);
     margin: 0 0 22px;
+    font-style: italic;
   }
   .field { margin-bottom: 14px; }
   .field label {
@@ -356,6 +415,22 @@
   </div>
 </header>
 
+<!-- =================== FOUNDER NOTE =================== -->
+<section>
+  <div class="container">
+    <div class="note">
+      <span class="note-eyebrow">A note from Ricardo &amp; Mariana</span>
+      <p>You may know this corner of San Pedro as <strong>Lucy's Laundromat</strong>. We're honored to take over a building with more than <strong>104 years of community history</strong> and bring it back to life — this time with bright lighting, brand-new machines, and people on site who actually want to help.</p>
+      <p>The renovation is in full swing. We need a few more months to make it everything our San Pedro neighbors deserve, and we'll keep you posted every step of the way.</p>
+      <p>Follow <strong>@spinwavelaundry</strong> on Instagram and Facebook for live behind-the-scenes updates. Got a question, suggestion, or just want to say hi? Email us at <a href="mailto:info@spinwavelaundry.com">info@spinwavelaundry.com</a> or stop by the storefront — we'd love to hear from you.</p>
+      <p class="signature">
+        — Ricardo &amp; Mariana
+        <span class="signature-role">Spinwave Team</span>
+      </p>
+    </div>
+  </div>
+</section>
+
 <!-- =================== PERKS =================== -->
 <section>
   <div class="container">
@@ -400,7 +475,8 @@
       </div>
 
       <h2 class="form-title">Join the VIP Text Club</h2>
-      <p class="form-intro">Takes 10 seconds. Unsubscribe anytime.</p>
+      <p class="form-intro">Get invited to our soft and grand opening events, get exclusive deals, stay informed, and more.</p>
+      <p class="form-microcopy">Takes 10 seconds. Unsubscribe anytime.</p>
 
       <div class="field">
         <label for="firstName">First name <span class="opt">(optional)</span></label>
@@ -522,7 +598,7 @@
       }, 6000);
     })
     .catch(function() {
-      feedback.textContent = "Oops — something went wrong. Please try again or email info@gospinwave.com.";
+      feedback.textContent = "Oops — something went wrong. Please try again or email info@spinwavelaundry.com.";
       feedback.style.background = '#FEE2E2';
       feedback.style.color = '#7F1D1D';
       feedback.classList.add('show');
