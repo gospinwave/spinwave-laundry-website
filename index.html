@@ -638,6 +638,181 @@
   .text-white { color: var(--pure-white); }
 
   /* ===================================================================
+     ABOUT US
+     =================================================================== */
+  .about { background: var(--linen-cream); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+    margin-bottom: 60px;
+  }
+  @media (max-width: 880px) {
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+  .about-photo {
+    position: relative;
+    transform: rotate(-1deg);
+  }
+  .about-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    border: 6px solid var(--pure-white);
+  }
+  .about-photo-caption {
+    position: absolute;
+    bottom: 18px; left: 50%;
+    transform: translateX(-50%) rotate(1deg);
+    background: var(--pure-white);
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: var(--ink);
+    box-shadow: var(--shadow-sm);
+    white-space: nowrap;
+  }
+  .about-photo-caption .heart {
+    color: var(--accent);
+    margin-right: 4px;
+  }
+  .about-story p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 1em;
+    color: var(--dark-grey);
+  }
+  .about-story strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .about-signoff {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-style: italic;
+    color: var(--primary);
+    font-size: 1.1rem !important;
+    padding-top: 14px;
+    border-top: 1px solid rgba(58, 67, 153, 0.10);
+    margin-top: 8px !important;
+  }
+
+  /* Spanish version toggle */
+  .about-spanish {
+    background: var(--pure-white);
+    border-radius: var(--radius-lg);
+    padding: 4px 28px;
+    margin: 0 auto 56px;
+    max-width: 760px;
+    border: 1px solid rgba(58, 67, 153, 0.10);
+  }
+  .about-spanish summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 20px 0;
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .about-spanish summary::-webkit-details-marker { display: none; }
+  .about-spanish summary::before {
+    content: '+';
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--primary);
+    font-weight: 400;
+    width: 22px;
+    text-align: center;
+  }
+  .about-spanish[open] summary::before { content: '−'; }
+  .about-spanish-content {
+    padding: 4px 0 22px 34px;
+    color: var(--dark-grey);
+    line-height: 1.65;
+  }
+  .about-spanish-content p { margin-bottom: 1em; font-size: 0.98rem; }
+  .about-spanish-content p:last-child { margin-bottom: 0; }
+  .about-spanish-content strong { color: var(--ink); font-weight: 600; }
+  .about-spanish-content .about-signoff {
+    margin-top: 12px !important;
+    padding-top: 14px;
+  }
+
+  /* Historical photo gallery */
+  .about-history {
+    border-top: 1px solid rgba(58, 67, 153, 0.10);
+    padding-top: 48px;
+  }
+  .about-history-head {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 30px;
+  }
+  .about-history-head .eyebrow {
+    background: var(--pure-white);
+    color: var(--primary);
+    border-color: var(--spinwave-blue-3);
+    margin-bottom: 12px;
+  }
+  .about-history-head h3 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.8rem;
+    margin: 0 0 8px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+  .about-history-head p {
+    font-size: 0.96rem;
+    color: var(--dark-grey);
+    margin: 0;
+    opacity: 0.8;
+  }
+  .about-history-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .about-history-gallery figure {
+    margin: 0;
+    background: var(--pure-white);
+    padding: 12px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(58, 67, 153, 0.06);
+  }
+  .about-history-gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    filter: sepia(0.15) saturate(0.92) contrast(0.96);
+  }
+  .about-history-gallery figcaption {
+    text-align: center;
+    font-size: 0.84rem;
+    color: var(--cool-grey);
+    margin-top: 12px;
+    font-style: italic;
+    line-height: 1.4;
+  }
+  @media (max-width: 600px) {
+    .about-history-gallery { grid-template-columns: 1fr; }
+  }
+
+  /* ===================================================================
      FAQ
      =================================================================== */
   .faq { background: var(--pure-white); }
@@ -968,6 +1143,7 @@
       <a href="#expect">What to Expect</a>
       <a href="#machines">Machines</a>
       <a href="#visit">Location</a>
+      <a href="#about">About</a>
       <a href="#faq">FAQ</a>
       <a href="/vip">VIP Club</a>
       <a href="#notify" class="btn btn-primary">Notify Me</a>
@@ -1258,6 +1434,65 @@
           referrerpolicy="no-referrer-when-downgrade"
           title="Spinwave Laundry location, 112 S. Pacific Ave., San Pedro, CA">
         </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== ABOUT US =================== -->
+<section id="about" class="about">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">About Us</span>
+      <h2>Welcome to Spinwave.</h2>
+      <p>A note from your neighbors, Ricardo &amp; Mariana.</p>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-photo">
+        <img src="ricardo-mariana.jpg" alt="Ricardo and Mariana, founders of Spinwave Laundry" loading="lazy" />
+        <div class="about-photo-caption"><span class="heart">♥</span>Ricardo &amp; Mariana</div>
+      </div>
+      <div class="about-story">
+        <p>Hello, we're <strong>Mariana and Ricardo</strong>, and we're excited to share this new project with you: Spinwave.</p>
+        <p>More than a laundromat, we dream of creating a place where people feel welcome, where neighbors can connect, where conversations can happen, and where a sense of community can grow.</p>
+        <p>We want to provide a clean, comfortable, efficient, and inviting space for everyone.</p>
+        <p>We feel very fortunate to become part of the history of this building, which has been part of the community for <strong>106 years</strong>. We love thinking about all the people who have passed through its doors and the stories these walls have witnessed over time.</p>
+        <p>There is something special about laundromats. They are places where people of different ages and backgrounds naturally cross paths. We hope Spinwave will become a place where neighbors not only come to do their laundry, but also feel connected, welcomed, and part of a community.</p>
+        <p>For 30 years, we have shared many dreams — some big, some small — and today we are excited to begin a new one.</p>
+        <p class="about-signoff">Thank you for joining us on this journey.</p>
+      </div>
+    </div>
+
+    <details class="about-spanish">
+      <summary>También en español</summary>
+      <div class="about-spanish-content">
+        <p><strong>Bienvenidos a Spinwave.</strong></p>
+        <p>Hola, somos <strong>Mariana y Ricardo</strong>, y estamos muy emocionados de compartir con ustedes este nuevo proyecto: Spinwave.</p>
+        <p>Más que una lavandería, soñamos con un espacio donde las personas se sientan bienvenidas, donde los vecinos puedan encontrarse, donde surjan conversaciones y donde poco a poco se fortalezca el sentido de comunidad.</p>
+        <p>Queremos ofrecer un lugar limpio, cómodo, eficiente y agradable para todos.</p>
+        <p>Nos sentimos muy afortunados de formar parte de la historia de este edificio, que ha sido parte de esta comunidad durante <strong>106 años</strong>. Nos encanta pensar en todas las personas que han pasado por aquí y en las historias que estas paredes han visto a lo largo del tiempo.</p>
+        <p>Las lavanderías tienen algo especial. Son lugares donde personas de diferentes edades e historias coinciden de manera natural. Nos gustaría que Spinwave fuera un lugar donde los vecinos no solo vengan a lavar su ropa, sino donde también se reconozcan, se conecten y se sientan parte de una comunidad.</p>
+        <p>Durante 30 años hemos compartido muchos sueños, algunos grandes, otros pequeños, y hoy nos emociona comenzar uno nuevo.</p>
+        <p class="about-signoff">Gracias por acompañarnos en esta aventura.</p>
+      </div>
+    </details>
+
+    <div class="about-history">
+      <div class="about-history-head">
+        <span class="eyebrow">Pacific Avenue, San Pedro</span>
+        <h3>106 years of community history.</h3>
+        <p>The building has been a part of this neighborhood for over a century. We're honored to add the next chapter.</p>
+      </div>
+      <div class="about-history-gallery">
+        <figure>
+          <img src="pacific-ave-historical-1.jpg" alt="Historical photo of Pacific Avenue in San Pedro, California" loading="lazy" />
+          <figcaption>Pacific Avenue, San Pedro — in earlier years</figcaption>
+        </figure>
+        <figure>
+          <img src="pacific-ave-historical-2.jpg" alt="Historical photo of Pacific Avenue in San Pedro, California" loading="lazy" />
+          <figcaption>The street as it once stood</figcaption>
+        </figure>
       </div>
     </div>
   </div>
