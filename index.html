@@ -4,6 +4,14 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+<!-- Set lang ASAP from saved preference to avoid translation flash -->
+<script>
+  try {
+    var savedLang = localStorage.getItem('spinwave-lang');
+    if (savedLang === 'es') document.documentElement.lang = 'es';
+  } catch(e) {}
+</script>
+
 <!-- Primary SEO -->
 <title>Spinwave Laundry — Self-Service Laundromat Coming Soon to San Pedro, CA</title>
 <meta name="description" content="Spinwave Laundry is a bright, modern, fully attended self-service laundromat coming soon to San Pedro, CA at 112 S. Pacific Ave. Open daily 6 AM–10 PM. Free WiFi, ample free parking, security cameras. Clean, fast, friendly, and safe." />
@@ -173,6 +181,38 @@
   }
   .nav-links a:not(.btn):hover { color: var(--primary); text-decoration: none; }
   .nav-links .btn { padding: 12px 22px; font-size: 0.92rem; }
+
+  /* Language toggle */
+  .lang-toggle {
+    display: inline-flex;
+    gap: 2px;
+    align-items: center;
+    background: rgba(58, 67, 153, 0.06);
+    border: 1px solid rgba(58, 67, 153, 0.10);
+    border-radius: 999px;
+    padding: 3px;
+    margin-left: auto;
+    margin-right: 12px;
+  }
+  .lang-toggle button {
+    background: transparent;
+    border: 0;
+    padding: 5px 11px;
+    border-radius: 999px;
+    cursor: pointer;
+    color: var(--cool-grey);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.74rem;
+    letter-spacing: 0.06em;
+    transition: background 0.15s ease, color 0.15s ease;
+    line-height: 1;
+  }
+  .lang-toggle button.active {
+    background: var(--primary);
+    color: var(--pure-white);
+  }
+  .lang-toggle button:not(.active):hover { color: var(--ink); }
 
   /* Mobile hamburger toggle */
   .nav-toggle {
@@ -1135,18 +1175,22 @@
     <a href="#top" class="nav-logo" aria-label="Spinwave Laundry">
       <img src="logo.png" alt="Spinwave Laundry" />
     </a>
+    <div class="lang-toggle" role="group" aria-label="Language selector">
+      <button type="button" data-lang="en" class="active" aria-label="English">EN</button>
+      <button type="button" data-lang="es" aria-label="Español">ES</button>
+    </div>
     <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
       <svg class="nav-toggle-open" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
       <svg class="nav-toggle-close" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M6 18L18 6"/></svg>
     </button>
     <div class="nav-links" id="navLinks">
-      <a href="#expect">What to Expect</a>
-      <a href="#machines">Machines</a>
-      <a href="#visit">Location</a>
-      <a href="#about">About</a>
-      <a href="#faq">FAQ</a>
-      <a href="/vip">VIP Club</a>
-      <a href="#notify" class="btn btn-primary">Notify Me</a>
+      <a href="#expect" data-en="What to Expect" data-es="Qué Esperar">What to Expect</a>
+      <a href="#machines" data-en="Machines" data-es="Máquinas">Machines</a>
+      <a href="#visit" data-en="Location" data-es="Ubicación">Location</a>
+      <a href="#about" data-en="About" data-es="Nosotros">About</a>
+      <a href="#faq" data-en="FAQ" data-es="Preguntas">FAQ</a>
+      <a href="/vip" data-en="VIP Club" data-es="Club VIP">VIP Club</a>
+      <a href="#notify" class="btn btn-primary" data-en="Notify Me" data-es="Avísame">Notify Me</a>
     </div>
   </div>
 </nav>
@@ -1158,19 +1202,21 @@
 
   <div class="container hero-grid">
     <div>
-      <span class="eyebrow accent">Coming Soon · San Pedro</span>
-      <h1>
+      <span class="eyebrow accent" data-en="🎉 Coming Soon · San Pedro" data-es="🎉 Próximamente · San Pedro">🎉 Coming Soon · San Pedro</span>
+      <h1 data-en="The Best Laundry Experience is &lt;span class=&quot;accent&quot;&gt;Coming Soon&lt;/span&gt; to &lt;span class=&quot;underline&quot;&gt;San Pedro&lt;/span&gt;." data-es="La mejor experiencia de lavandería &lt;span class=&quot;accent&quot;&gt;está por llegar&lt;/span&gt; a &lt;span class=&quot;underline&quot;&gt;San Pedro&lt;/span&gt;.">
         The Best Laundry Experience is
         <span class="accent">Coming Soon</span>
         to <span class="underline">San Pedro</span>.
       </h1>
-      <p class="hero-sub">
+      <p class="hero-sub"
+         data-en="Spinwave Laundry is opening at 112 S. Pacific Ave. — a bright, modern, fully attended laundromat designed around four promises: &lt;strong style=&quot;color:var(--ink)&quot;&gt;clean, fast, friendly, and safe&lt;/strong&gt;."
+         data-es="Spinwave Laundry abrirá en 112 S. Pacific Ave. — una lavandería brillante, moderna y completamente atendida, construida sobre cuatro promesas: &lt;strong style=&quot;color:var(--ink)&quot;&gt;limpio, rápido, amable y seguro&lt;/strong&gt;.">
         Spinwave Laundry is opening at 112 S. Pacific Ave. — a bright, modern, fully attended
         laundromat designed around four promises: <strong style="color:var(--ink)">clean, fast, friendly, and safe</strong>.
       </p>
       <div class="hero-ctas">
-        <a href="#notify" class="btn btn-primary btn-arrow">Get Opening Updates</a>
-        <a href="#visit" class="btn btn-ghost">See Location</a>
+        <a href="#notify" class="btn btn-primary btn-arrow" data-en="Get Opening Updates" data-es="Recibir Avisos de Apertura">Get Opening Updates</a>
+        <a href="#visit" class="btn btn-ghost" data-en="See Location" data-es="Ver Ubicación">See Location</a>
       </div>
 
     </div>
@@ -1188,18 +1234,18 @@
 <!-- =================== MARQUEE =================== -->
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
-    <span>Opening Soon in San Pedro <span class="dot"></span></span>
-    <span>Clean <span class="dot"></span></span>
-    <span>Fast <span class="dot"></span></span>
-    <span>Friendly <span class="dot"></span></span>
-    <span>Safe <span class="dot"></span></span>
-    <span>112 S. Pacific Ave. <span class="dot"></span></span>
-    <span>Opening Soon in San Pedro <span class="dot"></span></span>
-    <span>Clean <span class="dot"></span></span>
-    <span>Fast <span class="dot"></span></span>
-    <span>Friendly <span class="dot"></span></span>
-    <span>Safe <span class="dot"></span></span>
-    <span>112 S. Pacific Ave. <span class="dot"></span></span>
+    <span data-en="Opening Soon in San Pedro" data-es="Próximamente en San Pedro">Opening Soon in San Pedro</span><span class="dot"></span>
+    <span data-en="Clean" data-es="Limpio">Clean</span><span class="dot"></span>
+    <span data-en="Fast" data-es="Rápido">Fast</span><span class="dot"></span>
+    <span data-en="Friendly" data-es="Amable">Friendly</span><span class="dot"></span>
+    <span data-en="Safe" data-es="Seguro">Safe</span><span class="dot"></span>
+    <span>112 S. Pacific Ave.</span><span class="dot"></span>
+    <span data-en="Opening Soon in San Pedro" data-es="Próximamente en San Pedro">Opening Soon in San Pedro</span><span class="dot"></span>
+    <span data-en="Clean" data-es="Limpio">Clean</span><span class="dot"></span>
+    <span data-en="Fast" data-es="Rápido">Fast</span><span class="dot"></span>
+    <span data-en="Friendly" data-es="Amable">Friendly</span><span class="dot"></span>
+    <span data-en="Safe" data-es="Seguro">Safe</span><span class="dot"></span>
+    <span>112 S. Pacific Ave.</span><span class="dot"></span>
   </div>
 </div>
 
@@ -1207,9 +1253,9 @@
 <section id="expect" class="expect">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">What to Expect</span>
-      <h2>A laundry experience worth the wait</h2>
-      <p>Built around four simple promises that show up in every detail — from the machines we picked to the people who'll greet you at the door.</p>
+      <span class="eyebrow" data-en="What to Expect" data-es="Qué Esperar">What to Expect</span>
+      <h2 data-en="A laundry experience worth the wait" data-es="Una experiencia de lavandería que vale la pena esperar">A laundry experience worth the wait</h2>
+      <p data-en="Built around four simple promises that show up in every detail — from the machines we picked to the people who'll greet you at the door." data-es="Construida sobre cuatro promesas simples que se reflejan en cada detalle — desde las máquinas que elegimos hasta las personas que te recibirán en la puerta.">Built around four simple promises that show up in every detail — from the machines we picked to the people who'll greet you at the door.</p>
     </div>
     <div class="expect-grid">
       <div class="feature">
@@ -1217,32 +1263,32 @@
         <div class="feature-icon">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 C 12 2 6 9 6 14 a 6 6 0 0 0 12 0 C 18 9 12 2 12 2 Z"/></svg>
         </div>
-        <h3>Clean</h3>
-        <p>Pristine, freshly renovated space. Spotless machines, sanitized folding stations, and a sparkling floor — every day.</p>
+        <h3 data-en="Clean" data-es="Limpio">Clean</h3>
+        <p data-en="Pristine, freshly renovated space. Spotless machines, sanitized folding stations, and a sparkling floor — every day." data-es="Un espacio impecable, recién renovado. Máquinas relucientes, mesas de doblado sanitizadas y un piso brillante — todos los días.">Pristine, freshly renovated space. Spotless machines, sanitized folding stations, and a sparkling floor — every day.</p>
       </div>
       <div class="feature">
         <div class="feature-num">02</div>
         <div class="feature-icon">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 L4 14 L11 14 L10 22 L20 10 L13 10 Z"/></svg>
         </div>
-        <h3>Fast</h3>
-        <p>High-efficiency washers up to 80 lb and high-speed dryers — finish a full week of laundry in about an hour.</p>
+        <h3 data-en="Fast" data-es="Rápido">Fast</h3>
+        <p data-en="High-efficiency washers up to 80 lb and high-speed dryers — finish a full week of laundry in about an hour." data-es="Lavadoras de alta eficiencia de hasta 80 libras y secadoras de alta velocidad — termina toda la ropa de la semana en cerca de una hora.">High-efficiency washers up to 80 lb and high-speed dryers — finish a full week of laundry in about an hour.</p>
       </div>
       <div class="feature">
         <div class="feature-num">03</div>
         <div class="feature-icon">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 14 q 4 4 8 0"/><circle cx="9" cy="10" r="1.2" fill="currentColor"/><circle cx="15" cy="10" r="1.2" fill="currentColor"/></svg>
         </div>
-        <h3>Friendly</h3>
-        <p>Fully attended whenever we're open. Real humans to help you load, run a card, or find the right setting — no guesswork.</p>
+        <h3 data-en="Friendly" data-es="Amable">Friendly</h3>
+        <p data-en="Fully attended whenever we're open. Real humans to help you load, run a card, or find the right setting — no guesswork." data-es="Completamente atendida siempre que estemos abiertos. Personas reales para ayudarte a cargar, pasar la tarjeta o elegir el programa correcto — sin adivinanzas.">Fully attended whenever we're open. Real humans to help you load, run a card, or find the right setting — no guesswork.</p>
       </div>
       <div class="feature">
         <div class="feature-num">04</div>
         <div class="feature-icon">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L4 6 v 6 c 0 5 3.5 9 8 10 c 4.5 -1 8 -5 8 -10 V 6 Z"/><path d="M9 12 l 2 2 l 4 -4"/></svg>
         </div>
-        <h3>Safe</h3>
-        <p>Security cameras throughout, bright LED lighting, and a well-lit parking area. Peace of mind, day or night.</p>
+        <h3 data-en="Safe" data-es="Seguro">Safe</h3>
+        <p data-en="Security cameras throughout, bright LED lighting, and a well-lit parking area. Peace of mind, day or night." data-es="Cámaras de seguridad por todas partes, iluminación LED brillante y un estacionamiento bien iluminado. Tranquilidad de día y de noche.">Security cameras throughout, bright LED lighting, and a well-lit parking area. Peace of mind, day or night.</p>
       </div>
     </div>
   </div>
@@ -1253,13 +1299,13 @@
   <div class="container">
     <div class="machines-intro">
       <div>
-        <span class="eyebrow">Our Machines</span>
-        <h2>The right size for every load.</h2>
+        <span class="eyebrow" data-en="Our Machines" data-es="Nuestras Máquinas">Our Machines</span>
+        <h2 data-en="The right size for every load." data-es="El tamaño correcto para cada carga.">The right size for every load.</h2>
       </div>
       <p>From a quick weekly wash to oversized comforters and bedding — we'll have a machine sized exactly for the job. All loads dry in our high-speed dryers.</p>
     </div>
 
-    <h4 style="font-family:var(--font-display);font-weight:600;letter-spacing:0.15em;text-transform:uppercase;font-size:0.78rem;color:var(--cool-grey);margin:0 0 12px;">Washers</h4>
+    <h4 style="font-family:var(--font-display);font-weight:600;letter-spacing:0.15em;text-transform:uppercase;font-size:0.78rem;color:var(--cool-grey);margin:0 0 12px;" data-en="Washers" data-es="Lavadoras">Washers</h4>
     <div class="machine-row">
       <div class="machine">
         <div><span class="num">20</span><span class="unit"> lb</span></div>
@@ -1283,7 +1329,7 @@
       </div>
     </div>
 
-    <h4 style="font-family:var(--font-display);font-weight:600;letter-spacing:0.15em;text-transform:uppercase;font-size:0.78rem;color:var(--cool-grey);margin:36px 0 12px;">Dryers</h4>
+    <h4 style="font-family:var(--font-display);font-weight:600;letter-spacing:0.15em;text-transform:uppercase;font-size:0.78rem;color:var(--cool-grey);margin:36px 0 12px;" data-en="Dryers" data-es="Secadoras">Dryers</h4>
     <div class="machine-row dryer-row">
       <div class="machine">
         <div><span class="num">30</span><span class="unit"> lb</span></div>
@@ -1301,9 +1347,9 @@
 <section id="amenities" class="amenities">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">Amenities</span>
-      <h2>Everything you need, on site.</h2>
-      <p>Designed to make laundry day genuinely comfortable.</p>
+      <span class="eyebrow" data-en="Amenities" data-es="Servicios">Amenities</span>
+      <h2 data-en="Everything you need, on site." data-es="Todo lo que necesitas, en un solo lugar.">Everything you need, on site.</h2>
+      <p data-en="Designed to make laundry day genuinely comfortable." data-es="Diseñado para que el día de lavandería sea verdaderamente cómodo.">Designed to make laundry day genuinely comfortable.</p>
     </div>
 
     <div class="amenity-grid">
@@ -1311,66 +1357,66 @@
         <div class="amenity-ico">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 14 q 4 4 8 0"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/></svg>
         </div>
-        <div><strong>Fully Attended</strong><span>Help on site whenever we're open</span></div>
+        <div><strong data-en="Fully Attended" data-es="Siempre Atendida">Fully Attended</strong><span data-en="Help on site whenever we're open" data-es="Personal disponible siempre que estamos abiertos">Help on site whenever we're open</span></div>
       </div>
       <div class="amenity">
         <div class="amenity-ico">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9 a 4 4 0 0 1 8 0 v 6 H 3 Z"/><path d="M13 12 h 8"/><path d="M13 16 h 5"/><path d="M13 8 h 5"/></svg>
         </div>
-        <div><strong>Air Conditioning</strong><span>Cool and comfortable year-round</span></div>
+        <div><strong data-en="Air Conditioning" data-es="Aire Acondicionado">Air Conditioning</strong><span data-en="Cool and comfortable year-round" data-es="Fresco y cómodo todo el año">Cool and comfortable year-round</span></div>
       </div>
       <div class="amenity">
         <div class="amenity-ico">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12 a 7 7 0 0 1 14 0"/><path d="M2 12 a 10 10 0 0 1 20 0"/><circle cx="12" cy="18" r="1.5" fill="currentColor"/></svg>
         </div>
-        <div><strong>Free WiFi</strong><span>Fast and free for all guests</span></div>
+        <div><strong data-en="Free WiFi" data-es="WiFi Gratis">Free WiFi</strong><span data-en="Fast and free for all guests" data-es="Rápido y gratis para todos">Fast and free for all guests</span></div>
       </div>
       <div class="amenity">
         <div class="amenity-ico">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 10 h 8"/><path d="M8 14 h 8"/></svg>
         </div>
-        <div><strong>Clean Bathroom</strong><span>Maintained throughout the day</span></div>
+        <div><strong data-en="Clean Bathroom" data-es="Baño Limpio">Clean Bathroom</strong><span data-en="Maintained throughout the day" data-es="Mantenido durante todo el día">Maintained throughout the day</span></div>
       </div>
       <div class="amenity">
         <div class="amenity-ico">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M2 12 c 4 -6 16 -6 20 0 c -4 6 -16 6 -20 0 Z"/></svg>
         </div>
-        <div><strong>Security Cameras</strong><span>Cameras throughout the space</span></div>
+        <div><strong data-en="Security Cameras" data-es="Cámaras de Seguridad">Security Cameras</strong><span data-en="Cameras throughout the space" data-es="Cámaras en todo el espacio">Cameras throughout the space</span></div>
       </div>
       <div class="amenity">
         <div class="amenity-ico">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 8 h 8"/><path d="M8 12 h 8"/><path d="M8 16 h 5"/></svg>
         </div>
-        <div><strong>Vending Machine</strong><span>Detergent, drinks, and snacks</span></div>
+        <div><strong data-en="Vending Machine" data-es="Máquina Expendedora">Vending Machine</strong><span data-en="Detergent, drinks, and snacks" data-es="Detergente, bebidas y bocadillos">Detergent, drinks, and snacks</span></div>
       </div>
       <div class="amenity">
         <div class="amenity-ico">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z"/></svg>
         </div>
-        <div><strong>Loyalty Rewards</strong><span>Earn free washes as a regular</span></div>
+        <div><strong data-en="Loyalty Rewards" data-es="Recompensas de Lealtad">Loyalty Rewards</strong><span data-en="Earn free washes as a regular" data-es="Gana lavadas gratis como cliente frecuente">Earn free washes as a regular</span></div>
       </div>
       <div class="amenity">
         <div class="amenity-ico">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="9" rx="2"/><path d="M5 11V8a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v3"/><circle cx="8" cy="15.5" r="1" fill="currentColor"/><circle cx="16" cy="15.5" r="1" fill="currentColor"/></svg>
         </div>
-        <div><strong>Ample Parking</strong><span>Convenient spots right outside</span></div>
+        <div><strong data-en="Ample Parking" data-es="Amplio Estacionamiento">Ample Parking</strong><span data-en="Convenient spots right outside" data-es="Espacios convenientes justo afuera">Convenient spots right outside</span></div>
       </div>
       <div class="amenity">
         <div class="amenity-ico">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 L13.5 9 L19.5 10 L13.5 11 L12 17 L10.5 11 L4.5 10 L10.5 9 Z"/><path d="M19 3.5 L19.6 5.4 L21.5 6 L19.6 6.6 L19 8.5 L18.4 6.6 L16.5 6 L18.4 5.4 Z"/><path d="M19 16.5 L19.6 18.4 L21.5 19 L19.6 19.6 L19 21.5 L18.4 19.6 L16.5 19 L18.4 18.4 Z"/></svg>
         </div>
-        <div><strong>New Machines</strong><span>Modern, high-efficiency equipment</span></div>
+        <div><strong data-en="New Machines" data-es="Máquinas Nuevas">New Machines</strong><span data-en="Modern, high-efficiency equipment" data-es="Equipo moderno y de alta eficiencia">Modern, high-efficiency equipment</span></div>
       </div>
       <div class="amenity">
         <div class="amenity-ico">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18 V 5 L 19 3 V 16"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg>
         </div>
-        <div><strong>Music</strong><span>A relaxing playlist while you wait</span></div>
+        <div><strong data-en="Music" data-es="Música">Music</strong><span data-en="A relaxing playlist while you wait" data-es="Una lista relajante mientras esperas">A relaxing playlist while you wait</span></div>
       </div>
     </div>
 
     <div class="payments">
-      <span class="payments-label">We Accept</span>
+      <span class="payments-label" data-en="We Accept" data-es="Aceptamos">We Accept</span>
       <span class="pay-chip">💵 Cash</span>
       <span class="pay-chip">💳 Credit</span>
       <span class="pay-chip">💳 Debit</span>
@@ -1383,9 +1429,9 @@
 <section id="visit" class="location">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">Find Us</span>
-      <h2>Right in the heart of San Pedro.</h2>
-      <p>Convenient parking, brightly lit, and easy to find on S. Pacific Ave.</p>
+      <span class="eyebrow" data-en="Find Us" data-es="Encuéntranos">Find Us</span>
+      <h2 data-en="Right in the heart of San Pedro." data-es="Justo en el corazón de San Pedro.">Right in the heart of San Pedro.</h2>
+      <p data-en="Convenient parking, brightly lit, and easy to find on S. Pacific Ave." data-es="Estacionamiento conveniente, bien iluminado y fácil de encontrar en S. Pacific Ave.">Convenient parking, brightly lit, and easy to find on S. Pacific Ave.</p>
     </div>
 
     <div class="location-grid">
@@ -1406,7 +1452,7 @@
           <div class="hours-grid">
             <span class="d">Monday – Sunday</span><span class="h">6:00 AM – 10:00 PM</span>
           </div>
-          <p style="margin:8px 0 0;font-size:0.85rem;color:rgba(255,255,255,0.55)">Open 7 days, 17 hours a day.</p>
+          <p style="margin:8px 0 0;font-size:0.85rem;color:rgba(255,255,255,0.55)" data-en="Open 7 days, 16 hours a day." data-es="Abierto los 7 días, 16 horas al día.">Open 7 days, 16 hours a day.</p>
         </div>
 
         <div class="info-row">
@@ -1443,9 +1489,9 @@
 <section id="about" class="about">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">About Us</span>
-      <h2>Welcome to Spinwave.</h2>
-      <p>A note from your neighbors, Ricardo &amp; Mariana.</p>
+      <span class="eyebrow" data-en="About Us" data-es="Nosotros">About Us</span>
+      <h2 data-en="Welcome to Spinwave." data-es="Bienvenidos a Spinwave.">Welcome to Spinwave.</h2>
+      <p data-en="A note from your neighbors, Ricardo &amp; Mariana." data-es="Un mensaje de tus vecinos, Ricardo y Mariana.">A note from your neighbors, Ricardo &amp; Mariana.</p>
     </div>
 
     <div class="about-grid">
@@ -1481,8 +1527,8 @@
     <div class="about-history">
       <div class="about-history-head">
         <span class="eyebrow">Pacific Avenue, San Pedro</span>
-        <h3>106 years of community history.</h3>
-        <p>The building has been a part of this neighborhood for over a century. We're honored to add the next chapter.</p>
+        <h3 data-en="106 years of community history." data-es="106 años de historia comunitaria.">106 years of community history.</h3>
+        <p data-en="The building has been a part of this neighborhood for over a century. We're honored to add the next chapter." data-es="El edificio ha sido parte de este vecindario por más de un siglo. Es un honor para nosotros añadir el siguiente capítulo.">The building has been a part of this neighborhood for over a century. We're honored to add the next chapter.</p>
       </div>
       <div class="about-history-gallery">
         <figure>
@@ -1502,41 +1548,41 @@
 <section id="faq" class="faq">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">Frequently Asked</span>
-      <h2>Questions, answered.</h2>
-      <p>Everything you might want to know before opening day.</p>
+      <span class="eyebrow" data-en="Frequently Asked" data-es="Preguntas Frecuentes">Frequently Asked</span>
+      <h2 data-en="Questions, answered." data-es="Preguntas, respondidas.">Questions, answered.</h2>
+      <p data-en="Everything you might want to know before opening day." data-es="Todo lo que quieras saber antes del día de apertura.">Everything you might want to know before opening day.</p>
     </div>
     <div class="faq-list">
       <details class="faq-item">
-        <summary>When is Spinwave Laundry opening?</summary>
+        <summary data-en="When is Spinwave Laundry opening?" data-es="¿Cuándo abre Spinwave Laundry?">When is Spinwave Laundry opening?</summary>
         <p>Spinwave Laundry is coming soon to San Pedro at <strong>112 S. Pacific Ave.</strong> We don't have a public opening date yet — sign up using the Notify form below and we'll email you the moment we open.</p>
       </details>
       <details class="faq-item">
-        <summary>Where is Spinwave Laundry located?</summary>
+        <summary data-en="Where is Spinwave Laundry located?" data-es="¿Dónde se ubica Spinwave Laundry?">Where is Spinwave Laundry located?</summary>
         <p>Spinwave Laundry is at <strong>112 S. Pacific Ave., San Pedro, CA 90731</strong>, in the heart of downtown San Pedro.</p>
       </details>
       <details class="faq-item">
-        <summary>What are Spinwave Laundry's hours?</summary>
+        <summary data-en="What are Spinwave Laundry's hours?" data-es="¿Cuáles son los horarios de Spinwave Laundry?">What are Spinwave Laundry's hours?</summary>
         <p>We'll be open <strong>Monday through Sunday, 6:00 AM to 10:00 PM</strong> — seven days a week, 17 hours a day.</p>
       </details>
       <details class="faq-item">
-        <summary>What sizes of washers and dryers will be available?</summary>
+        <summary data-en="What sizes of washers and dryers will be available?" data-es="¿Qué tamaños de lavadoras y secadoras estarán disponibles?">What sizes of washers and dryers will be available?</summary>
         <p>We'll have washers in <strong>20 lb, 30 lb, 40 lb, 60 lb, and 80 lb capacities</strong>, plus high-speed dryers in <strong>30 lb and 55 lb capacities</strong>. From a solo load to oversized comforters, every load has a machine sized for it.</p>
       </details>
       <details class="faq-item">
-        <summary>Is there free parking at Spinwave Laundry?</summary>
+        <summary data-en="Is there free parking at Spinwave Laundry?" data-es="¿Hay estacionamiento gratuito en Spinwave Laundry?">Is there free parking at Spinwave Laundry?</summary>
         <p>Yes — there's <strong>ample free parking</strong> right outside the laundromat, well-lit and convenient day or night.</p>
       </details>
       <details class="faq-item">
-        <summary>How do I pay at Spinwave Laundry?</summary>
+        <summary data-en="How do I pay at Spinwave Laundry?" data-es="¿Cómo pago en Spinwave Laundry?">How do I pay at Spinwave Laundry?</summary>
         <p>We accept <strong>cash, credit cards, debit cards, and Apple Pay</strong>. Pay however is most convenient.</p>
       </details>
       <details class="faq-item">
-        <summary>Is Spinwave Laundry attended or self-service?</summary>
+        <summary data-en="Is Spinwave Laundry attended or self-service?" data-es="¿Es Spinwave Laundry atendida o de autoservicio?">Is Spinwave Laundry attended or self-service?</summary>
         <p>Spinwave is a self-service laundromat that's also <strong>fully attended</strong>. Friendly staff are on site whenever we're open, so help is always nearby if you need it.</p>
       </details>
       <details class="faq-item">
-        <summary>Does Spinwave Laundry have free WiFi?</summary>
+        <summary data-en="Does Spinwave Laundry have free WiFi?" data-es="¿Tiene Spinwave Laundry WiFi gratis?">Does Spinwave Laundry have free WiFi?</summary>
         <p>Yes — <strong>free fast WiFi</strong> for all guests on every visit. Stream, scroll, or work while you wash.</p>
       </details>
     </div>
@@ -1547,9 +1593,9 @@
 <section id="notify" class="notify">
   <div class="container notify-grid">
     <div>
-      <span class="eyebrow" style="background:var(--pure-white);color:var(--primary);border-color:transparent">Stay in the Loop</span>
-      <h2>Be the first to know when we open.</h2>
-      <p>Sign up and we'll send a single email when Spinwave opens its doors — plus a grand-opening offer just for early supporters.</p>
+      <span class="eyebrow" style="background:var(--pure-white);color:var(--primary);border-color:transparent" data-en="Stay in the Loop" data-es="Mantente Informado">Stay in the Loop</span>
+      <h2 data-en="Be the first to know when we open." data-es="Sé el primero en saber cuándo abrimos.">Be the first to know when we open.</h2>
+      <p data-en="Sign up and we'll send a single email when Spinwave opens its doors — plus a grand-opening offer just for early supporters." data-es="Regístrate y te enviaremos un solo correo cuando Spinwave abra sus puertas — además de una oferta de inauguración solo para nuestros primeros seguidores.">Sign up and we'll send a single email when Spinwave opens its doors — plus a grand-opening offer just for early supporters.</p>
     </div>
 
     <form
@@ -1569,22 +1615,22 @@
       </p>
 
       <div class="field">
-        <label for="name">Your name</label>
+        <label for="name" data-en="Your name" data-es="Tu nombre">Your name</label>
         <input type="text" id="name" name="name" required placeholder="Jamie Lee" />
       </div>
       <div class="field">
-        <label for="email">Email</label>
+        <label for="email" data-en="Email" data-es="Correo">Email</label>
         <input type="email" id="email" name="email" required placeholder="you@example.com" />
       </div>
       <div class="field">
-        <label for="phone">Phone <span style="color:var(--cool-grey);font-weight:400">(optional — for opening-day text updates)</span></label>
+        <label for="phone" data-en="Phone &lt;span style=&quot;color:var(--cool-grey);font-weight:400&quot;&gt;(optional — for opening-day text updates)&lt;/span&gt;" data-es="Teléfono &lt;span style=&quot;color:var(--cool-grey);font-weight:400&quot;&gt;(opcional — para avisos por mensaje el día de apertura)&lt;/span&gt;">Phone <span style="color:var(--cool-grey);font-weight:400">(optional — for opening-day text updates)</span></label>
         <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" autocomplete="tel" />
       </div>
       <div class="field">
-        <label for="message">Anything else? <span style="color:var(--cool-grey);font-weight:400">(optional)</span></label>
+        <label for="message" data-en="Anything else? &lt;span style=&quot;color:var(--cool-grey);font-weight:400&quot;&gt;(optional)&lt;/span&gt;" data-es="¿Algo más? &lt;span style=&quot;color:var(--cool-grey);font-weight:400&quot;&gt;(opcional)&lt;/span&gt;">Anything else? <span style="color:var(--cool-grey);font-weight:400">(optional)</span></label>
         <textarea id="message" name="message" placeholder="Questions or suggestions for us..."></textarea>
       </div>
-      <button type="submit" class="btn btn-primary btn-arrow">Notify Me</button>
+      <button type="submit" class="btn btn-primary btn-arrow" data-en="Notify Me" data-es="Avísame">Notify Me</button>
       <div class="form-feedback" id="formFeedback" role="status" aria-live="polite"></div>
     </form>
   </div>
@@ -1596,10 +1642,10 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <svg style="color: var(--pure-white)" aria-hidden="true"><use href="#spinwave-wordmark" /></svg>
-        <p class="footer-tag">Clean. Fast. Friendly. Safe. Coming soon to San Pedro.</p>
+        <p class="footer-tag" data-en="Clean. Fast. Friendly. Safe. Coming soon to San Pedro." data-es="Limpio. Rápido. Amable. Seguro. Próximamente en San Pedro.">Clean. Fast. Friendly. Safe. Coming soon to San Pedro.</p>
       </div>
       <div>
-        <h4>Visit</h4>
+        <h4 data-en="Visit" data-es="Visítanos">Visit</h4>
         <ul>
           <li>112 S. Pacific Ave.</li>
           <li>San Pedro, CA 90731</li>
@@ -1607,14 +1653,14 @@
         </ul>
       </div>
       <div>
-        <h4>Contact</h4>
+        <h4 data-en="Contact" data-es="Contacto">Contact</h4>
         <ul>
           <li><a href="mailto:info@gospinwave.com">info@gospinwave.com</a></li>
           <li><a href="https://instagram.com/spinwavelaundry" target="_blank" rel="noopener">@spinwavelaundry</a></li>
         </ul>
       </div>
       <div>
-        <h4>Explore</h4>
+        <h4 data-en="Explore" data-es="Explora">Explore</h4>
         <ul>
           <li><a href="#expect">What to Expect</a></li>
           <li><a href="#machines">Our Machines</a></li>
@@ -1635,6 +1681,45 @@
 <script>
   // Footer year
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Language toggle — swaps text via data-en / data-es attributes.
+  (function() {
+    var STORAGE_KEY = 'spinwave-lang';
+    var buttons = document.querySelectorAll('.lang-toggle button');
+    if (!buttons.length) return;
+
+    function applyLang(lang) {
+      document.documentElement.lang = lang;
+      try { localStorage.setItem(STORAGE_KEY, lang); } catch(e) {}
+      // Update active button state
+      buttons.forEach(function(b) {
+        b.classList.toggle('active', b.dataset.lang === lang);
+      });
+      // Swap text content / HTML on every element that has both translations
+      document.querySelectorAll('[data-en][data-es]').forEach(function(el) {
+        var val = el.dataset[lang];
+        if (val === undefined) return;
+        // If translation contains HTML tags, swap innerHTML; else textContent
+        if (/[<&]/.test(val)) el.innerHTML = val; else el.textContent = val;
+      });
+      // Also handle elements with translatable attributes (placeholder, alt, aria-label)
+      document.querySelectorAll('[data-en-placeholder]').forEach(function(el) {
+        el.placeholder = el.dataset[lang + 'Placeholder'] || el.placeholder;
+      });
+      document.querySelectorAll('[data-en-aria]').forEach(function(el) {
+        el.setAttribute('aria-label', el.dataset[lang + 'Aria'] || el.getAttribute('aria-label'));
+      });
+    }
+
+    buttons.forEach(function(b) {
+      b.addEventListener('click', function() { applyLang(b.dataset.lang); });
+    });
+
+    // Apply saved preference on load
+    var saved = 'en';
+    try { saved = localStorage.getItem(STORAGE_KEY) || 'en'; } catch(e) {}
+    if (saved === 'es') applyLang('es');
+  })();
 
   // Mobile nav hamburger toggle
   (function() {
