@@ -173,7 +173,62 @@
   }
   .nav-links a:not(.btn):hover { color: var(--primary); text-decoration: none; }
   .nav-links .btn { padding: 12px 22px; font-size: 0.92rem; }
-  @media (max-width: 760px) { .nav-links a:not(.btn) { display: none; } }
+
+  /* Mobile hamburger toggle */
+  .nav-toggle {
+    display: none;
+    background: transparent;
+    border: 0;
+    width: 44px; height: 44px;
+    align-items: center; justify-content: center;
+    color: var(--ink);
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 0;
+  }
+  .nav-toggle:hover { background: rgba(58, 67, 153, 0.06); }
+  .nav-toggle-close { display: none; }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-open { display: none; }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-close { display: block; }
+
+  @media (max-width: 760px) {
+    .nav-toggle { display: inline-flex; }
+    .nav-links {
+      position: absolute;
+      top: 100%; left: 0; right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 12px 5% 18px;
+      background: rgba(239, 237, 227, 0.98);
+      backdrop-filter: saturate(180%) blur(12px);
+      -webkit-backdrop-filter: saturate(180%) blur(12px);
+      border-bottom: 1px solid rgba(58, 67, 153, 0.10);
+      box-shadow: 0 14px 24px rgba(15, 23, 42, 0.08);
+      transform: translateY(-8px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+    .nav-links.open {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .nav-links a:not(.btn) {
+      display: block;
+      padding: 14px 8px;
+      font-size: 1.02rem;
+      border-bottom: 1px solid rgba(58, 67, 153, 0.08);
+    }
+    .nav-links a:not(.btn):last-of-type { border-bottom: 0; }
+    .nav-links .btn {
+      margin-top: 14px;
+      text-align: center;
+      width: 100%;
+      padding: 14px 22px;
+    }
+  }
 
   /* ===================================================================
      HERO
@@ -906,7 +961,11 @@
     <a href="#top" class="nav-logo" aria-label="Spinwave Laundry">
       <img src="logo.png" alt="Spinwave Laundry" />
     </a>
-    <div class="nav-links">
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <svg class="nav-toggle-open" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg class="nav-toggle-close" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M6 18L18 6"/></svg>
+    </button>
+    <div class="nav-links" id="navLinks">
       <a href="#expect">What to Expect</a>
       <a href="#machines">Machines</a>
       <a href="#visit">Location</a>
@@ -1351,6 +1410,39 @@
 <script>
   // Footer year
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Mobile nav hamburger toggle
+  (function() {
+    var toggle = document.querySelector('.nav-toggle');
+    var links = document.getElementById('navLinks');
+    if (!toggle || !links) return;
+    function close() {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open menu');
+    }
+    function open() {
+      links.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Close menu');
+    }
+    toggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (links.classList.contains('open')) close(); else open();
+    });
+    // Close when tapping outside the menu
+    document.addEventListener('click', function(e) {
+      if (!links.contains(e.target) && !toggle.contains(e.target)) close();
+    });
+    // Close when tapping any nav link
+    links.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', close);
+    });
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') close();
+    });
+  })();
 
   // Contact / notify form: AJAX submission to Netlify Forms.
   // Submissions land in Netlify dashboard → Forms → "notify". Email
