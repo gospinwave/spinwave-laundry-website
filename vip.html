@@ -2,6 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+
+<!-- Set lang ASAP from saved preference to avoid translation flash -->
+<script>
+  try {
+    var savedLang = localStorage.getItem('spinwave-lang');
+    if (savedLang === 'es') document.documentElement.lang = 'es';
+  } catch(e) {}
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
 <!-- SEO -->
@@ -82,11 +90,18 @@
   /* ============ NAV ============ */
   .nav {
     padding: 16px 0;
-    text-align: center;
+    position: relative;
   }
-  .nav a {
+  .nav .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .nav a.nav-logo-link {
     display: inline-block;
     text-decoration: none;
+    text-align: center;
   }
   .nav img {
     height: 38px;
@@ -94,6 +109,39 @@
     display: block;
     margin: 0 auto;
   }
+  /* Language toggle — top right corner */
+  .lang-toggle {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    gap: 2px;
+    align-items: center;
+    background: rgba(58, 67, 153, 0.06);
+    border: 1px solid rgba(58, 67, 153, 0.10);
+    border-radius: 999px;
+    padding: 3px;
+  }
+  .lang-toggle button {
+    background: transparent;
+    border: 0;
+    padding: 5px 11px;
+    border-radius: 999px;
+    cursor: pointer;
+    color: var(--cool-grey);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.74rem;
+    letter-spacing: 0.06em;
+    transition: background 0.15s ease, color 0.15s ease;
+    line-height: 1;
+  }
+  .lang-toggle button.active {
+    background: var(--primary);
+    color: var(--pure-white);
+  }
+  .lang-toggle button:not(.active):hover { color: var(--ink); }
   .nav .back {
     display: block;
     font-size: 0.78rem;
@@ -443,19 +491,23 @@
 <!-- =================== NAV =================== -->
 <nav class="nav">
   <div class="container">
-    <a href="/" aria-label="Spinwave Laundry home">
+    <a href="/" class="nav-logo-link" aria-label="Spinwave Laundry home">
       <img src="logo.png" alt="Spinwave Laundry" />
-      <span class="back">← Back to main site</span>
+      <span class="back" data-en="← Back to main site" data-es="← Volver al sitio principal">← Back to main site</span>
     </a>
+    <div class="lang-toggle" role="group" aria-label="Language selector">
+      <button type="button" data-lang="en" class="active" aria-label="English">EN</button>
+      <button type="button" data-lang="es" aria-label="Español">ES</button>
+    </div>
   </div>
 </nav>
 
 <!-- =================== HERO =================== -->
 <header class="hero">
   <div class="container">
-    <span class="eyebrow">🎉 Opening Soon · San Pedro</span>
-    <h1>Be first. <span class="accent">Save more.</span></h1>
-    <p class="hero-sub">Join the Spinwave VIP Text Club and you'll be first in line for opening-day perks, exclusive discounts, and members-only promos.</p>
+    <span class="eyebrow" data-en="🎉 Opening Soon · San Pedro" data-es="🎉 Próximamente · San Pedro">🎉 Opening Soon · San Pedro</span>
+    <h1 data-en="Be first. &lt;span class=&quot;accent&quot;&gt;Save more.&lt;/span&gt;" data-es="Sé primero. &lt;span class=&quot;accent&quot;&gt;Ahorra más.&lt;/span&gt;">Be first. <span class="accent">Save more.</span></h1>
+    <p class="hero-sub" data-en="Join the Spinwave VIP Text Club and you'll be first in line for opening-day perks, exclusive discounts, and members-only promos." data-es="Únete al Club VIP de Spinwave por mensaje de texto y serás el primero en recibir beneficios del día de apertura, descuentos exclusivos y promociones solo para miembros.">Join the Spinwave VIP Text Club and you'll be first in line for opening-day perks, exclusive discounts, and members-only promos.</p>
     <div class="hero-art">
       <img src="splash.png" alt="Splash, the Spinwave mascot, waving hello" />
     </div>
@@ -466,13 +518,13 @@
 <section>
   <div class="container">
     <div class="note">
-      <span class="note-eyebrow">A note from Ricardo &amp; Mariana</span>
-      <p>You may know this corner of San Pedro as <strong>Lucy's Laundromat</strong>. We're honored to take over a building with more than <strong>104 years of community history</strong> and bring it back to life — this time with bright lighting, brand-new machines, and people on site who actually want to help.</p>
-      <p>The renovation is in full swing. We need a few more months to make it everything our San Pedro neighbors deserve, and we'll keep you posted every step of the way.</p>
-      <p>Follow <strong>@spinwavelaundry</strong> on Instagram and Facebook for live behind-the-scenes updates. Got a question, suggestion, or just want to say hi? Email us at <a href="mailto:info@gospinwave.com">info@gospinwave.com</a> or stop by the storefront — we'd love to hear from you.</p>
+      <span class="note-eyebrow" data-en="A note from Ricardo &amp; Mariana" data-es="Un mensaje de Ricardo y Mariana">A note from Ricardo &amp; Mariana</span>
+      <p data-en="You may know this corner of San Pedro as &lt;strong&gt;Lucy's Laundromat&lt;/strong&gt;. We're honored to take over a building with more than &lt;strong&gt;104 years of community history&lt;/strong&gt; and bring it back to life — this time with bright lighting, brand-new machines, and people on site who actually want to help." data-es="Quizás conozcas esta esquina de San Pedro como &lt;strong&gt;Lucy's Laundromat&lt;/strong&gt;. Es un honor para nosotros recibir un edificio con más de &lt;strong&gt;104 años de historia comunitaria&lt;/strong&gt; y darle nueva vida — esta vez con iluminación brillante, máquinas nuevas y personas que de verdad quieren ayudar.">You may know this corner of San Pedro as <strong>Lucy's Laundromat</strong>. We're honored to take over a building with more than <strong>104 years of community history</strong> and bring it back to life — this time with bright lighting, brand-new machines, and people on site who actually want to help.</p>
+      <p data-en="The renovation is in full swing. We need a few more months to make it everything our San Pedro neighbors deserve, and we'll keep you posted every step of the way." data-es="La renovación está en plena marcha. Necesitamos algunos meses más para que sea todo lo que nuestros vecinos de San Pedro merecen, y te mantendremos al tanto en cada paso del camino.">The renovation is in full swing. We need a few more months to make it everything our San Pedro neighbors deserve, and we'll keep you posted every step of the way.</p>
+      <p data-en="Follow &lt;strong&gt;@spinwavelaundry&lt;/strong&gt; on Instagram and Facebook for live behind-the-scenes updates. Got a question, suggestion, or just want to say hi? Email us at &lt;a href=&quot;mailto:info@gospinwave.com&quot;&gt;info@gospinwave.com&lt;/a&gt; or stop by the storefront — we'd love to hear from you." data-es="Síguenos en &lt;strong&gt;@spinwavelaundry&lt;/strong&gt; en Instagram y Facebook para ver actualizaciones detrás de cámaras. ¿Tienes una pregunta, sugerencia o simplemente quieres saludar? Escríbenos a &lt;a href=&quot;mailto:info@gospinwave.com&quot;&gt;info@gospinwave.com&lt;/a&gt; o pasa por el local — nos encantaría escucharte.">Follow <strong>@spinwavelaundry</strong> on Instagram and Facebook for live behind-the-scenes updates. Got a question, suggestion, or just want to say hi? Email us at <a href="mailto:info@gospinwave.com">info@gospinwave.com</a> or stop by the storefront — we'd love to hear from you.</p>
       <p class="signature">
         — Ricardo &amp; Mariana
-        <span class="signature-role">Spinwave Team</span>
+        <span class="signature-role" data-en="Spinwave Team" data-es="Equipo Spinwave">Spinwave Team</span>
       </p>
     </div>
   </div>
@@ -495,65 +547,65 @@
         <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
       </div>
 
-      <h2 class="form-title">Join the VIP Text Club</h2>
+      <h2 class="form-title" data-en="Join the VIP Text Club" data-es="Únete al Club VIP por Texto">Join the VIP Text Club</h2>
 
       <div class="form-perks">
         <div class="perk">
           <div class="perk-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v9H4v-9"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H8a2.5 2.5 0 0 1 0-5c2 0 4 5 4 5z"/><path d="M12 7h4a2.5 2.5 0 0 0 0-5c-2 0-4 5-4 5z"/></svg>
           </div>
-          <div class="perk-text">Access to Grand Opening Event</div>
+          <div class="perk-text" data-en="Access to Grand Opening Event" data-es="Acceso al evento de Gran Apertura">Access to Grand Opening Event</div>
         </div>
         <div class="perk">
           <div class="perk-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 L4 14 L11 14 L10 22 L20 10 L13 10 Z"/></svg>
           </div>
-          <div class="perk-text">VIP early access</div>
+          <div class="perk-text" data-en="VIP early access" data-es="Acceso anticipado VIP">VIP early access</div>
         </div>
         <div class="perk">
           <div class="perk-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7 L7 15"/><circle cx="8.5" cy="8.5" r="1.5"/><circle cx="14.5" cy="14.5" r="1.5"/><path d="M5 5h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></svg>
           </div>
-          <div class="perk-text">Members-only discounts</div>
+          <div class="perk-text" data-en="Members-only discounts" data-es="Descuentos solo para miembros">Members-only discounts</div>
         </div>
       </div>
 
-      <p class="form-intro">Get invited to our soft and grand opening events, get exclusive deals, stay informed, and more.</p>
-      <p class="form-microcopy">Takes 10 seconds. Unsubscribe anytime.</p>
+      <p class="form-intro" data-en="Get invited to our soft and grand opening events, get exclusive deals, stay informed, and more." data-es="Recibe invitaciones a nuestros eventos de apertura suave y gran apertura, ofertas exclusivas, novedades y más.">Get invited to our soft and grand opening events, get exclusive deals, stay informed, and more.</p>
+      <p class="form-microcopy" data-en="Takes 10 seconds. Unsubscribe anytime." data-es="Toma 10 segundos. Cancela la suscripción cuando quieras.">Takes 10 seconds. Unsubscribe anytime.</p>
 
       <div class="field">
-        <label for="firstName">First name <span class="opt">(optional)</span></label>
+        <label for="firstName" data-en="First name &lt;span class=&quot;opt&quot;&gt;(optional)&lt;/span&gt;" data-es="Nombre &lt;span class=&quot;opt&quot;&gt;(opcional)&lt;/span&gt;">First name <span class="opt">(optional)</span></label>
         <input type="text" id="firstName" name="firstName" placeholder="Jamie" autocomplete="given-name" />
       </div>
 
       <div class="field">
-        <label for="phone">Mobile phone <span class="req">*</span></label>
+        <label for="phone" data-en="Mobile phone &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;" data-es="Teléfono móvil &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;">Mobile phone <span class="req">*</span></label>
         <input type="tel" id="phone" name="phone" required placeholder="(555) 123-4567" autocomplete="tel" inputmode="tel" />
       </div>
 
       <div class="field">
-        <label for="email">Email <span class="opt">(optional backup)</span></label>
+        <label for="email" data-en="Email &lt;span class=&quot;opt&quot;&gt;(optional backup)&lt;/span&gt;" data-es="Correo &lt;span class=&quot;opt&quot;&gt;(respaldo opcional)&lt;/span&gt;">Email <span class="opt">(optional backup)</span></label>
         <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" />
       </div>
 
       <div class="consent">
         <input type="checkbox" id="smsConsent" name="smsConsent" value="yes" required />
         <label for="smsConsent">
-          <strong>Yes, text me!</strong> By checking this box, I agree to receive recurring promotional text messages from Spinwave Laundry at the number provided. Consent isn't a condition of purchase. Msg frequency varies (~2–4/month). Msg &amp; data rates may apply. Reply STOP to cancel, HELP for help. See our <a href="/terms#sms" target="_blank" rel="noopener">SMS Terms</a> &amp; <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a>.
+          <span data-en="&lt;strong&gt;Yes, text me!&lt;/strong&gt; By checking this box, I agree to receive recurring promotional text messages from Spinwave Laundry at the number provided. Consent isn't a condition of purchase. Msg frequency varies (~2–4/month). Msg &amp;amp; data rates may apply. Reply STOP to cancel, HELP for help. See our &lt;a href=&quot;/terms#sms&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SMS Terms&lt;/a&gt; &amp;amp; &lt;a href=&quot;/privacy&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Privacy Policy&lt;/a&gt;." data-es="&lt;strong&gt;¡Sí, envíenme mensajes!&lt;/strong&gt; Al marcar esta casilla, acepto recibir mensajes de texto promocionales recurrentes de Spinwave Laundry al número proporcionado. El consentimiento no es condición de compra. La frecuencia de mensajes varía (~2–4 al mes). Pueden aplicarse tarifas de mensajes y datos. Responde STOP para cancelar, HELP para ayuda. Consulta nuestros &lt;a href=&quot;/terms#sms&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Términos de SMS&lt;/a&gt; y &lt;a href=&quot;/privacy&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Política de Privacidad&lt;/a&gt;."><strong>Yes, text me!</strong> By checking this box, I agree to receive recurring promotional text messages from Spinwave Laundry at the number provided. Consent isn't a condition of purchase. Msg frequency varies (~2–4/month). Msg &amp; data rates may apply. Reply STOP to cancel, HELP for help. See our <a href="/terms#sms" target="_blank" rel="noopener">SMS Terms</a> &amp; <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a>.</span>
         </label>
       </div>
 
-      <button type="submit" class="btn">Join the Text Club →</button>
+      <button type="submit" class="btn" data-en="Join the Text Club →" data-es="Únete al Club →">Join the Text Club →</button>
 
       <div class="form-feedback" id="vipFeedback" role="status" aria-live="polite"></div>
 
       <div class="privacy-promise">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L4 6 v6 c0 5 3.5 9 8 10 c4.5-1 8-5 8-10 V6 Z"/><path d="M9 12 l2 2 l4-4"/></svg>
-        <span>We never share or sell your number.</span>
+        <span data-en="We never share or sell your number." data-es="Nunca compartimos ni vendemos tu número.">We never share or sell your number.</span>
       </div>
     </form>
 
-    <p class="fine-print">
+    <p class="fine-print" data-en="Spinwave Laundry · 112 S. Pacific Ave., San Pedro, CA 90731&lt;br /&gt;By submitting, you confirm you're 18+ and the phone number is yours. See &lt;a href=&quot;/terms&quot;&gt;Terms&lt;/a&gt; &amp;amp; &lt;a href=&quot;/privacy&quot;&gt;Privacy Policy&lt;/a&gt;." data-es="Spinwave Laundry · 112 S. Pacific Ave., San Pedro, CA 90731&lt;br /&gt;Al enviar, confirmas que eres mayor de 18 años y que el número de teléfono es tuyo. Consulta los &lt;a href=&quot;/terms&quot;&gt;Términos&lt;/a&gt; y la &lt;a href=&quot;/privacy&quot;&gt;Política de Privacidad&lt;/a&gt;.">
       Spinwave Laundry · 112 S. Pacific Ave., San Pedro, CA 90731<br />
       By submitting, you confirm you're 18+ and the phone number is yours.
       See <a href="/terms">Terms</a> &amp; <a href="/privacy">Privacy Policy</a>.
@@ -569,12 +621,40 @@
     <span class="footer-divider">·</span>
     <a href="/terms">Terms</a>
     <span class="footer-divider">·</span>
-    <a href="/">Main site</a>
+    <a href="/" data-en="Main site" data-es="Sitio principal">Main site</a>
   </div>
 </footer>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Language toggle — swaps text via data-en / data-es attributes.
+  (function() {
+    var STORAGE_KEY = 'spinwave-lang';
+    var buttons = document.querySelectorAll('.lang-toggle button');
+    if (!buttons.length) return;
+    function applyLang(lang) {
+      document.documentElement.lang = lang;
+      try { localStorage.setItem(STORAGE_KEY, lang); } catch(e) {}
+      buttons.forEach(function(b) {
+        b.classList.toggle('active', b.dataset.lang === lang);
+      });
+      document.querySelectorAll('[data-en][data-es]').forEach(function(el) {
+        var val = el.dataset[lang];
+        if (val === undefined) return;
+        if (/[<&]/.test(val)) el.innerHTML = val; else el.textContent = val;
+      });
+      document.querySelectorAll('[data-en-placeholder]').forEach(function(el) {
+        el.placeholder = el.dataset[lang + 'Placeholder'] || el.placeholder;
+      });
+    }
+    buttons.forEach(function(b) {
+      b.addEventListener('click', function() { applyLang(b.dataset.lang); });
+    });
+    var saved = 'en';
+    try { saved = localStorage.getItem(STORAGE_KEY) || 'en'; } catch(e) {}
+    if (saved === 'es') applyLang('es');
+  })();
 
   // Format phone number as user types (US format: (555) 123-4567)
   var phoneInput = document.getElementById('phone');
