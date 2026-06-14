@@ -59,8 +59,8 @@
     --spinwave-blue-2: #7A82B5;
     --spinwave-blue-3: #ADB2D2;
     --light-blue: #93B6B5;
-    --linen-cream: #EFEDE3;
-    --accent-orange: #FF6B4A;
+    --linen-cream: #FAF7E8;
+    --accent-orange: #F58559;
     --cool-grey: #A8A4A6;
     --dark-grey: #383837;
     --pure-white: #FFFFFF;
@@ -434,10 +434,10 @@
     font-weight: 700;
     font-size: 1.05rem;
     cursor: pointer;
-    box-shadow: 0 10px 24px rgba(255, 107, 74, 0.30);
+    box-shadow: 0 10px 24px rgba(245, 133, 89, 0.30);
     transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
-  .btn:hover { transform: translateY(-1px); box-shadow: 0 14px 30px rgba(255, 107, 74, 0.42); }
+  .btn:hover { transform: translateY(-1px); box-shadow: 0 14px 30px rgba(245, 133, 89, 0.42); }
   .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
   /* Feedback messages */
@@ -737,22 +737,4 @@
       feedback.style.color = '#1F3F3D';
       feedback.classList.add('show');
       form.reset();
-      btn.innerHTML = 'Joined ✓';
-      setTimeout(function() {
-        btn.disabled = false;
-        btn.innerHTML = originalBtnText;
-      }, 6000);
-    })
-    .catch(function() {
-      feedback.textContent = "Oops — something went wrong. Please try again or email info@gospinwave.com.";
-      feedback.style.background = '#FEE2E2';
-      feedback.style.color = '#7F1D1D';
-      feedback.classList.add('show');
-      btn.disabled = false;
-      btn.innerHTML = originalBtnText;
-    });
-  });
-</script>
-
-</body>
-</html>
+      btn.innerHTML = 'Joi

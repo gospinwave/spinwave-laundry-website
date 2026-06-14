@@ -88,8 +88,8 @@
     --spinwave-blue-2: #7A82B5;
     --spinwave-blue-3: #ADB2D2;
     --light-blue: #93B6B5;       /* sage / mascot color */
-    --linen-cream: #EFEDE3;
-    --accent-orange: #FF6B4A;
+    --linen-cream: #FAF7E8;
+    --accent-orange: #F58559;
     --cool-grey: #A8A4A6;
     --dark-grey: #383837;
     --pure-white: #FFFFFF;
@@ -171,8 +171,8 @@
     text-decoration: none;
   }
   .btn:hover { text-decoration: none; transform: translateY(-2px); }
-  .btn-primary { background: var(--accent); color: var(--pure-white); box-shadow: 0 10px 24px rgba(255, 107, 74, 0.30); }
-  .btn-primary:hover { box-shadow: 0 14px 30px rgba(255, 107, 74, 0.42); }
+  .btn-primary { background: var(--accent); color: var(--pure-white); box-shadow: 0 10px 24px rgba(245, 133, 89, 0.30); }
+  .btn-primary:hover { box-shadow: 0 14px 30px rgba(245, 133, 89, 0.42); }
   .btn-ghost { background: transparent; color: var(--ink); border: 2px solid var(--ink); }
   .btn-ghost:hover { background: rgba(56, 56, 55, 0.05); border-color: var(--ink); }
   .btn-dark { background: var(--ink); color: var(--pure-white); }
@@ -184,7 +184,7 @@
      =================================================================== */
   .nav {
     position: sticky; top: 0; z-index: 50;
-    background: rgba(239, 237, 227, 0.85);
+    background: rgba(250, 247, 232, 0.85);
     backdrop-filter: saturate(180%) blur(12px);
     -webkit-backdrop-filter: saturate(180%) blur(12px);
     border-bottom: 1px solid rgba(30, 34, 170, 0.08);
@@ -261,7 +261,7 @@
       align-items: stretch;
       gap: 0;
       padding: 12px 5% 18px;
-      background: rgba(239, 237, 227, 0.98);
+      background: rgba(250, 247, 232, 0.98);
       backdrop-filter: saturate(180%) blur(12px);
       -webkit-backdrop-filter: saturate(180%) blur(12px);
       border-bottom: 1px solid rgba(30, 34, 170, 0.10);
@@ -318,7 +318,7 @@
   }
   .hero h1 .accent { color: var(--accent); }
   .hero h1 .underline {
-    background: linear-gradient(transparent 65%, rgba(255, 107, 74, 0.35) 65%);
+    background: linear-gradient(transparent 65%, rgba(245, 133, 89, 0.35) 65%);
     padding: 0 6px;
   }
   .hero-sub {
@@ -1784,63 +1784,4 @@
       a.addEventListener('click', close);
     });
     // Close on Escape key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') close();
-    });
-  })();
-
-  // Contact / notify form: AJAX submission to Netlify Forms.
-  // Submissions land in Netlify dashboard → Forms → "notify". Email
-  // notifications are configured in Netlify dashboard → Forms → Notifications.
-  document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    var form = e.target;
-    var name = document.getElementById('name').value.trim();
-    var email = document.getElementById('email').value.trim();
-
-    if (!name || !email) {
-      alert('Please share your name and email so we can let you know when we open.');
-      return;
-    }
-
-    var btn = form.querySelector('button[type=submit]');
-    var originalBtnText = btn.innerHTML;
-    var feedback = document.getElementById('formFeedback');
-    btn.disabled = true;
-    btn.innerHTML = 'Sending…';
-    feedback.classList.remove('show');
-
-    var formData = new FormData(form);
-
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData).toString()
-    })
-    .then(function(response) {
-      if (!response.ok) throw new Error('Submission failed (' + response.status + ')');
-      // Success
-      feedback.textContent = "Thanks! We've got you on the list. We'll reach out the moment Spinwave opens.";
-      feedback.style.background = '#D7EBE9';
-      feedback.style.color = '#1F3F3D';
-      feedback.classList.add('show');
-      form.reset();
-      btn.innerHTML = 'Sent ✓';
-      setTimeout(function() {
-        btn.disabled = false;
-        btn.innerHTML = originalBtnText;
-      }, 5000);
-    })
-    .catch(function() {
-      feedback.textContent = "Oops — something went wrong on our end. Please email ricardo@gospinwave.com directly and we'll add you to the list.";
-      feedback.style.background = '#FEE2E2';
-      feedback.style.color = '#7F1D1D';
-      feedback.classList.add('show');
-      btn.disabled = false;
-      btn.innerHTML = originalBtnText;
-    });
-  });
-</script>
-
-</body>
-</html>
+    document.addEventListener('keydo
