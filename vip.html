@@ -728,7 +728,11 @@
     })
     .then(function(response) {
       if (!response.ok) throw new Error('Submission failed (' + response.status + ')');
-      feedback.textContent = "🎉 You're in! We'll text you the moment Spinwave opens — plus a special grand-opening offer just for VIPs.";
+      var isEs = document.documentElement.lang === 'es';
+      var linkStyle = 'color:#1F3F3D;text-decoration:underline;font-weight:700;';
+      feedback.innerHTML = isEs
+        ? '🎉 ¡Estás dentro! Te enviaremos un mensaje en cuanto Spinwave abra — además de una oferta especial de gran apertura solo para VIPs.<br /><br />Mientras tanto, <a href="/" style="' + linkStyle + '">conoce más sobre nosotros →</a>'
+        : '🎉 You\'re in! We\'ll text you the moment Spinwave opens — plus a special grand-opening offer just for VIPs.<br /><br />In the meantime, <a href="/" style="' + linkStyle + '">learn more about us →</a>';
       feedback.style.background = '#D7EBE9';
       feedback.style.color = '#1F3F3D';
       feedback.classList.add('show');
