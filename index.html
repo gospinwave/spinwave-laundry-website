@@ -1640,7 +1640,6 @@
       method="POST"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
-      novalidate
     >
       <!-- Required by Netlify Forms to route the submission -->
       <input type="hidden" name="form-name" value="notify" />
@@ -1784,4 +1783,94 @@
       a.addEventListener('click', close);
     });
     // Close on Escape key
-    document.addEventListener('keydo
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') close();
+    });
+  })();
+
+  // ============================================================
+  // Notify form — AJAX submit with validation + bilingual feedback
+  // ============================================================
+  (function() {
+    var form = document.getElementById('contactForm');
+    if (!form) return;
+
+    function emailIsValid(s) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
+    }
+
+    function showError(feedback, text) {
+      feedback.textContent = text;
+      feedback.style.background = '#FEE2E2';
+      feedback.style.color = '#7F1D1D';
+      feedback.classList.add('show');
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var name = (document.getElementById('name').value || '').trim();
+      var email = (document.getElementById('email').value || '').trim();
+      var feedback = document.getElementById('formFeedback');
+      var isEs = document.documentElement.lang === 'es';
+
+      // Validation
+      if (!name) {
+        showError(feedback, isEs
+          ? 'Por favor ingresa tu nombre.'
+          : 'Please enter your name.');
+        return;
+      }
+      if (!email) {
+        showError(feedback, isEs
+          ? 'Por favor ingresa tu correo electrónico.'
+          : 'Please enter your email.');
+        return;
+      }
+      if (!emailIsValid(email)) {
+        showError(feedback, isEs
+          ? 'Por favor ingresa un correo electrónico válido.'
+          : 'Please enter a valid email address.');
+        return;
+      }
+
+      var btn = form.querySelector('button[type=submit]');
+      var originalBtnText = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = isEs ? 'Enviando…' : 'Sending…';
+      feedback.classList.remove('show');
+
+      var formData = new FormData(form);
+
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      })
+      .then(function(response) {
+        if (!response.ok) throw new Error('Submission failed (' + response.status + ')');
+        feedback.textContent = isEs
+          ? '🎉 ¡Gracias! Te avisaremos por correo en cuanto Spinwave abra sus puertas.'
+          : "🎉 Thanks! We'll email you the moment Spinwave opens its doors.";
+        feedback.style.background = '#D7EBE9';
+        feedback.style.color = '#1F3F3D';
+        feedback.classList.add('show');
+        form.reset();
+        btn.innerHTML = isEs ? 'Listo ✓' : 'Got it ✓';
+        setTimeout(function() {
+          btn.disabled = false;
+          btn.innerHTML = originalBtnText;
+        }, 6000);
+      })
+      .catch(function() {
+        showError(feedback, isEs
+          ? 'Algo salió mal. Inténtalo de nuevo o escríbenos a info@gospinwave.com.'
+          : 'Oops — something went wrong. Please try again or email info@gospinwave.com.');
+        btn.disabled = false;
+        btn.innerHTML = originalBtnText;
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
