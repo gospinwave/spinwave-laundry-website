@@ -315,6 +315,19 @@
   @media (max-width: 900px) {
     .hero-grid { grid-template-columns: 1fr; gap: 30px; }
     .hero-art { order: -1; max-width: 320px; margin: 0 auto; }
+    /* On mobile, move the speech bubble to the open space on the left of Splash */
+    .hero-art .speech {
+      top: -10px;
+      left: -16px;
+      right: auto;
+      font-size: 0.9rem;
+      padding: 10px 16px;
+      transform: rotate(-6deg);
+    }
+    .hero-art .speech::after {
+      left: auto;
+      right: 24px;
+    }
   }
   .hero h1 .accent { color: var(--accent); }
   .hero h1 .underline {
