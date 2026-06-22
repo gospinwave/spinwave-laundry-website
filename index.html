@@ -315,18 +315,22 @@
   @media (max-width: 900px) {
     .hero-grid { grid-template-columns: 1fr; gap: 30px; }
     .hero-art { order: -1; max-width: 320px; margin: 0 auto; }
-    /* On mobile, move the speech bubble to the open space on the left of Splash */
+    /* On mobile, move the speech bubble to the open space on the left of Splash, smaller */
     .hero-art .speech {
-      top: -10px;
-      left: -16px;
+      top: -4px;
+      left: -8px;
       right: auto;
-      font-size: 0.9rem;
-      padding: 10px 16px;
+      font-size: 0.72rem;
+      padding: 6px 11px;
+      border-radius: 14px;
+      white-space: nowrap;
       transform: rotate(-6deg);
     }
     .hero-art .speech::after {
       left: auto;
-      right: 24px;
+      right: 18px;
+      bottom: -6px;
+      border-width: 6px;
     }
   }
   .hero h1 .accent { color: var(--accent); }
