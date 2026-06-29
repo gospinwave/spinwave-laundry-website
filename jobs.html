@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+
+<!-- Set lang ASAP from saved preference to avoid translation flash -->
+<script>
+  try {
+    var savedLang = localStorage.getItem('spinwave-lang');
+    if (savedLang === 'es') document.documentElement.lang = 'es';
+  } catch(e) {}
+</script>
+
+<!-- Google Analytics 4 (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EER9HJR3MQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-EER9HJR3MQ');
+</script>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x73vosokgy");
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+<!-- SEO -->
+<title>Jobs — Apply to Join the Spinwave Laundry Team | San Pedro, CA</title>
+<meta name="description" content="Spinwave Laundry jobs in San Pedro, CA. Now hiring full-time and part-time team members. Apply online. Friendly team, bright new laundromat, opening soon at 112 S. Pacific Ave." />
+<link rel="canonical" href="https://spinwavelaundry.com/jobs" />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#4E9FEB" />
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="splash.png" />
+<link rel="apple-touch-icon" href="splash.png" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://spinwavelaundry.com/jobs" />
+<meta property="og:title" content="Jobs at Spinwave Laundry" />
+<meta property="og:description" content="Now hiring full-time and part-time team members for our new San Pedro laundromat. Apply today." />
+<meta property="og:image" content="https://spinwavelaundry.com/logo.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --spinwave-blue: #4E9FEB;
+    --light-blue: #93B6B5;
+    --linen-cream: #FAF7E8;
+    --accent-orange: #F58559;
+    --cool-grey: #A8A4A6;
+    --dark-grey: #383837;
+    --pure-white: #FFFFFF;
+
+    --ink: var(--dark-grey);
+    --paper: var(--linen-cream);
+    --primary: var(--spinwave-blue);
+    --accent: var(--accent-orange);
+
+    --radius-lg: 20px;
+    --radius-md: 14px;
+    --radius-sm: 10px;
+    --shadow-sm: 0 4px 12px rgba(56, 56, 55, 0.06);
+    --shadow-md: 0 14px 36px rgba(78, 159, 235, 0.10);
+    --shadow-lg: 0 26px 60px rgba(78, 159, 235, 0.18);
+
+    --font-display: 'Jost', 'Futura PT', 'Futura', 'Trebuchet MS', sans-serif;
+    --font-body: 'Jost', 'Futura PT', 'Futura', system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    font-weight: 400;
+    color: var(--ink);
+    background: var(--linen-cream);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    margin: 0 0 0.5em;
+    color: var(--ink);
+  }
+  p { margin: 0 0 1em; color: var(--dark-grey); }
+  a { color: var(--primary); }
+  a:hover { text-decoration: underline; }
+
+  .container { width: min(680px, 92%); margin: 0 auto; }
+
+  /* ============ NAV ============ */
+  .nav { padding: 16px 0; position: relative; }
+  .nav .container {
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .nav a.nav-logo-link { display: inline-block; text-decoration: none; text-align: center; }
+  .nav img { height: 38px; width: auto; display: block; margin: 0 auto; }
+  .lang-toggle {
+    position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+    display: inline-flex; gap: 2px; align-items: center;
+    background: rgba(78, 159, 235, 0.06);
+    border: 1px solid rgba(78, 159, 235, 0.10);
+    border-radius: 999px; padding: 3px;
+  }
+  .lang-toggle button {
+    background: transparent; border: 0; padding: 5px 11px;
+    border-radius: 999px; cursor: pointer; color: var(--cool-grey);
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 0.74rem; letter-spacing: 0.06em; line-height: 1;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .lang-toggle button.active { background: var(--primary); color: var(--pure-white); }
+  .lang-toggle button:not(.active):hover { color: var(--ink); }
+  .nav .back {
+    display: block; font-size: 0.78rem; color: var(--cool-grey);
+    margin-top: 8px; letter-spacing: 0.06em;
+    text-transform: uppercase; font-weight: 600;
+  }
+
+  /* ============ HERO ============ */
+  .hero { padding: 32px 0 12px; text-align: center; }
+  .eyebrow {
+    display: inline-block; background: var(--accent); color: var(--pure-white);
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 7px 16px; border-radius: 999px; margin-bottom: 18px;
+  }
+  .hero h1 { font-size: clamp(2.1rem, 7vw, 2.8rem); margin-bottom: 14px; }
+  .hero h1 .accent { color: var(--accent); }
+  .hero-sub {
+    font-size: 1.05rem; color: rgba(56, 56, 55, 0.88);
+    max-width: 540px; margin: 0 auto 18px;
+  }
+
+  /* ============ HIRING-FOR CARDS ============ */
+  .roles {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    margin: 18px 0 32px;
+  }
+  .role-card {
+    background: var(--pure-white); border-radius: var(--radius-md);
+    padding: 18px 16px; text-align: center;
+    border: 1.5px solid rgba(78, 159, 235, 0.18);
+    box-shadow: var(--shadow-sm);
+  }
+  .role-card .role-icon {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: rgba(78, 159, 235, 0.12); color: var(--primary);
+    display: grid; place-items: center; margin: 0 auto 10px;
+  }
+  .role-card .role-title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 1rem; color: var(--ink); margin: 0;
+  }
+
+  /* ============ REQUIREMENTS ============ */
+  .reqs-card {
+    background: var(--pure-white); border-radius: var(--radius-lg);
+    padding: 26px 24px; margin-bottom: 28px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(78, 159, 235, 0.08);
+  }
+  .reqs-title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 1.1rem; color: var(--ink); margin: 0 0 16px;
+  }
+  .reqs-list { list-style: none; padding: 0; margin: 0; }
+  .reqs-list li {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 10px 0; border-top: 1px solid var(--linen-cream);
+    font-size: 0.96rem; color: var(--dark-grey); line-height: 1.5;
+  }
+  .reqs-list li:first-child { border-top: 0; padding-top: 0; }
+  .reqs-list li:last-child { padding-bottom: 0; }
+  .reqs-list .check {
+    flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
+    background: rgba(78, 159, 235, 0.15); color: var(--primary);
+    display: grid; place-items: center; margin-top: 1px;
+  }
+  .reqs-list strong { color: var(--ink); font-weight: 600; }
+
+  /* ============ FORM ============ */
+  .form-card {
+    background: var(--pure-white); border-radius: var(--radius-lg);
+    padding: 28px 24px; box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(78, 159, 235, 0.08);
+    margin-bottom: 24px;
+  }
+  .form-title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 1.2rem; color: var(--ink); margin: 0 0 6px;
+    text-align: center;
+  }
+  .form-intro {
+    text-align: center; font-size: 0.96rem; color: var(--dark-grey);
+    margin: 0 0 20px; line-height: 1.5;
+  }
+  .field { margin-bottom: 14px; }
+  .field label {
+    display: block; font-family: var(--font-display); font-weight: 600;
+    color: var(--ink); margin-bottom: 6px; font-size: 0.92rem;
+  }
+  .field .req { color: var(--accent); }
+  .field .opt { color: var(--cool-grey); font-weight: 400; font-size: 0.82rem; }
+  .field input[type="text"],
+  .field input[type="tel"],
+  .field input[type="email"],
+  .field textarea {
+    width: 100%; padding: 14px 16px;
+    border: 2px solid var(--linen-cream);
+    border-radius: var(--radius-md);
+    font: inherit; color: var(--ink);
+    background: var(--pure-white);
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .field textarea { min-height: 110px; resize: vertical; line-height: 1.5; }
+  .field input:focus,
+  .field textarea:focus {
+    outline: none; border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(78, 159, 235, 0.12);
+  }
+
+  /* Position radio group */
+  .position-group {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+  }
+  .position-option {
+    position: relative; cursor: pointer;
+    border: 2px solid var(--linen-cream);
+    border-radius: var(--radius-md); padding: 12px 10px;
+    text-align: center; transition: all 0.15s;
+    font-family: var(--font-display); font-weight: 600;
+    font-size: 0.95rem; color: var(--dark-grey);
+    background: var(--pure-white);
+  }
+  .position-option input { position: absolute; opacity: 0; pointer-events: none; }
+  .position-option:hover { border-color: rgba(78, 159, 235, 0.4); }
+  .position-option:has(input:checked) {
+    border-color: var(--primary); background: rgba(78, 159, 235, 0.06);
+    color: var(--primary);
+  }
+
+  /* Submit button */
+  .btn {
+    display: block; width: 100%; padding: 16px; border: 0;
+    border-radius: 999px; background: var(--accent);
+    color: var(--pure-white); font-family: var(--font-display);
+    font-weight: 700; font-size: 1.05rem; cursor: pointer;
+    box-shadow: 0 10px 24px rgba(245, 133, 89, 0.30);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .btn:hover { transform: translateY(-1px); box-shadow: 0 14px 30px rgba(245, 133, 89, 0.42); }
+  .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+  .form-feedback {
+    margin-top: 14px; padding: 12px 16px;
+    border-radius: var(--radius-md); font-weight: 500;
+    font-size: 0.92rem; display: none;
+  }
+  .form-feedback.show { display: block; }
+
+  .privacy-promise {
+    display: flex; align-items: center; justify-content: center;
+    gap: 8px; margin-top: 14px; color: var(--cool-grey);
+    font-size: 0.82rem; font-weight: 500;
+  }
+  .privacy-promise svg { color: #4E807F; }
+
+  .honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+  /* ============ FOOTER ============ */
+  footer { padding: 24px 0 32px; text-align: center; color: var(--cool-grey); font-size: 0.82rem; }
+  footer a { color: var(--cool-grey); text-decoration: none; margin: 0 8px; }
+  footer a:hover { color: var(--primary); text-decoration: underline; }
+  .footer-divider { color: rgba(168, 164, 166, 0.4); }
+
+  /* ============ RESPONSIVE ============ */
+  @media (min-width: 600px) {
+    .form-card { padding: 36px 32px; }
+  }
+  @media (max-width: 480px) {
+    .roles { grid-template-columns: 1fr; }
+    .position-group { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- =================== NAV =================== -->
+<nav class="nav">
+  <div class="container">
+    <a href="/" class="nav-logo-link" aria-label="Spinwave Laundry home">
+      <img src="logo.png" alt="Spinwave Laundry" />
+      <span class="back" data-en="← Back to main site" data-es="← Volver al sitio principal">← Back to main site</span>
+    </a>
+    <div class="lang-toggle" role="group" aria-label="Language selector">
+      <button type="button" data-lang="en" class="active" aria-label="English">EN</button>
+      <button type="button" data-lang="es" aria-label="Español">ES</button>
+    </div>
+  </div>
+</nav>
+
+<!-- =================== HERO =================== -->
+<header class="hero">
+  <div class="container">
+    <span class="eyebrow" data-en="🧺 Now Hiring · San Pedro" data-es="🧺 Estamos Contratando · San Pedro">🧺 Now Hiring · San Pedro</span>
+    <h1 data-en="Join the &lt;span class=&quot;accent&quot;&gt;Spinwave&lt;/span&gt; team" data-es="Únete al equipo &lt;span class=&quot;accent&quot;&gt;Spinwave&lt;/span&gt;">Join the <span class="accent">Spinwave</span> team</h1>
+    <p class="hero-sub" data-en="We're opening soon at 112 S. Pacific Ave. and we're looking for friendly, dependable people to help us deliver a clean, fast, and welcoming laundry experience for our neighbors in San Pedro." data-es="Abriremos pronto en 112 S. Pacific Ave. y estamos buscando personas amables y confiables que nos ayuden a brindar una experiencia de lavandería limpia, rápida y acogedora para nuestros vecinos de San Pedro.">We're opening soon at 112 S. Pacific Ave. and we're looking for friendly, dependable people to help us deliver a clean, fast, and welcoming laundry experience for our neighbors in San Pedro.</p>
+  </div>
+</header>
+
+<!-- =================== HIRING FOR =================== -->
+<section>
+  <div class="container">
+    <div class="roles">
+      <div class="role-card">
+        <div class="role-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        </div>
+        <p class="role-title" data-en="Full-time" data-es="Tiempo completo">Full-time</p>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5"/><path d="M12 12h4"/></svg>
+        </div>
+        <p class="role-title" data-en="Part-time" data-es="Medio tiempo">Part-time</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== REQUIREMENTS =================== -->
+<section>
+  <div class="container">
+    <div class="reqs-card">
+      <h2 class="reqs-title" data-en="What we're looking for" data-es="Lo que buscamos">What we're looking for</h2>
+      <ul class="reqs-list">
+        <li>
+          <span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <span data-en="&lt;strong&gt;U.S. legal resident&lt;/strong&gt; — required to work in the United States" data-es="&lt;strong&gt;Residente legal en EE. UU.&lt;/strong&gt; — autorización para trabajar en los Estados Unidos"><strong>U.S. legal resident</strong> — required to work in the United States</span>
+        </li>
+        <li>
+          <span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <span data-en="&lt;strong&gt;Passion for customer service&lt;/strong&gt; — you genuinely enjoy helping people" data-es="&lt;strong&gt;Pasión por el servicio al cliente&lt;/strong&gt; — realmente disfrutas ayudar a las personas"><strong>Passion for customer service</strong> — you genuinely enjoy helping people</span>
+        </li>
+        <li>
+          <span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <span data-en="&lt;strong&gt;Good communication skills&lt;/strong&gt; — clear, friendly, and patient" data-es="&lt;strong&gt;Buenas habilidades de comunicación&lt;/strong&gt; — claro, amable y paciente"><strong>Good communication skills</strong> — clear, friendly, and patient</span>
+        </li>
+        <li>
+          <span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <span data-en="&lt;strong&gt;Laundromat experience is a plus&lt;/strong&gt; — but not required, we'll train the right person" data-es="&lt;strong&gt;Experiencia en lavandería es una ventaja&lt;/strong&gt; — pero no es obligatoria, capacitamos a la persona indicada"><strong>Laundromat experience is a plus</strong> — but not required, we'll train the right person</span>
+        </li>
+        <li>
+          <span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <span data-en="&lt;strong&gt;Bilingual (English/Spanish) is a plus&lt;/strong&gt; — many of our customers speak Spanish at home" data-es="&lt;strong&gt;Bilingüe (inglés/español) es una ventaja&lt;/strong&gt; — muchos de nuestros clientes hablan español en casa"><strong>Bilingual (English/Spanish) is a plus</strong> — many of our customers speak Spanish at home</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- =================== APPLICATION FORM =================== -->
+<section>
+  <div class="container">
+    <form
+      class="form-card"
+      id="careersForm"
+      name="careers"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+    >
+      <input type="hidden" name="form-name" value="careers" />
+      <div class="honeypot" aria-hidden="true">
+        <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+      </div>
+
+      <h2 class="form-title" data-en="Apply now" data-es="Aplicar ahora">Apply now</h2>
+      <p class="form-intro" data-en="Tell us a little about yourself. We'll be in touch within a week." data-es="Cuéntanos un poco sobre ti. Te contactaremos dentro de una semana.">Tell us a little about yourself. We'll be in touch within a week.</p>
+
+      <div class="field">
+        <label for="applicantName" data-en="Full name &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;" data-es="Nombre completo &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;">Full name <span class="req">*</span></label>
+        <input type="text" id="applicantName" name="applicantName" required placeholder="Jamie Lee" autocomplete="name" />
+      </div>
+
+      <div class="field">
+        <label for="applicantEmail" data-en="Email &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;" data-es="Correo electrónico &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;">Email <span class="req">*</span></label>
+        <input type="email" id="applicantEmail" name="applicantEmail" required placeholder="you@example.com" autocomplete="email" />
+      </div>
+
+      <div class="field">
+        <label for="applicantPhone" data-en="Phone number &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;" data-es="Número de teléfono &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;">Phone number <span class="req">*</span></label>
+        <input type="tel" id="applicantPhone" name="applicantPhone" required placeholder="(555) 123-4567" autocomplete="tel" inputmode="tel" />
+      </div>
+
+      <div class="field">
+        <label data-en="Position interested in &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;" data-es="Puesto de interés &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;">Position interested in <span class="req">*</span></label>
+        <div class="position-group">
+          <label class="position-option">
+            <input type="radio" name="positionType" value="full-time" required />
+            <span data-en="Full-time" data-es="Tiempo completo">Full-time</span>
+          </label>
+          <label class="position-option">
+            <input type="radio" name="positionType" value="part-time" required />
+            <span data-en="Part-time" data-es="Medio tiempo">Part-time</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="applicantComments" data-en="Comments &lt;span class=&quot;opt&quot;&gt;(tell us about yourself, your experience, availability)&lt;/span&gt;" data-es="Comentarios &lt;span class=&quot;opt&quot;&gt;(cuéntanos sobre ti, tu experiencia, disponibilidad)&lt;/span&gt;">Comments <span class="opt">(tell us about yourself, your experience, availability)</span></label>
+        <textarea id="applicantComments" name="applicantComments" placeholder="A few sentences about your experience, when you're available to work, anything you'd like us to know..."></textarea>
+      </div>
+
+      <button type="submit" class="btn" data-en="Submit application →" data-es="Enviar aplicación →">Submit application →</button>
+
+      <div class="form-feedback" id="careersFeedback" role="status" aria-live="polite"></div>
+
+      <div class="privacy-promise">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L4 6 v6 c0 5 3.5 9 8 10 c4.5-1 8-5 8-10 V6 Z"/><path d="M9 12 l2 2 l4-4"/></svg>
+        <span data-en="Your info is used only for hiring. We never share or sell it." data-es="Tu información se usa solo para contratación. Nunca la compartimos ni la vendemos.">Your info is used only for hiring. We never share or sell it.</span>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- =================== FOOTER =================== -->
+<footer>
+  <div class="container">
+    © <span id="year"></span> Spinwave Laundry
+    <span class="footer-divider">·</span>
+    <a href="/privacy">Privacy</a>
+    <span class="footer-divider">·</span>
+    <a href="/terms">Terms</a>
+    <span class="footer-divider">·</span>
+    <a href="/" data-en="Main site" data-es="Sitio principal">Main site</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Language toggle — swaps text via data-en / data-es attributes.
+  (function() {
+    var STORAGE_KEY = 'spinwave-lang';
+    var buttons = document.querySelectorAll('.lang-toggle button');
+    if (!buttons.length) return;
+    function applyLang(lang) {
+      document.documentElement.lang = lang;
+      try { localStorage.setItem(STORAGE_KEY, lang); } catch(e) {}
+      buttons.forEach(function(b) {
+        b.classList.toggle('active', b.dataset.lang === lang);
+      });
+      document.querySelectorAll('[data-en][data-es]').forEach(function(el) {
+        var val = el.dataset[lang];
+        if (val === undefined) return;
+        if (/[<&]/.test(val)) el.innerHTML = val; else el.textContent = val;
+      });
+    }
+    buttons.forEach(function(b) {
+      b.addEventListener('click', function() { applyLang(b.dataset.lang); });
+    });
+    var saved = 'en';
+    try { saved = localStorage.getItem(STORAGE_KEY) || 'en'; } catch(e) {}
+    if (saved === 'es') applyLang('es');
+  })();
+
+  // Format phone number as user types (US format)
+  var phoneInput = document.getElementById('applicantPhone');
+  phoneInput.addEventListener('input', function(e) {
+    var digits = e.target.value.replace(/\D/g, '').slice(0, 10);
+    if (digits.length >= 7) {
+      e.target.value = '(' + digits.slice(0, 3) + ') ' + digits.slice(3, 6) + '-' + digits.slice(6);
+    } else if (digits.length >= 4) {
+      e.target.value = '(' + digits.slice(0, 3) + ') ' + digits.slice(3);
+    } else if (digits.length >= 1) {
+      e.target.value = '(' + digits;
+    } else {
+      e.target.value = '';
+    }
+  });
+
+  // AJAX submit to Netlify Forms with bilingual feedback
+  document.getElementById('careersForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var form = e.target;
+    var feedback = document.getElementById('careersFeedback');
+    var isEs = document.documentElement.lang === 'es';
+
+    function showError(text) {
+      feedback.textContent = text;
+      feedback.style.background = '#FEE2E2';
+      feedback.style.color = '#7F1D1D';
+      feedback.classList.add('show');
+    }
+
+    var name = (document.getElementById('applicantName').value || '').trim();
+    var email = (document.getElementById('applicantEmail').value || '').trim();
+    var phoneDigits = document.getElementById('applicantPhone').value.replace(/\D/g, '');
+    var position = form.querySelector('input[name="positionType"]:checked');
+
+    if (!name) {
+      showError(isEs ? 'Por favor ingresa tu nombre completo.' : 'Please enter your full name.');
+      return;
+    }
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showError(isEs ? 'Por favor ingresa un correo electrónico válido.' : 'Please enter a valid email address.');
+      return;
+    }
+    if (phoneDigits.length !== 10) {
+      showError(isEs ? 'Por favor ingresa un número de teléfono de 10 dígitos.' : 'Please enter a 10-digit US phone number.');
+      return;
+    }
+    if (!position) {
+      showError(isEs ? 'Por favor selecciona tiempo completo o medio tiempo.' : 'Please select full-time or part-time.');
+      return;
+    }
+
+    var btn = form.querySelector('button[type=submit]');
+    var originalBtnText = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = isEs ? 'Enviando…' : 'Sending…';
+    feedback.classList.remove('show');
+
+    var formData = new FormData(form);
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString()
+    })
+    .then(function(response) {
+      if (!response.ok) throw new Error('Submission failed (' + response.status + ')');
+      feedback.innerHTML = isEs
+        ? '🎉 ¡Aplicación recibida! Revisaremos tu información y te contactaremos dentro de una semana. Gracias por tu interés en unirte al equipo Spinwave.'
+        : "🎉 Application received! We'll review your info and be in touch within a week. Thanks for your interest in joining the Spinwave team.";
+      feedback.style.background = '#D7EBE9';
+      feedback.style.color = '#1F3F3D';
+      feedback.classList.add('show');
+      form.reset();
+      btn.innerHTML = isEs ? 'Enviado ✓' : 'Sent ✓';
+      setTimeout(function() {
+        btn.disabled = false;
+        btn.innerHTML = originalBtnText;
+      }, 8000);
+    })
+    .catch(function() {
+      showError(isEs
+        ? 'Algo salió mal. Inténtalo de nuevo o escríbenos a info@gospinwave.com.'
+        : 'Oops — something went wrong. Please try again or email info@gospinwave.com.');
+      btn.disabled = false;
+      btn.innerHTML = originalBtnText;
+    });
+  });
+</script>
+
+</body>
+</html>
