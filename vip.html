@@ -603,8 +603,8 @@
       </div>
 
       <div class="field">
-        <label for="email" data-en="Email &lt;span class=&quot;opt&quot;&gt;(optional backup)&lt;/span&gt;" data-es="Correo &lt;span class=&quot;opt&quot;&gt;(respaldo opcional)&lt;/span&gt;">Email <span class="opt">(optional backup)</span></label>
-        <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" />
+        <label for="email" data-en="Email &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;" data-es="Correo &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;">Email <span class="req">*</span></label>
+        <input type="email" id="email" name="email" required placeholder="you@example.com" autocomplete="email" />
       </div>
 
       <div class="consent">
@@ -694,10 +694,18 @@
   document.getElementById('vipForm').addEventListener('submit', function(e) {
     e.preventDefault();
     var form = e.target;
+    var email = document.getElementById('email').value.trim();
     var phone = document.getElementById('phone').value.replace(/\D/g, '');
     var consent = document.getElementById('smsConsent').checked;
     var feedback = document.getElementById('vipFeedback');
 
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      feedback.textContent = "Please enter a valid email address.";
+      feedback.style.background = '#FEE2E2';
+      feedback.style.color = '#7F1D1D';
+      feedback.classList.add('show');
+      return;
+    }
     if (phone.length !== 10) {
       feedback.textContent = "Please enter a 10-digit US mobile number.";
       feedback.style.background = '#FEE2E2';
