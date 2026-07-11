@@ -475,6 +475,66 @@
   }
   .fine-print a { color: var(--primary); text-decoration: underline; }
 
+  /* ============ INSTAGRAM CTA ============ */
+  .instagram-cta {
+    padding: 16px 0 40px;
+  }
+  .ig-card {
+    background: var(--pure-white);
+    border-radius: var(--radius-lg);
+    padding: 32px 24px;
+    text-align: center;
+    border: 1px solid rgba(78, 159, 235, 0.10);
+    box-shadow: var(--shadow-md);
+  }
+  .ig-icon {
+    width: 56px; height: 56px;
+    margin: 0 auto 18px;
+    background: linear-gradient(135deg, #833AB4 0%, #E1306C 45%, #FD1D1D 70%, #FCB045 100%);
+    border-radius: 16px;
+    display: grid; place-items: center;
+    color: var(--pure-white);
+    box-shadow: 0 12px 28px rgba(225, 48, 108, 0.28);
+  }
+  .ig-card h2 {
+    font-size: 1.5rem;
+    margin: 0 0 10px;
+  }
+  .ig-card p {
+    font-size: 0.98rem;
+    max-width: 420px;
+    margin: 0 auto 18px;
+    color: rgba(56, 56, 55, 0.85);
+    line-height: 1.55;
+  }
+  .ig-handle {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--primary);
+    margin: 0 0 18px;
+  }
+  .ig-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 13px 26px;
+    background: linear-gradient(135deg, #833AB4 0%, #E1306C 45%, #FD1D1D 70%, #FCB045 100%);
+    color: var(--pure-white);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.98rem;
+    letter-spacing: 0.02em;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 12px 28px rgba(225, 48, 108, 0.30);
+  }
+  .ig-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 36px rgba(225, 48, 108, 0.40);
+    text-decoration: none;
+  }
+  .ig-btn svg { flex-shrink: 0; }
+
   /* ============ FOOTER ============ */
   footer {
     padding: 24px 0 32px;
@@ -629,6 +689,32 @@
       By submitting, you confirm you're 18+ and the phone number is yours.
       See <a href="/terms">Terms</a> &amp; <a href="/privacy">Privacy Policy</a>.
     </p>
+  </div>
+</section>
+
+<!-- =================== INSTAGRAM CTA =================== -->
+<section class="instagram-cta">
+  <div class="container">
+    <div class="ig-card">
+      <div class="ig-icon" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+      </div>
+      <h2 data-en="Also follow us on Instagram" data-es="Síguenos también en Instagram">Also follow us on Instagram</h2>
+      <p data-en="Behind-the-scenes photos, opening-day countdown, and everything happening at the shop between now and grand opening." data-es="Fotos detrás de cámaras, la cuenta regresiva para el día de apertura y todo lo que sucede en la lavandería de aquí hasta la gran apertura.">Behind-the-scenes photos, opening-day countdown, and everything happening at the shop between now and grand opening.</p>
+      <div class="ig-handle">@spinwavelaundry</div>
+      <a href="https://www.instagram.com/spinwavelaundry/" target="_blank" rel="noopener" class="ig-btn" aria-label="Follow Spinwave Laundry on Instagram">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+        <span data-en="Follow @spinwavelaundry" data-es="Sigue @spinwavelaundry">Follow @spinwavelaundry</span>
+      </a>
+    </div>
   </div>
 </section>
 
