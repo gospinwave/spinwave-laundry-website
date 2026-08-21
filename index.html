@@ -470,6 +470,30 @@
   .feature p { margin: 0; font-size: 0.97rem; }
 
   /* ===================================================================
+     FLUFF & FOLD — day-one drop-off service
+     =================================================================== */
+  .fluff {
+    background: var(--pure-white);
+  }
+  .fluff-steps {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px; max-width: 920px; margin: 0 auto;
+  }
+  .fluff .step {
+    background: var(--linen-cream);
+    border-radius: var(--radius-xl);
+    padding: 34px 28px; text-align: center;
+    border: 1px solid rgba(78, 159, 235, 0.06);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .fluff .step:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+  .fluff .step .feature-icon { margin: 0 auto 18px; }
+  .fluff .step:nth-child(2) .feature-icon { background: var(--accent); }
+  .fluff .step h3 { margin-bottom: 8px; }
+  .fluff-cta { text-align: center; margin-top: 42px; }
+
+  /* ===================================================================
      MACHINES
      =================================================================== */
   .machines {
@@ -1077,10 +1101,13 @@
     { "@type": "LocationFeatureSpecification", "name": "Security Cameras", "value": true },
     { "@type": "LocationFeatureSpecification", "name": "Vending Machine", "value": true },
     { "@type": "LocationFeatureSpecification", "name": "Fully Attended", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Drop Off Service (Wash, Dry, and Fold / Fluff & Fold)", "value": true },
     { "@type": "LocationFeatureSpecification", "name": "Loyalty Rewards Program", "value": true }
   ],
   "knowsAbout": [
     "Self-service laundry",
+    "Fluff and fold laundry service",
+    "Drop-off laundry service",
     "Coin-operated laundry",
     "Large capacity washers",
     "High-speed dryers",
@@ -1160,10 +1187,10 @@
     },
     {
       "@type": "Question",
-      "name": "Does Spinwave Laundry offer Fluff & Fold or Pickup & Delivery services?",
+      "name": "Does Spinwave Laundry offer Fluff & Fold?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Not on opening day, but soon after. At launch, Spinwave Laundry will be focused on self-service. Both Fluff & Fold (drop-off wash, dry, and fold) and Pickup & Delivery are on the roadmap and planned to roll out shortly after opening."
+        "text": "Yes, from day one. Spinwave Laundry's Drop Off service (Fluff & Fold — leave your laundry with us and we wash, dry, and fold it) will be ready starting the day we open."
       }
     },
     {
@@ -1305,6 +1332,7 @@
     </button>
     <div class="nav-links" id="navLinks">
       <a href="#expect" data-en="What to Expect" data-es="Qué Esperar">What to Expect</a>
+      <a href="#drop-off" data-en="Drop Off" data-es="Drop Off">Drop Off</a>
       <a href="#machines" data-en="Machines" data-es="Máquinas">Machines</a>
       <a href="#visit" data-en="Location" data-es="Ubicación">Location</a>
       <a href="#about" data-en="About" data-es="Nosotros">About</a>
@@ -1369,6 +1397,44 @@
     <span>112 S. Pacific Ave.</span><span class="dot"></span>
   </div>
 </div>
+
+<!-- =================== DROP OFF =================== -->
+<section id="drop-off" class="fluff">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow accent" data-en="Drop Off — Day-One Service" data-es="Drop Off — Desde el Primer Día">Drop Off — Day-One Service</span>
+      <h2 data-en="We do the laundry. You do You." data-es="Nosotros lavamos. Tú disfruta.">We do the laundry. You do You.</h2>
+      <p data-en="Our Drop Off service will be ready the day we open: bring us your laundry and our team will wash, dry, and neatly fold it for you." data-es="Nuestro servicio de Drop Off estará listo el día que abramos: tráenos tu ropa y nuestro equipo la lavará, secará y doblará cuidadosamente por ti.">Our Drop Off service will be ready the day we open: bring us your laundry and our team will wash, dry, and neatly fold it for you.</p>
+    </div>
+    <div class="fluff-steps">
+      <div class="step">
+        <div class="feature-num">01</div>
+        <div class="feature-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9 h14 l-1.4 11 a2 2 0 0 1 -2 1.8 H8.4 a2 2 0 0 1 -2 -1.8 Z"/><path d="M8.5 9 V7 a3.5 3.5 0 0 1 7 0 v2"/></svg>
+        </div>
+        <h3 data-en="Drop it off" data-es="Entrega tu ropa">Drop it off</h3>
+        <p data-en="Bring in your laundry — we take it from there." data-es="Trae tu ropa — nosotros nos encargamos desde ahí.">Bring in your laundry — we take it from there.</p>
+      </div>
+      <div class="step">
+        <div class="feature-num">02</div>
+        <div class="feature-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M5 12 q 2 -2 4 0 t 4 0 t 4 0 t 2 0" stroke-width="1.8"/></svg>
+        </div>
+        <h3 data-en="We wash, dry &amp; fold" data-es="Lavamos, secamos y doblamos">We wash, dry &amp; fold</h3>
+        <p data-en="Handled with care by our team, on our high-efficiency machines." data-es="Con el cuidado de nuestro equipo y nuestras máquinas de alta eficiencia.">Handled with care by our team, on our high-efficiency machines.</p>
+      </div>
+      <div class="step">
+        <div class="feature-num">03</div>
+        <div class="feature-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8 h16 v4 a8 8 0 0 1 -16 0 Z"/><path d="M4 12 h16" stroke-width="1.6"/><path d="M9 4 l3 3 l3 -3" /></svg>
+        </div>
+        <h3 data-en="Pick up fresh" data-es="Recoge tu ropa fresca">Pick up fresh</h3>
+        <p data-en="Neatly folded, fresh, and ready to go." data-es="Perfectamente doblada, fresca y lista para llevar.">Neatly folded, fresh, and ready to go.</p>
+      </div>
+    </div>
+    <p class="fluff-cta"><a href="#notify" class="btn btn-primary btn-arrow" data-en="Get Opening Updates" data-es="Recibir Avisos de Apertura">Get Opening Updates</a></p>
+  </div>
+</section>
 
 <!-- =================== WHAT TO EXPECT =================== -->
 <section id="expect" class="expect">
@@ -1703,9 +1769,9 @@
         <p data-en="Spinwave is a self-service laundromat that's also &lt;strong&gt;fully attended&lt;/strong&gt;. Friendly staff are on site whenever we're open, so help is always nearby if you need it." data-es="Spinwave es una lavandería de autoservicio que también está &lt;strong&gt;completamente atendida&lt;/strong&gt;. Personal amable está presente siempre que estamos abiertos, así que la ayuda está cerca cuando la necesites.">Spinwave is a self-service laundromat that's also <strong>fully attended</strong>. Friendly staff are on site whenever we're open, so help is always nearby if you need it.</p>
       </details>
       <details class="faq-item">
-        <summary data-en="Do you offer Fluff &amp; Fold or Pickup &amp; Delivery?" data-es="¿Ofrecen servicio de Fluff &amp; Fold o de Recogida y Entrega?">Do you offer Fluff &amp; Fold or Pickup &amp; Delivery?</summary>
-        <p data-en="&lt;strong&gt;Not on opening day, but soon after.&lt;/strong&gt; At launch we'll be focused on making the self-service experience exceptional. Both &lt;strong&gt;Fluff &amp; Fold&lt;/strong&gt; (drop your laundry off, we wash, dry, and fold it) and &lt;strong&gt;Pickup &amp; Delivery&lt;/strong&gt; are on our roadmap and we plan to roll them out shortly after opening. Join the VIP Text Club and you'll be the first to know when each launches." data-es="&lt;strong&gt;En el día de apertura no, pero poco después sí.&lt;/strong&gt; Al abrir, nos enfocaremos en perfeccionar la experiencia de autoservicio. Tanto &lt;strong&gt;Fluff &amp; Fold&lt;/strong&gt; (dejas tu ropa y nosotros la lavamos, secamos y doblamos) como &lt;strong&gt;Recogida y Entrega&lt;/strong&gt; están en nuestro plan, y queremos lanzarlos poco después de la apertura. Únete al Club VIP por SMS y serás el primero en enterarte cuando lancemos cada uno.">
-          <strong>Not on opening day, but soon after.</strong> At launch we'll be focused on making the self-service experience exceptional. Both <strong>Fluff &amp; Fold</strong> (drop your laundry off, we wash, dry, and fold it) and <strong>Pickup &amp; Delivery</strong> are on our roadmap and we plan to roll them out shortly after opening. Join the VIP Text Club and you'll be the first to know when each launches.
+        <summary data-en="Do you offer Fluff &amp; Fold?" data-es="¿Ofrecen servicio de Fluff &amp; Fold?">Do you offer Fluff &amp; Fold?</summary>
+        <p data-en="&lt;strong&gt;Yes — from day one.&lt;/strong&gt; Our &lt;strong&gt;Drop Off&lt;/strong&gt; service will be ready when we open: leave your laundry with us and we'll wash, dry, and fold it for you." data-es="&lt;strong&gt;Sí — desde el primer día.&lt;/strong&gt; Nuestro servicio de &lt;strong&gt;Drop Off&lt;/strong&gt; estará listo cuando abramos: déjanos tu ropa y nosotros la lavamos, secamos y doblamos.">
+          <strong>Yes — from day one.</strong> Our <strong>Drop Off</strong> service will be ready when we open: leave your laundry with us and we'll wash, dry, and fold it for you.
         </p>
       </details>
       <details class="faq-item">
