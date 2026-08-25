@@ -1,0 +1,2069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Set lang ASAP from saved preference to avoid translation flash -->
+<script>
+  try {
+    var savedLang = localStorage.getItem('spinwave-lang');
+    if (savedLang === 'es') document.documentElement.lang = 'es';
+  } catch(e) {}
+</script>
+
+<!-- Google Analytics 4 (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EER9HJR3MQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-EER9HJR3MQ');
+</script>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x73vosokgy");
+</script>
+
+<!-- Google Search Console verification -->
+<meta name="google-site-verification" content="uck67eTbUMbGC4DfX5kD2anqOuntAbhpVvUWPOFHIuo" />
+
+<!-- Primary SEO -->
+<title>Spinwave Laundry — Self-Service Laundromat Coming Soon to San Pedro, CA</title>
+<meta name="description" content="Spinwave Laundry is a bright, modern, fully attended self-service laundromat coming soon to San Pedro, CA at 112 S. Pacific Ave. Open daily 6 AM–10 PM. Free WiFi, ample free parking, security cameras. Clean, fast, friendly, and safe." />
+<meta name="keywords" content="laundromat San Pedro, San Pedro laundromat, self-service laundry San Pedro, laundromat 90731, Spinwave Laundry, laundry near me, laundromat with free WiFi, fully attended laundromat, large washer San Pedro, 80 lb washer San Pedro" />
+<link rel="canonical" href="https://spinwavelaundry.com/" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#4E9FEB" />
+<meta name="author" content="Spinwave Laundry" />
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="splash.png" />
+<link rel="apple-touch-icon" href="splash.png" />
+
+<!-- Open Graph (Facebook, LinkedIn, iMessage, Slack, WhatsApp) -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Spinwave Laundry" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://spinwavelaundry.com/" />
+<meta property="og:title" content="Spinwave Laundry — Coming Soon to San Pedro" />
+<meta property="og:description" content="A bright, modern, fully attended self-service laundromat coming soon to 112 S. Pacific Ave., San Pedro, CA. Clean, fast, friendly, and safe." />
+<meta property="og:image" content="https://spinwavelaundry.com/logo.png" />
+<meta property="og:image:alt" content="Spinwave Laundry logo" />
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Spinwave Laundry — Coming Soon to San Pedro" />
+<meta name="twitter:description" content="A bright, modern, fully attended self-service laundromat coming soon to 112 S. Pacific Ave., San Pedro, CA." />
+<meta name="twitter:image" content="https://spinwavelaundry.com/logo.png" />
+
+<!-- Geo (helps local search engines pinpoint the business) -->
+<meta name="geo.region" content="US-CA" />
+<meta name="geo.placename" content="San Pedro, California" />
+<meta name="geo.position" content="33.7429771;-118.2876434" />
+<meta name="ICBM" content="33.7429771, -118.2876434" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<!--
+  Brand typography: Spinwave's primary face is Futura PT (paid license).
+  We use Jost on the web as a near-identical free alternative — same geometric
+  proportions and weights. If you license Futura PT later, swap the
+  font-family declarations in :root.
+-->
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,800&display=swap" rel="stylesheet" />
+
+<style>
+  /* ===================================================================
+     SPINWAVE LAUNDRY — BRAND TOKENS
+     =================================================================== */
+  :root {
+    /* Brand palette (from brand guide) */
+    --spinwave-blue: #4E9FEB;
+    --spinwave-blue-2: #7A82B5;
+    --spinwave-blue-3: #ADB2D2;
+    --light-blue: #93B6B5;       /* sage / mascot color */
+    --linen-cream: #FAF7E8;
+    --accent-orange: #F58559;
+    --cool-grey: #A8A4A6;
+    --dark-grey: #383837;
+    --pure-white: #FFFFFF;
+
+    /* Semantic tokens */
+    --ink: var(--dark-grey);
+    --paper: var(--linen-cream);
+    --primary: var(--spinwave-blue);
+    --accent: var(--accent-orange);
+    --soft: var(--light-blue);
+
+    --radius-xl: 28px;
+    --radius-lg: 20px;
+    --radius-md: 14px;
+    --shadow-sm: 0 4px 12px rgba(56, 56, 55, 0.06);
+    --shadow-md: 0 14px 36px rgba(78, 159, 235, 0.10);
+    --shadow-lg: 0 26px 60px rgba(78, 159, 235, 0.15);
+
+    --font-display: 'Jost', 'Futura PT', 'Futura', 'Trebuchet MS', sans-serif;
+    --font-body: 'Jost', 'Futura PT', 'Futura', system-ui, sans-serif;
+  }
+
+  /* ===================================================================
+     BASE
+     =================================================================== */
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    font-weight: 400;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    margin: 0 0 0.5em;
+    color: var(--ink);
+  }
+  h1 { font-size: clamp(2.6rem, 6vw, 5rem); }
+  h2 { font-size: clamp(2rem, 4vw, 3rem); }
+  h3 { font-size: 1.35rem; }
+  p { margin: 0 0 1em; color: var(--dark-grey); opacity: 0.85; }
+  a { color: var(--primary); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .container { width: min(1180px, 92%); margin: 0 auto; }
+  section { padding: 110px 0; }
+
+  /* Eyebrow tag */
+  .eyebrow {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 7px 16px;
+    border-radius: 999px;
+    background: var(--pure-white);
+    color: var(--primary);
+    border: 1.5px solid var(--spinwave-blue-3);
+    margin-bottom: 22px;
+  }
+  .eyebrow.on-blue { background: rgba(255,255,255,0.12); color: var(--pure-white); border-color: rgba(255,255,255,0.3); }
+  .eyebrow.accent { background: var(--accent); color: var(--pure-white); border-color: transparent; }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 30px; border-radius: 999px;
+    font-family: var(--font-display); font-weight: 600; font-size: 1rem;
+    cursor: pointer; border: 2px solid transparent;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
+    text-decoration: none;
+  }
+  .btn:hover { text-decoration: none; transform: translateY(-2px); }
+  .btn-primary { background: var(--accent); color: var(--pure-white); box-shadow: 0 10px 24px rgba(245, 133, 89, 0.30); }
+  .btn-primary:hover { box-shadow: 0 14px 30px rgba(245, 133, 89, 0.42); }
+  .btn-ghost { background: transparent; color: var(--ink); border: 2px solid var(--ink); }
+  .btn-ghost:hover { background: rgba(56, 56, 55, 0.05); border-color: var(--ink); }
+  .btn-dark { background: var(--ink); color: var(--pure-white); }
+  .btn-dark:hover { background: var(--primary); }
+  .btn-arrow::after { content: '→'; font-weight: 400; }
+
+  /* ===================================================================
+     NAV
+     =================================================================== */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(250, 247, 232, 0.85);
+    backdrop-filter: saturate(180%) blur(12px);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid rgba(78, 159, 235, 0.08);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 0;
+  }
+  .nav-logo { display: flex; align-items: center; }
+  .nav-logo svg,
+  .nav-logo img { height: 51px; width: auto; display: block; }
+  .nav-links { display: flex; align-items: center; gap: 28px; }
+  .nav-links a:not(.btn) {
+    color: var(--ink); font-weight: 500; font-size: 0.95rem;
+    white-space: nowrap;
+  }
+  .nav-links a:not(.btn):hover { color: var(--primary); text-decoration: none; }
+  .nav-links .btn { padding: 12px 22px; font-size: 0.92rem; }
+
+  /* Language toggle */
+  .lang-toggle {
+    display: inline-flex;
+    gap: 2px;
+    align-items: center;
+    background: rgba(78, 159, 235, 0.06);
+    border: 1px solid rgba(78, 159, 235, 0.10);
+    border-radius: 999px;
+    padding: 3px;
+    margin-left: auto;
+    margin-right: 12px;
+  }
+  .lang-toggle button {
+    background: transparent;
+    border: 0;
+    padding: 5px 11px;
+    border-radius: 999px;
+    cursor: pointer;
+    color: var(--cool-grey);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.74rem;
+    letter-spacing: 0.06em;
+    transition: background 0.15s ease, color 0.15s ease;
+    line-height: 1;
+  }
+  .lang-toggle button.active {
+    background: var(--primary);
+    color: var(--pure-white);
+  }
+  .lang-toggle button:not(.active):hover { color: var(--ink); }
+
+  /* Mobile hamburger toggle */
+  .nav-toggle {
+    display: none;
+    background: transparent;
+    border: 0;
+    width: 44px; height: 44px;
+    align-items: center; justify-content: center;
+    color: var(--ink);
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 0;
+  }
+  .nav-toggle:hover { background: rgba(78, 159, 235, 0.06); }
+  .nav-toggle-close { display: none; }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-open { display: none; }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-close { display: block; }
+
+  @media (max-width: 1300px) {
+    .nav-logo svg,
+    .nav-logo img { height: 42px; }
+    .nav-toggle { display: inline-flex; }
+    .nav-links {
+      position: absolute;
+      top: 100%; left: 0; right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 12px 5% 18px;
+      background: rgba(250, 247, 232, 0.98);
+      backdrop-filter: saturate(180%) blur(12px);
+      -webkit-backdrop-filter: saturate(180%) blur(12px);
+      border-bottom: 1px solid rgba(78, 159, 235, 0.10);
+      box-shadow: 0 14px 24px rgba(15, 23, 42, 0.08);
+      transform: translateY(-8px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+    .nav-links.open {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .nav-links a:not(.btn) {
+      display: block;
+      padding: 14px 8px;
+      font-size: 1.02rem;
+      border-bottom: 1px solid rgba(78, 159, 235, 0.08);
+    }
+    .nav-links a:not(.btn):last-of-type { border-bottom: 0; }
+    .nav-links .btn {
+      margin-top: 14px;
+      text-align: center;
+      width: 100%;
+      padding: 14px 22px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .nav-logo svg,
+    .nav-logo img { height: 34px; }
+  }
+
+  /* ===================================================================
+     HERO
+     =================================================================== */
+  .hero {
+    background: var(--pure-white);
+    color: var(--ink);
+    position: relative;
+    overflow: hidden;
+    padding: 100px 0 120px;
+  }
+  .hero h1, .hero h2 { color: var(--ink); }
+  .hero p { color: rgba(56, 56, 55, 0.85); }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 30px; }
+    .hero-art { order: -1; max-width: 320px; margin: 0 auto; }
+  }
+  .hero h1 .accent { color: var(--accent); }
+  .hero h1 .underline {
+    background: linear-gradient(transparent 65%, rgba(245, 133, 89, 0.35) 65%);
+    padding: 0 6px;
+  }
+  .hero-sub {
+    font-size: 1.2rem; max-width: 560px; margin: 28px 0 36px;
+    font-weight: 400;
+  }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  .hero-pillars {
+    margin-top: 48px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
+    max-width: 580px;
+  }
+  @media (max-width: 560px) { .hero-pillars { grid-template-columns: repeat(2, 1fr); } }
+  .pillar {
+    text-align: center;
+    padding: 18px 8px;
+    border-radius: var(--radius-md);
+    background: rgba(78, 159, 235, 0.04);
+    border: 1px solid rgba(78, 159, 235, 0.15);
+  }
+  .pillar-icon { width: 28px; height: 28px; margin: 0 auto 8px; display: block; color: var(--accent); }
+  .pillar-label {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: 0.92rem; letter-spacing: 0.04em;
+  }
+
+  /* Hero background decorations */
+  .hero-deco {
+    position: absolute; pointer-events: none; z-index: 1;
+  }
+  .hero-deco.d1 {
+    width: 520px; height: 520px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(78, 159, 235, 0.06) 0%, transparent 70%);
+    top: -200px; right: -150px;
+  }
+  .hero-deco.d2 {
+    width: 380px; height: 380px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(147, 182, 181, 0.28) 0%, transparent 70%);
+    bottom: -180px; left: -120px;
+  }
+
+  /* Mascot art container */
+  .hero-art { position: relative; }
+  .hero-art svg,
+  .hero-art img { width: 100%; height: auto; display: block; }
+  .hero-art .speech {
+    position: absolute; top: -10px; right: 0;
+    background: var(--pure-white); color: var(--ink);
+    padding: 14px 22px; border-radius: 18px;
+    font-family: var(--font-display); font-weight: 700; font-size: 1.05rem;
+    box-shadow: var(--shadow-lg);
+    transform: rotate(-4deg);
+  }
+  .hero-art .speech::after {
+    content: ''; position: absolute; bottom: -8px; left: 30px;
+    border: 8px solid transparent; border-top-color: var(--pure-white);
+    border-bottom: 0;
+  }
+
+  /* On mobile, shrink the speech bubble and move it to the open space on Splash's left.
+     IMPORTANT: This must come AFTER the default .hero-art .speech rule above,
+     otherwise source-order cascade lets the desktop rule override these. */
+  @media (max-width: 900px) {
+    .hero-art .speech {
+      top: -4px;
+      left: -8px;
+      right: auto;
+      font-size: 0.72rem;
+      padding: 6px 11px;
+      border-radius: 14px;
+      white-space: nowrap;
+      transform: rotate(-6deg);
+    }
+    .hero-art .speech::after {
+      left: auto;
+      right: 18px;
+      bottom: -6px;
+      border-width: 6px;
+    }
+  }
+
+  /* ===================================================================
+     PROMO MARQUEE (subtle moving strip)
+     =================================================================== */
+  .marquee {
+    background: var(--accent); color: var(--pure-white);
+    padding: 18px 0; overflow: hidden;
+    font-family: var(--font-display); font-weight: 700; letter-spacing: 0.05em;
+    text-transform: uppercase; font-size: 0.95rem;
+  }
+  .marquee-track {
+    display: flex; gap: 50px; white-space: nowrap;
+    animation: marquee 28s linear infinite;
+  }
+  .marquee-track span { display: inline-flex; align-items: center; gap: 14px; }
+  .marquee-track .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--pure-white); display: inline-block;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ===================================================================
+     SECTION HEADERS
+     =================================================================== */
+  .section-head {
+    text-align: center; max-width: 720px; margin: 0 auto 64px;
+  }
+  .section-head p { font-size: 1.1rem; }
+
+  /* ===================================================================
+     WHAT TO EXPECT — feature cards
+     =================================================================== */
+  .expect {
+    background: var(--linen-cream);
+  }
+  .expect-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 22px;
+  }
+  .feature {
+    background: var(--pure-white);
+    border-radius: var(--radius-xl);
+    padding: 36px 30px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(78, 159, 235, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .feature:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+  .feature-num {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 0.8rem; letter-spacing: 0.18em;
+    color: var(--cool-grey); margin-bottom: 14px;
+  }
+  .feature-icon {
+    width: 58px; height: 58px; border-radius: 16px;
+    background: var(--spinwave-blue);
+    color: var(--pure-white);
+    display: grid; place-items: center;
+    margin-bottom: 22px;
+  }
+  .feature:nth-child(2) .feature-icon { background: var(--accent); }
+  .feature:nth-child(3) .feature-icon { background: var(--light-blue); }
+  .feature:nth-child(4) .feature-icon { background: var(--ink); }
+  .feature h3 { margin-bottom: 8px; }
+  .feature p { margin: 0; font-size: 0.97rem; }
+
+  /* ===================================================================
+     FLUFF & FOLD — day-one drop-off service
+     =================================================================== */
+  .fluff {
+    background: var(--pure-white);
+  }
+  .fluff-steps {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px; max-width: 920px; margin: 0 auto;
+  }
+  .fluff .step {
+    background: var(--linen-cream);
+    border-radius: var(--radius-xl);
+    padding: 34px 28px; text-align: center;
+    border: 1px solid rgba(78, 159, 235, 0.06);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .fluff .step:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+  .fluff .step .feature-icon { margin: 0 auto 18px; }
+  .fluff .step:nth-child(2) .feature-icon { background: var(--accent); }
+  .fluff .step h3 { margin-bottom: 8px; }
+  .fluff-cta { text-align: center; margin-top: 42px; }
+
+  /* ===================================================================
+     MACHINES
+     =================================================================== */
+  .machines {
+    background: var(--pure-white);
+  }
+  .machines-intro {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+    align-items: end; margin-bottom: 48px;
+  }
+  @media (max-width: 800px) { .machines-intro { grid-template-columns: 1fr; gap: 20px; } }
+  .machines-intro p { font-size: 1.1rem; margin: 0; }
+
+  .machine-row {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px;
+  }
+  @media (max-width: 900px) { .machine-row { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 540px) { .machine-row { grid-template-columns: repeat(2, 1fr); } }
+
+  .machine {
+    background: var(--linen-cream);
+    border-radius: var(--radius-lg);
+    padding: 28px 16px;
+    text-align: center;
+    transition: transform 0.18s ease, background 0.18s ease;
+  }
+  .machine:hover {
+    transform: translateY(-4px);
+    background: var(--spinwave-blue-3);
+  }
+  .machine .num {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 2.6rem; line-height: 1; color: var(--primary);
+  }
+  .machine .unit {
+    font-family: var(--font-display); font-weight: 600;
+    color: var(--ink); font-size: 0.95rem; margin-top: 4px;
+  }
+  .machine .label {
+    margin-top: 14px; font-size: 0.82rem;
+    color: var(--ink); opacity: 0.7;
+    text-transform: uppercase; letter-spacing: 0.12em;
+  }
+
+  .dryer-row { margin-top: 18px; grid-template-columns: repeat(2, 1fr); }
+  .dryer-row .machine { background: var(--spinwave-blue); color: var(--pure-white); }
+  .dryer-row .machine .num, .dryer-row .machine .unit { color: var(--pure-white); }
+  .dryer-row .machine .label { color: var(--pure-white); opacity: 0.7; }
+  .dryer-row .machine:hover { background: var(--ink); }
+
+  /* ===================================================================
+     AMENITIES
+     =================================================================== */
+  .amenities {
+    background: var(--linen-cream);
+  }
+  .amenity-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .amenity {
+    background: var(--pure-white); border-radius: var(--radius-md);
+    padding: 22px 24px;
+    display: flex; align-items: center; gap: 16px;
+    border: 1px solid transparent;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .amenity:hover { border-color: var(--spinwave-blue-3); transform: translateY(-2px); }
+  .amenity-ico {
+    flex-shrink: 0;
+    width: 42px; height: 42px; border-radius: 10px;
+    background: var(--linen-cream); color: var(--primary);
+    display: grid; place-items: center;
+  }
+  .amenity strong {
+    font-family: var(--font-display); font-weight: 600;
+    color: var(--ink); font-size: 1rem;
+    display: block; line-height: 1.2;
+  }
+  .amenity span {
+    font-size: 0.85rem; color: var(--cool-grey);
+  }
+
+  .payments {
+    margin-top: 36px;
+    display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+    justify-content: center;
+    padding: 28px;
+    background: var(--pure-white); border-radius: var(--radius-lg);
+    border: 1.5px dashed var(--spinwave-blue-3);
+  }
+  .payments-label {
+    font-family: var(--font-display); font-weight: 600;
+    color: var(--ink); font-size: 0.9rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .pay-chip {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 16px; border-radius: 999px;
+    background: var(--linen-cream); color: var(--ink);
+    font-family: var(--font-display); font-weight: 600; font-size: 0.92rem;
+  }
+
+  /* ===================================================================
+     LOCATION
+     =================================================================== */
+  .location {
+    background: var(--ink); color: var(--pure-white);
+  }
+  .location h2, .location h3 { color: var(--pure-white); }
+  .location p { color: rgba(255,255,255,0.7); }
+  .location .section-head .eyebrow { background: rgba(255,255,255,0.08); color: var(--pure-white); border-color: rgba(255,255,255,0.2); }
+
+  .location-grid {
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px;
+  }
+  @media (max-width: 900px) { .location-grid { grid-template-columns: 1fr; } }
+
+  .info-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: var(--radius-xl);
+    padding: 38px;
+    backdrop-filter: blur(10px);
+  }
+  .info-row { padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.10); }
+  .info-row:first-of-type { padding-top: 0; }
+  .info-row:last-of-type { border-bottom: 0; padding-bottom: 0; }
+  .info-label {
+    display: flex; align-items: center; gap: 10px;
+    font-family: var(--font-display); font-weight: 600;
+    font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .info-label svg { width: 16px; height: 16px; }
+  .info-row strong {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: 1.15rem; color: var(--pure-white); display: block;
+  }
+  .info-row a { color: var(--pure-white); }
+  .info-row a:hover { color: var(--accent); }
+
+  .hours-grid {
+    display: grid; grid-template-columns: 1fr auto; gap: 4px 24px;
+    margin-top: 4px;
+  }
+  .hours-grid .d { color: rgba(255,255,255,0.7); font-size: 0.95rem; }
+  .hours-grid .h { font-family: var(--font-display); font-weight: 600; color: var(--pure-white); font-size: 0.95rem; }
+
+  .map-wrap {
+    border-radius: var(--radius-xl); overflow: hidden;
+    box-shadow: var(--shadow-lg); min-height: 520px;
+    position: relative;
+  }
+  .map-wrap iframe { width: 100%; height: 100%; min-height: 520px; border: 0; display: block; }
+  .map-pin-badge {
+    position: absolute; top: 20px; left: 20px;
+    background: var(--accent); color: var(--pure-white);
+    padding: 10px 18px; border-radius: 999px;
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase;
+    box-shadow: var(--shadow-md);
+    z-index: 2;
+  }
+
+  /* ===================================================================
+     INSTAGRAM CTA
+     =================================================================== */
+  .instagram-cta {
+    padding: 72px 0;
+    background: var(--pure-white);
+  }
+  .ig-card {
+    background: var(--linen-cream);
+    border-radius: var(--radius-lg);
+    padding: 48px 32px;
+    text-align: center;
+    border: 1px solid rgba(78, 159, 235, 0.10);
+    box-shadow: var(--shadow-md);
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .ig-icon {
+    width: 64px; height: 64px;
+    margin: 0 auto 22px;
+    background: linear-gradient(135deg, #833AB4 0%, #E1306C 45%, #FD1D1D 70%, #FCB045 100%);
+    border-radius: 18px;
+    display: grid; place-items: center;
+    color: var(--pure-white);
+    box-shadow: 0 12px 28px rgba(225, 48, 108, 0.28);
+  }
+  .ig-card h2 {
+    font-size: clamp(1.7rem, 4vw, 2.15rem);
+    margin: 0 0 14px;
+  }
+  .ig-card p {
+    font-size: 1.05rem;
+    max-width: 480px;
+    margin: 0 auto 22px;
+    color: rgba(56, 56, 55, 0.85);
+  }
+  .ig-handle {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--primary);
+    margin: 0 0 22px;
+    letter-spacing: 0.01em;
+  }
+  .ig-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #833AB4 0%, #E1306C 45%, #FD1D1D 70%, #FCB045 100%);
+    color: var(--pure-white);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 12px 28px rgba(225, 48, 108, 0.30);
+  }
+  .ig-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 36px rgba(225, 48, 108, 0.40);
+    text-decoration: none;
+  }
+  .ig-btn svg { flex-shrink: 0; }
+  @media (max-width: 560px) {
+    .ig-card { padding: 36px 24px; }
+    .ig-icon { width: 56px; height: 56px; }
+  }
+
+  /* ===================================================================
+     NOTIFY (signup)
+     =================================================================== */
+  .notify {
+    background: var(--light-blue);
+    position: relative; overflow: hidden;
+  }
+  .notify-grid {
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px;
+    align-items: center;
+  }
+  @media (max-width: 900px) { .notify-grid { grid-template-columns: 1fr; } }
+  .notify h2 { color: var(--ink); max-width: 520px; }
+  .notify p { color: rgba(56, 56, 55, 0.8); max-width: 520px; }
+  .notify-form {
+    background: var(--pure-white);
+    border-radius: var(--radius-xl);
+    padding: 32px;
+    box-shadow: var(--shadow-lg);
+  }
+  .field { margin-bottom: 16px; }
+  .field label {
+    display: block; font-family: var(--font-display); font-weight: 600;
+    color: var(--ink); margin-bottom: 6px; font-size: 0.88rem;
+    letter-spacing: 0.04em;
+  }
+  .field input, .field textarea {
+    width: 100%; padding: 14px 18px;
+    border: 2px solid var(--linen-cream);
+    border-radius: var(--radius-md);
+    font: inherit; color: var(--ink); background: var(--pure-white);
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .field input:focus, .field textarea:focus {
+    outline: none; border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(78, 159, 235, 0.12);
+  }
+  .field textarea { resize: vertical; min-height: 90px; }
+  .notify-form .btn { width: 100%; justify-content: center; }
+  .form-feedback {
+    margin-top: 14px; padding: 12px 16px; border-radius: var(--radius-md);
+    background: #D7EBE9; color: #1F3F3D; font-weight: 500;
+    display: none; font-size: 0.92rem;
+  }
+  .form-feedback.show { display: block; }
+
+  /* ===================================================================
+     FOOTER
+     =================================================================== */
+  footer {
+    background: var(--ink); color: rgba(255,255,255,0.6);
+    padding: 60px 0 32px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px; margin-bottom: 40px;
+  }
+  @media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+  footer h4 {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--pure-white); margin: 0 0 16px;
+  }
+  footer ul { list-style: none; padding: 0; margin: 0; }
+  footer li { padding: 4px 0; font-size: 0.95rem; }
+  footer ul a { color: rgba(255,255,255,0.7); }
+  footer ul a:hover { color: var(--accent); text-decoration: none; }
+  .footer-brand svg { height: 36px; width: auto; margin-bottom: 16px; }
+  .footer-brand svg .word { fill: var(--pure-white); }
+  .footer-tag { color: rgba(255,255,255,0.55); max-width: 320px; font-size: 0.95rem; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px;
+    display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    font-size: 0.85rem; color: rgba(255,255,255,0.5);
+  }
+  .footer-bottom svg { width: 18px; height: 18px; vertical-align: middle; }
+
+  /* ===================================================================
+     UTILITIES
+     =================================================================== */
+  .text-accent { color: var(--accent); }
+  .text-white { color: var(--pure-white); }
+
+  /* ===================================================================
+     ABOUT US
+     =================================================================== */
+  .about { background: var(--linen-cream); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+    margin-bottom: 60px;
+  }
+  @media (max-width: 880px) {
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+  .about-photo {
+    position: relative;
+    transform: rotate(-1deg);
+  }
+  .about-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    border: 6px solid var(--pure-white);
+  }
+  .about-photo-caption {
+    position: absolute;
+    top: 18px; left: 50%;
+    transform: translateX(-50%) rotate(1deg);
+    background: var(--pure-white);
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: var(--ink);
+    box-shadow: var(--shadow-sm);
+    white-space: nowrap;
+  }
+  .about-photo-caption .heart {
+    color: var(--accent);
+    margin-right: 4px;
+  }
+  .about-story p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 1em;
+    color: var(--dark-grey);
+  }
+  .about-story strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .about-signoff {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-style: italic;
+    color: var(--primary);
+    font-size: 1.1rem !important;
+    padding-top: 14px;
+    border-top: 1px solid rgba(78, 159, 235, 0.10);
+    margin-top: 8px !important;
+  }
+
+  /* Spanish version toggle */
+  .about-spanish {
+    background: var(--pure-white);
+    border-radius: var(--radius-lg);
+    padding: 4px 28px;
+    margin: 0 auto 56px;
+    max-width: 760px;
+    border: 1px solid rgba(78, 159, 235, 0.10);
+  }
+  .about-spanish summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 20px 0;
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .about-spanish summary::-webkit-details-marker { display: none; }
+  .about-spanish summary::before {
+    content: '+';
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--primary);
+    font-weight: 400;
+    width: 22px;
+    text-align: center;
+  }
+  .about-spanish[open] summary::before { content: '−'; }
+  .about-spanish-content {
+    padding: 4px 0 22px 34px;
+    color: var(--dark-grey);
+    line-height: 1.65;
+  }
+  .about-spanish-content p { margin-bottom: 1em; font-size: 0.98rem; }
+  .about-spanish-content p:last-child { margin-bottom: 0; }
+  .about-spanish-content strong { color: var(--ink); font-weight: 600; }
+  .about-spanish-content .about-signoff {
+    margin-top: 12px !important;
+    padding-top: 14px;
+  }
+
+  /* Historical photo gallery */
+  .about-history {
+    border-top: 1px solid rgba(78, 159, 235, 0.10);
+    padding-top: 48px;
+  }
+  .about-history-head {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 30px;
+  }
+  .about-history-head .eyebrow {
+    background: var(--pure-white);
+    color: var(--primary);
+    border-color: var(--spinwave-blue-3);
+    margin-bottom: 12px;
+  }
+  .about-history-head h3 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.8rem;
+    margin: 0 0 8px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+  .about-history-head p {
+    font-size: 0.96rem;
+    color: var(--dark-grey);
+    margin: 0;
+    opacity: 0.8;
+  }
+  .about-history-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .about-history-gallery figure {
+    margin: 0;
+    background: var(--pure-white);
+    padding: 12px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(78, 159, 235, 0.06);
+  }
+  .about-history-gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    filter: sepia(0.15) saturate(0.92) contrast(0.96);
+  }
+  .about-history-gallery figcaption {
+    text-align: center;
+    font-size: 0.84rem;
+    color: var(--cool-grey);
+    margin-top: 12px;
+    font-style: italic;
+    line-height: 1.4;
+  }
+  @media (max-width: 600px) {
+    .about-history-gallery { grid-template-columns: 1fr; }
+  }
+
+  /* ===================================================================
+     FAQ
+     =================================================================== */
+  .faq { background: var(--pure-white); }
+  .faq-list { max-width: 820px; margin: 0 auto; }
+  .faq-item {
+    border: 1px solid rgba(78, 159, 235, 0.10);
+    border-radius: var(--radius-lg);
+    margin-bottom: 14px;
+    background: var(--linen-cream);
+    transition: background 0.15s ease, border-color 0.15s ease;
+    overflow: hidden;
+  }
+  .faq-item:hover { border-color: var(--spinwave-blue-3); }
+  .faq-item[open] {
+    background: var(--pure-white);
+    border-color: var(--spinwave-blue);
+    box-shadow: var(--shadow-sm);
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 22px 28px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--ink);
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: '+';
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.8rem;
+    color: var(--primary);
+    line-height: 1; flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::after { content: '−'; }
+  .faq-item p {
+    padding: 0 28px 24px;
+    margin: 0;
+    color: var(--dark-grey);
+    font-size: 1rem;
+    line-height: 1.65;
+    opacity: 0.9;
+  }
+  .faq-item p strong { color: var(--ink); font-weight: 600; }
+</style>
+
+<!-- =================== STRUCTURED DATA =================== -->
+<!--
+  LocalBusiness schema (DryCleaningOrLaundry). This is what tells Google,
+  Bing, Apple Maps, ChatGPT, Claude, Perplexity, etc. exactly what this
+  business is, where it is, and when it's open. It powers rich results,
+  knowledge panels, and AI answers.
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DryCleaningOrLaundry",
+  "@id": "https://spinwavelaundry.com/#business",
+  "name": "Spinwave Laundry",
+  "alternateName": "Spinwave",
+  "description": "A bright, modern, fully attended self-service laundromat coming soon to San Pedro at 112 S. Pacific Ave. Designed around four promises: clean, fast, friendly, and safe. Features 20–80 lb high-efficiency washers, high-speed dryers, free WiFi, ample parking, security cameras, vending, and a loyalty rewards program.",
+  "url": "https://spinwavelaundry.com",
+  "logo": "https://spinwavelaundry.com/logo.png",
+  "image": [
+    "https://spinwavelaundry.com/logo.png",
+    "https://spinwavelaundry.com/splash.png"
+  ],
+  "email": "info@gospinwave.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "112 S. Pacific Ave.",
+    "addressLocality": "San Pedro",
+    "addressRegion": "CA",
+    "postalCode": "90731",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 33.7429771,
+    "longitude": -118.2876434
+  },
+  "areaServed": [
+    { "@type": "City", "name": "San Pedro" },
+    { "@type": "City", "name": "Los Angeles" },
+    { "@type": "PostalCode", "name": "90731" },
+    { "@type": "PostalCode", "name": "90732" },
+    { "@type": "PostalCode", "name": "90733" }
+  ],
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "06:00",
+    "closes": "22:00"
+  }],
+  "priceRange": "$",
+  "currenciesAccepted": "USD",
+  "paymentAccepted": "Cash, Credit Card, Debit Card, Apple Pay",
+  "sameAs": [
+    "https://instagram.com/spinwavelaundry"
+  ],
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Free Parking", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Restroom", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Security Cameras", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Vending Machine", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Fully Attended", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Drop Off Service (Wash, Dry, and Fold / Fluff & Fold)", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Loyalty Rewards Program", "value": true }
+  ],
+  "knowsAbout": [
+    "Self-service laundry",
+    "Fluff and fold laundry service",
+    "Drop-off laundry service",
+    "Coin-operated laundry",
+    "Large capacity washers",
+    "High-speed dryers",
+    "Laundromat in San Pedro",
+    "Laundry near me"
+  ],
+  "slogan": "Clean. Fast. Friendly. Safe."
+}
+</script>
+
+<!--
+  FAQ schema mirrors the on-page FAQ. When Google sees this, it can show
+  the questions and answers as a rich snippet directly on the search page.
+  LLMs also lean on FAQPage schema heavily when answering questions about
+  the business.
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "When is Spinwave Laundry opening?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Spinwave Laundry is coming soon to San Pedro at 112 S. Pacific Ave. We don't have a public opening date yet. Sign up at spinwavelaundry.com and we'll email you the moment we open."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is Spinwave Laundry located?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Spinwave Laundry is located at 112 S. Pacific Ave., San Pedro, CA 90731, in the heart of downtown San Pedro."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are Spinwave Laundry's hours?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Spinwave Laundry will be open Monday through Sunday, 6:00 AM to 10:00 PM — seven days a week, 17 hours a day."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What sizes of washers and dryers will be available at Spinwave Laundry?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Spinwave Laundry will have washers in 20 lb, 30 lb, 40 lb, 60 lb, and 80 lb capacities, plus high-speed dryers in 30 lb and 55 lb capacities. From a solo load to oversized comforters, every load has a machine sized for it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there free parking at Spinwave Laundry?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — there's ample free parking right outside the laundromat, well-lit and convenient day or night."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I pay at Spinwave Laundry?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Spinwave Laundry accepts cash (no coins), credit cards, debit cards, and Apple Pay. Pay however is most convenient."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Spinwave Laundry attended or self-service?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Spinwave is a self-service laundromat that is also fully attended. Friendly staff are on site whenever we're open, so help is always nearby if you need it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Spinwave Laundry offer Fluff & Fold?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, from day one. Spinwave Laundry's Drop Off service (Fluff & Fold — leave your laundry with us and we wash, dry, and fold it) will be ready starting the day we open."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Spinwave Laundry have free WiFi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — Spinwave Laundry offers free, fast WiFi to all guests. Stream, scroll, or work while you wash."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- =================== SVG DEFS (logo + mascot, reusable) =================== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!--
+      Wordmark recreation. Drop in your real logo file by replacing
+      <use href="#spinwave-wordmark"/> with <img src="logo.png">.
+    -->
+    <symbol id="spinwave-wordmark" viewBox="0 0 240 64">
+      <text x="0" y="28"
+            font-family="Jost, 'Futura PT', sans-serif"
+            font-weight="800" font-style="italic" font-size="30"
+            letter-spacing="-1" class="word" fill="currentColor">Spinwave</text>
+      <text x="0" y="58"
+            font-family="Jost, 'Futura PT', sans-serif"
+            font-weight="800" font-style="italic" font-size="30"
+            letter-spacing="-1" class="word" fill="currentColor">Laundry</text>
+    </symbol>
+
+    <!--
+      Mascot — Splash, the happy water drop.
+      Clean, geometric SVG approximation of your brand mascot.
+      Swap for the real PNG/SVG when ready: replace
+      <svg><use href="#splash-mascot"/></svg> with <img src="splash.png">.
+    -->
+    <symbol id="splash-mascot" viewBox="0 0 400 540">
+      <!-- speed lines beside waving arm -->
+      <g stroke="#383837" stroke-width="6" stroke-linecap="round" fill="none">
+        <line x1="20" y1="200" x2="62" y2="200" />
+        <line x1="28" y1="170" x2="68" y2="178" />
+        <line x1="28" y1="230" x2="68" y2="222" />
+      </g>
+
+      <!-- TEARDROP BODY -->
+      <path d="M 200 75
+               C 200 75 105 235 105 335
+               C 105 405 147 455 200 455
+               C 253 455 295 405 295 335
+               C 295 235 200 75 200 75 Z"
+            fill="#93B6B5" stroke="#383837" stroke-width="6"
+            stroke-linejoin="round" />
+
+      <!-- LEFT (waving) ARM — tube technique: dark outer + sage inner -->
+      <path d="M 145 295 Q 100 230 115 170"
+            stroke="#383837" stroke-width="24" fill="none"
+            stroke-linecap="round" />
+      <path d="M 145 295 Q 100 230 115 170"
+            stroke="#93B6B5" stroke-width="14" fill="none"
+            stroke-linecap="round" />
+      <!-- waving hand: palm + 4 fingers -->
+      <circle cx="115" cy="158" r="22" fill="#93B6B5"
+              stroke="#383837" stroke-width="6" />
+      <g stroke="#383837" stroke-width="5"
+         stroke-linecap="round" fill="none">
+        <line x1="99"  y1="146" x2="94"  y2="128" />
+        <line x1="109" y1="139" x2="106" y2="118" />
+        <line x1="122" y1="139" x2="125" y2="118" />
+        <line x1="131" y1="146" x2="136" y2="128" />
+      </g>
+
+      <!-- RIGHT (hanging) ARM -->
+      <path d="M 280 305 Q 312 355 308 405"
+            stroke="#383837" stroke-width="24" fill="none"
+            stroke-linecap="round" />
+      <path d="M 280 305 Q 312 355 308 405"
+            stroke="#93B6B5" stroke-width="14" fill="none"
+            stroke-linecap="round" />
+      <!-- hanging hand -->
+      <circle cx="308" cy="420" r="22" fill="#93B6B5"
+              stroke="#383837" stroke-width="6" />
+      <g stroke="#383837" stroke-width="5"
+         stroke-linecap="round" fill="none">
+        <line x1="293" y1="434" x2="287" y2="452" />
+        <line x1="302" y1="440" x2="300" y2="460" />
+        <line x1="314" y1="440" x2="316" y2="460" />
+        <line x1="323" y1="434" x2="329" y2="452" />
+      </g>
+
+      <!-- EYES -->
+      <ellipse cx="172" cy="305" rx="11" ry="15" fill="#383837" />
+      <ellipse cx="228" cy="305" rx="11" ry="15" fill="#383837" />
+
+      <!-- SMILE -->
+      <path d="M 175 345 Q 200 372 225 345"
+            stroke="#383837" stroke-width="6" fill="none"
+            stroke-linecap="round" />
+
+      <!-- LEFT LEG -->
+      <path d="M 175 450 Q 168 485 162 508"
+            stroke="#383837" stroke-width="22" fill="none"
+            stroke-linecap="round" />
+      <path d="M 175 450 Q 168 485 162 508"
+            stroke="#93B6B5" stroke-width="14" fill="none"
+            stroke-linecap="round" />
+      <ellipse cx="150" cy="512" rx="22" ry="11"
+               fill="#93B6B5" stroke="#383837" stroke-width="6" />
+
+      <!-- RIGHT LEG -->
+      <path d="M 225 450 Q 235 485 245 508"
+            stroke="#383837" stroke-width="22" fill="none"
+            stroke-linecap="round" />
+      <path d="M 225 450 Q 235 485 245 508"
+            stroke="#93B6B5" stroke-width="14" fill="none"
+            stroke-linecap="round" />
+      <ellipse cx="258" cy="512" rx="22" ry="11"
+               fill="#93B6B5" stroke="#383837" stroke-width="6" />
+    </symbol>
+  </defs>
+</svg>
+
+<!-- =================== NAV =================== -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="nav-logo" aria-label="Spinwave Laundry">
+      <img src="logo.png" alt="Spinwave Laundry" />
+    </a>
+    <div class="lang-toggle" role="group" aria-label="Language selector">
+      <button type="button" data-lang="en" class="active" aria-label="English">EN</button>
+      <button type="button" data-lang="es" aria-label="Español">ES</button>
+    </div>
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <svg class="nav-toggle-open" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg class="nav-toggle-close" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M6 18L18 6"/></svg>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="#expect" data-en="What to Expect" data-es="Qué Esperar">What to Expect</a>
+      <a href="#drop-off" data-en="Drop Off" data-es="Drop Off">Drop Off</a>
+      <a href="#machines" data-en="Machines" data-es="Máquinas">Machines</a>
+      <a href="#visit" data-en="Location" data-es="Ubicación">Location</a>
+      <a href="#about" data-en="About" data-es="Nosotros">About</a>
+      <a href="#faq" data-en="FAQ" data-es="Preguntas">FAQ</a>
+      <a href="/jobs" data-en="Jobs" data-es="Empleos">Jobs</a>
+      <a href="/vip" data-en="VIP Club" data-es="Club VIP">VIP Club</a>
+      <a href="#notify" class="btn btn-primary" data-en="Notify Me" data-es="Avísame">Notify Me</a>
+    </div>
+  </div>
+</nav>
+
+<!-- =================== HERO =================== -->
+<header id="top" class="hero">
+  <span class="hero-deco d1" aria-hidden="true"></span>
+  <span class="hero-deco d2" aria-hidden="true"></span>
+
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow accent" data-en="🎉 Coming Soon · San Pedro" data-es="🎉 Próximamente · San Pedro">🎉 Coming Soon · San Pedro</span>
+      <h1 data-en="The Best Laundry Experience is &lt;span class=&quot;accent&quot;&gt;Coming Soon&lt;/span&gt; to &lt;span class=&quot;underline&quot;&gt;San Pedro&lt;/span&gt;." data-es="La mejor experiencia de lavandería &lt;span class=&quot;accent&quot;&gt;está por llegar&lt;/span&gt; a &lt;span class=&quot;underline&quot;&gt;San Pedro&lt;/span&gt;.">
+        The Best Laundry Experience is
+        <span class="accent">Coming Soon</span>
+        to <span class="underline">San Pedro</span>.
+      </h1>
+      <p class="hero-sub"
+         data-en="Spinwave Laundry is opening at 112 S. Pacific Ave. — a bright, modern, fully attended laundromat designed around four promises: &lt;strong style=&quot;color:var(--ink)&quot;&gt;clean, fast, friendly, and safe&lt;/strong&gt;."
+         data-es="Spinwave Laundry abrirá en 112 S. Pacific Ave. — una lavandería brillante, moderna y completamente atendida, construida sobre cuatro promesas: &lt;strong style=&quot;color:var(--ink)&quot;&gt;limpio, rápido, amable y seguro&lt;/strong&gt;.">
+        Spinwave Laundry is opening at 112 S. Pacific Ave. — a bright, modern, fully attended
+        laundromat designed around four promises: <strong style="color:var(--ink)">clean, fast, friendly, and safe</strong>.
+      </p>
+      <div class="hero-ctas">
+        <a href="#notify" class="btn btn-primary btn-arrow" data-en="Get Opening Updates" data-es="Recibir Avisos de Apertura">Get Opening Updates</a>
+        <a href="#visit" class="btn btn-ghost" data-en="See Location" data-es="Ver Ubicación">See Location</a>
+      </div>
+
+    </div>
+
+    <div class="hero-art">
+      <div class="speech">Hi! I'm Splash 👋</div>
+      <!-- Real Splash mascot. The inline SVG version is kept in <defs> as a fallback. -->
+      <img src="splash.png" alt="Splash, the Spinwave Laundry mascot — a friendly water drop waving hello"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+      <svg viewBox="0 0 400 540" aria-label="Splash, the Spinwave mascot" style="display:none"><use href="#splash-mascot" /></svg>
+    </div>
+  </div>
+</header>
+
+<!-- =================== MARQUEE =================== -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span data-en="Opening Soon in San Pedro" data-es="Próximamente en San Pedro">Opening Soon in San Pedro</span><span class="dot"></span>
+    <span data-en="Clean" data-es="Limpio">Clean</span><span class="dot"></span>
+    <span data-en="Fast" data-es="Rápido">Fast</span><span class="dot"></span>
+    <span data-en="Friendly" data-es="Amable">Friendly</span><span class="dot"></span>
+    <span data-en="Safe" data-es="Seguro">Safe</span><span class="dot"></span>
+    <span>112 S. Pacific Ave.</span><span class="dot"></span>
+    <span data-en="Opening Soon in San Pedro" data-es="Próximamente en San Pedro">Opening Soon in San Pedro</span><span class="dot"></span>
+    <span data-en="Clean" data-es="Limpio">Clean</span><span class="dot"></span>
+    <span data-en="Fast" data-es="Rápido">Fast</span><span class="dot"></span>
+    <span data-en="Friendly" data-es="Amable">Friendly</span><span class="dot"></span>
+    <span data-en="Safe" data-es="Seguro">Safe</span><span class="dot"></span>
+    <span>112 S. Pacific Ave.</span><span class="dot"></span>
+  </div>
+</div>
+
+<!-- =================== DROP OFF =================== -->
+<section id="drop-off" class="fluff">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow accent" data-en="Drop Off — Day-One Service" data-es="Drop Off — Desde el Primer Día">Drop Off — Day-One Service</span>
+      <h2 data-en="We do the laundry. You do You." data-es="Nosotros lavamos. Tú disfruta.">We do the laundry. You do You.</h2>
+      <p data-en="Our Drop Off service will be ready the day we open: bring us your laundry and our team will wash, dry, and neatly fold it for you." data-es="Nuestro servicio de Drop Off estará listo el día que abramos: tráenos tu ropa y nuestro equipo la lavará, secará y doblará cuidadosamente por ti.">Our Drop Off service will be ready the day we open: bring us your laundry and our team will wash, dry, and neatly fold it for you.</p>
+    </div>
+    <div class="fluff-steps">
+      <div class="step">
+        <div class="feature-num">01</div>
+        <div class="feature-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9 h14 l-1.4 11 a2 2 0 0 1 -2 1.8 H8.4 a2 2 0 0 1 -2 -1.8 Z"/><path d="M8.5 9 V7 a3.5 3.5 0 0 1 7 0 v2"/></svg>
+        </div>
+        <h3 data-en="Drop it off" data-es="Entrega tu ropa">Drop it off</h3>
+        <p data-en="Bring in your laundry — we take it from there." data-es="Trae tu ropa — nosotros nos encargamos desde ahí.">Bring in your laundry — we take it from there.</p>
+      </div>
+      <div class="step">
+        <div class="feature-num">02</div>
+        <div class="feature-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M5 12 q 2 -2 4 0 t 4 0 t 4 0 t 2 0" stroke-width="1.8"/></svg>
+        </div>
+        <h3 data-en="We wash, dry &amp; fold" data-es="Lavamos, secamos y doblamos">We wash, dry &amp; fold</h3>
+        <p data-en="Handled with care by our team, on our high-efficiency machines." data-es="Con el cuidado de nuestro equipo y nuestras máquinas de alta eficiencia.">Handled with care by our team, on our high-efficiency machines.</p>
+      </div>
+      <div class="step">
+        <div class="feature-num">03</div>
+        <div class="feature-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8 h16 v4 a8 8 0 0 1 -16 0 Z"/><path d="M4 12 h16" stroke-width="1.6"/><path d="M9 4 l3 3 l3 -3" /></svg>
+        </div>
+        <h3 data-en="Pick up fresh" data-es="Recoge tu ropa fresca">Pick up fresh</h3>
+        <p data-en="Neatly folded, fresh, and ready to go." data-es="Perfectamente doblada, fresca y lista para llevar.">Neatly folded, fresh, and ready to go.</p>
+      </div>
+    </div>
+    <p class="fluff-cta"><a href="#notify" class="btn btn-primary btn-arrow" data-en="Get Opening Updates" data-es="Recibir Avisos de Apertura">Get Opening Updates</a></p>
+  </div>
+</section>
+
+<!-- =================== WHAT TO EXPECT =================== -->
+<section id="expect" class="expect">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" data-en="What to Expect" data-es="Qué Esperar">What to Expect</span>
+      <h2 data-en="A laundry experience worth the wait" data-es="Una experiencia de lavandería que vale la pena esperar">A laundry experience worth the wait</h2>
+      <p data-en="Built around four simple promises that show up in every detail — from the machines we picked to the people who'll greet you at the door." data-es="Construida sobre cuatro promesas simples que se reflejan en cada detalle — desde las máquinas que elegimos hasta las personas que te recibirán en la puerta.">Built around four simple promises that show up in every detail — from the machines we picked to the people who'll greet you at the door.</p>
+    </div>
+    <div class="expect-grid">
+      <div class="feature">
+        <div class="feature-num">01</div>
+        <div class="feature-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 C 12 2 6 9 6 14 a 6 6 0 0 0 12 0 C 18 9 12 2 12 2 Z"/></svg>
+        </div>
+        <h3 data-en="Clean" data-es="Limpio">Clean</h3>
+        <p data-en="Pristine, freshly renovated space. Spotless machines, sanitized folding stations, and a sparkling floor — every day." data-es="Un espacio impecable, recién renovado. Máquinas relucientes, mesas de doblado sanitizadas y un piso brillante — todos los días.">Pristine, freshly renovated space. Spotless machines, sanitized folding stations, and a sparkling floor — every day.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-num">02</div>
+        <div class="feature-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 L4 14 L11 14 L10 22 L20 10 L13 10 Z"/></svg>
+        </div>
+        <h3 data-en="Fast" data-es="Rápido">Fast</h3>
+        <p data-en="High-efficiency washers up to 80 lb and high-speed dryers — finish a full week of laundry in about an hour." data-es="Lavadoras de alta eficiencia de hasta 80 libras y secadoras de alta velocidad — termina toda la ropa de la semana en cerca de una hora.">High-efficiency washers up to 80 lb and high-speed dryers — finish a full week of laundry in about an hour.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-num">03</div>
+        <div class="feature-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 14 q 4 4 8 0"/><circle cx="9" cy="10" r="1.2" fill="currentColor"/><circle cx="15" cy="10" r="1.2" fill="currentColor"/></svg>
+        </div>
+        <h3 data-en="Friendly" data-es="Amable">Friendly</h3>
+        <p data-en="Fully attended whenever we're open. Real humans to help you load, run a card, or find the right setting — no guesswork." data-es="Completamente atendida siempre que estemos abiertos. Personas reales para ayudarte a cargar, pasar la tarjeta o elegir el programa correcto — sin adivinanzas.">Fully attended whenever we're open. Real humans to help you load, run a card, or find the right setting — no guesswork.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-num">04</div>
+        <div class="feature-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L4 6 v 6 c 0 5 3.5 9 8 10 c 4.5 -1 8 -5 8 -10 V 6 Z"/><path d="M9 12 l 2 2 l 4 -4"/></svg>
+        </div>
+        <h3 data-en="Safe" data-es="Seguro">Safe</h3>
+        <p data-en="Security cameras throughout, bright LED lighting, and a well-lit parking area. Peace of mind, day or night." data-es="Cámaras de seguridad por todas partes, iluminación LED brillante y un estacionamiento bien iluminado. Tranquilidad de día y de noche.">Security cameras throughout, bright LED lighting, and a well-lit parking area. Peace of mind, day or night.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== MACHINES =================== -->
+<section id="machines" class="machines">
+  <div class="container">
+    <div class="machines-intro">
+      <div>
+        <span class="eyebrow" data-en="Our Machines" data-es="Nuestras Máquinas">Our Machines</span>
+        <h2 data-en="The right size for every load." data-es="El tamaño correcto para cada carga.">The right size for every load.</h2>
+      </div>
+      <p>From a quick weekly wash to oversized comforters and bedding — we'll have a machine sized exactly for the job. All loads dry in our high-speed dryers.</p>
+    </div>
+
+    <h4 style="font-family:var(--font-display);font-weight:600;letter-spacing:0.15em;text-transform:uppercase;font-size:0.78rem;color:var(--cool-grey);margin:0 0 12px;" data-en="Washers" data-es="Lavadoras">Washers</h4>
+    <div class="machine-row">
+      <div class="machine">
+        <div><span class="num">20</span><span class="unit"> lb</span></div>
+        <div class="label">Solo Loads</div>
+      </div>
+      <div class="machine">
+        <div><span class="num">30</span><span class="unit"> lb</span></div>
+        <div class="label">Couple Loads</div>
+      </div>
+      <div class="machine">
+        <div><span class="num">40</span><span class="unit"> lb</span></div>
+        <div class="label">Family Loads</div>
+      </div>
+      <div class="machine">
+        <div><span class="num">60</span><span class="unit"> lb</span></div>
+        <div class="label">Big Loads</div>
+      </div>
+      <div class="machine">
+        <div><span class="num">80</span><span class="unit"> lb</span></div>
+        <div class="label">Mega Loads</div>
+      </div>
+    </div>
+
+    <h4 style="font-family:var(--font-display);font-weight:600;letter-spacing:0.15em;text-transform:uppercase;font-size:0.78rem;color:var(--cool-grey);margin:36px 0 12px;" data-en="Dryers" data-es="Secadoras">Dryers</h4>
+    <div class="machine-row dryer-row">
+      <div class="machine">
+        <div><span class="num">30</span><span class="unit"> lb</span></div>
+        <div class="label">Standard High-Speed</div>
+      </div>
+      <div class="machine">
+        <div><span class="num">55</span><span class="unit"> lb</span></div>
+        <div class="label">Large High-Speed</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== AMENITIES =================== -->
+<section id="amenities" class="amenities">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" data-en="Amenities" data-es="Servicios">Amenities</span>
+      <h2 data-en="Everything you need, on site." data-es="Todo lo que necesitas, en un solo lugar.">Everything you need, on site.</h2>
+      <p data-en="Designed to make laundry day genuinely comfortable." data-es="Diseñado para que el día de lavandería sea verdaderamente cómodo.">Designed to make laundry day genuinely comfortable.</p>
+    </div>
+
+    <div class="amenity-grid">
+      <div class="amenity">
+        <div class="amenity-ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 14 q 4 4 8 0"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/></svg>
+        </div>
+        <div><strong data-en="Fully Attended" data-es="Siempre Atendida">Fully Attended</strong><span data-en="Help on site whenever we're open" data-es="Personal disponible siempre que estamos abiertos">Help on site whenever we're open</span></div>
+      </div>
+      <div class="amenity">
+        <div class="amenity-ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9 a 4 4 0 0 1 8 0 v 6 H 3 Z"/><path d="M13 12 h 8"/><path d="M13 16 h 5"/><path d="M13 8 h 5"/></svg>
+        </div>
+        <div><strong data-en="Air Conditioning" data-es="Aire Acondicionado">Air Conditioning</strong><span data-en="Cool and comfortable year-round" data-es="Fresco y cómodo todo el año">Cool and comfortable year-round</span></div>
+      </div>
+      <div class="amenity">
+        <div class="amenity-ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12 a 7 7 0 0 1 14 0"/><path d="M2 12 a 10 10 0 0 1 20 0"/><circle cx="12" cy="18" r="1.5" fill="currentColor"/></svg>
+        </div>
+        <div><strong data-en="Free WiFi" data-es="WiFi Gratis">Free WiFi</strong><span data-en="Fast and free for all guests" data-es="Rápido y gratis para todos">Fast and free for all guests</span></div>
+      </div>
+      <div class="amenity">
+        <div class="amenity-ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 10 h 8"/><path d="M8 14 h 8"/></svg>
+        </div>
+        <div><strong data-en="Clean Bathroom" data-es="Baño Limpio">Clean Bathroom</strong><span data-en="Maintained throughout the day" data-es="Mantenido durante todo el día">Maintained throughout the day</span></div>
+      </div>
+      <div class="amenity">
+        <div class="amenity-ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M2 12 c 4 -6 16 -6 20 0 c -4 6 -16 6 -20 0 Z"/></svg>
+        </div>
+        <div><strong data-en="Security Cameras" data-es="Cámaras de Seguridad">Security Cameras</strong><span data-en="Cameras throughout the space" data-es="Cámaras en todo el espacio">Cameras throughout the space</span></div>
+      </div>
+      <div class="amenity">
+        <div class="amenity-ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 8 h 8"/><path d="M8 12 h 8"/><path d="M8 16 h 5"/></svg>
+        </div>
+        <div><strong data-en="Vending Machine" data-es="Máquina Expendedora">Vending Machine</strong><span data-en="Detergent, drinks, and snacks" data-es="Detergente, bebidas y bocadillos">Detergent, drinks, and snacks</span></div>
+      </div>
+      <div class="amenity">
+        <div class="amenity-ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z"/></svg>
+        </div>
+        <div><strong data-en="Loyalty Rewards" data-es="Recompensas de Lealtad">Loyalty Rewards</strong><span data-en="Earn free washes as a regular" data-es="Gana lavadas gratis como cliente frecuente">Earn free washes as a regular</span></div>
+      </div>
+      <div class="amenity">
+        <div class="amenity-ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="9" rx="2"/><path d="M5 11V8a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v3"/><circle cx="8" cy="15.5" r="1" fill="currentColor"/><circle cx="16" cy="15.5" r="1" fill="currentColor"/></svg>
+        </div>
+        <div><strong data-en="Ample Parking" data-es="Amplio Estacionamiento">Ample Parking</strong><span data-en="Convenient spots right outside" data-es="Espacios convenientes justo afuera">Convenient spots right outside</span></div>
+      </div>
+      <div class="amenity">
+        <div class="amenity-ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 L13.5 9 L19.5 10 L13.5 11 L12 17 L10.5 11 L4.5 10 L10.5 9 Z"/><path d="M19 3.5 L19.6 5.4 L21.5 6 L19.6 6.6 L19 8.5 L18.4 6.6 L16.5 6 L18.4 5.4 Z"/><path d="M19 16.5 L19.6 18.4 L21.5 19 L19.6 19.6 L19 21.5 L18.4 19.6 L16.5 19 L18.4 18.4 Z"/></svg>
+        </div>
+        <div><strong data-en="New Machines" data-es="Máquinas Nuevas">New Machines</strong><span data-en="Modern, high-efficiency equipment" data-es="Equipo moderno y de alta eficiencia">Modern, high-efficiency equipment</span></div>
+      </div>
+      <div class="amenity">
+        <div class="amenity-ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18 V 5 L 19 3 V 16"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg>
+        </div>
+        <div><strong data-en="Music" data-es="Música">Music</strong><span data-en="A relaxing playlist while you wait" data-es="Una lista relajante mientras esperas">A relaxing playlist while you wait</span></div>
+      </div>
+    </div>
+
+    <div class="payments">
+      <span class="payments-label" data-en="We Accept" data-es="Aceptamos">We Accept</span>
+      <span class="pay-chip">💵 Cash</span>
+      <span class="pay-chip">💳 Credit</span>
+      <span class="pay-chip">💳 Debit</span>
+      <span class="pay-chip">📱 Apple Pay</span>
+    </div>
+  </div>
+</section>
+
+<!-- =================== LOCATION =================== -->
+<section id="visit" class="location">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" data-en="Find Us" data-es="Encuéntranos">Find Us</span>
+      <h2 data-en="Right in the heart of San Pedro." data-es="Justo en el corazón de San Pedro.">Right in the heart of San Pedro.</h2>
+      <p data-en="Convenient parking, brightly lit, and easy to find on S. Pacific Ave." data-es="Estacionamiento conveniente, bien iluminado y fácil de encontrar en S. Pacific Ave.">Convenient parking, brightly lit, and easy to find on S. Pacific Ave.</p>
+    </div>
+
+    <div class="location-grid">
+      <div class="info-card">
+        <div class="info-row">
+          <div class="info-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10 c 0 6 -8 12 -8 12 s -8 -6 -8 -12 a 8 8 0 0 1 16 0 Z"/><circle cx="12" cy="10" r="3"/></svg>
+            Address
+          </div>
+          <strong>112 S. Pacific Ave.<br />San Pedro, CA 90731</strong>
+        </div>
+
+        <div class="info-row">
+          <div class="info-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7 v 5 l 3 2"/></svg>
+            Planned Hours
+          </div>
+          <div class="hours-grid">
+            <span class="d">Monday – Sunday</span><span class="h">6:00 AM – 10:00 PM</span>
+          </div>
+          <p style="margin:8px 0 0;font-size:0.85rem;color:rgba(255,255,255,0.55)" data-en="Open 7 days, 16 hours a day." data-es="Abierto los 7 días, 16 horas al día.">Open 7 days, 16 hours a day.</p>
+        </div>
+
+        <div class="info-row">
+          <div class="info-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7 l 9 6 l 9 -6"/></svg>
+            Email
+          </div>
+          <strong><a href="mailto:info@gospinwave.com">info@gospinwave.com</a></strong>
+        </div>
+
+        <div class="info-row">
+          <div class="info-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            Instagram
+          </div>
+          <strong><a href="https://instagram.com/spinwavelaundry" target="_blank" rel="noopener">@spinwavelaundry</a></strong>
+        </div>
+      </div>
+
+      <div class="map-wrap">
+        <span class="map-pin-badge">Future Home</span>
+        <iframe
+          src="https://maps.google.com/maps?q=112%20S%20Pacific%20Ave%2C%20San%20Pedro%2C%20CA%2090731&t=&z=16&ie=UTF8&iwloc=&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Spinwave Laundry location, 112 S. Pacific Ave., San Pedro, CA">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== ABOUT US =================== -->
+<section id="about" class="about">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" data-en="About Us" data-es="Nosotros">About Us</span>
+      <h2 data-en="Welcome to Spinwave." data-es="Bienvenidos a Spinwave.">Welcome to Spinwave.</h2>
+      <p data-en="A note from your neighbors, Ricardo &amp; Mariana." data-es="Un mensaje de tus vecinos, Ricardo y Mariana.">A note from your neighbors, Ricardo &amp; Mariana.</p>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-photo">
+        <img src="ricardo-mariana.jpg" alt="Ricardo and Mariana, founders of Spinwave Laundry" loading="lazy" />
+        <div class="about-photo-caption"><span class="heart">♥</span>Ricardo &amp; Mariana</div>
+      </div>
+      <div class="about-story">
+        <p>Hello, we're <strong>Mariana and Ricardo</strong>, and we're excited to share this new project with you: Spinwave.</p>
+        <p>More than a laundromat, we dream of creating a place where people feel welcome, where neighbors can connect, where conversations can happen, and where a sense of community can grow.</p>
+        <p>We want to provide a clean, comfortable, efficient, and inviting space for everyone.</p>
+        <p>We feel very fortunate to become part of the history of this building, which has been part of the community for <strong>106 years</strong>. We love thinking about all the people who have passed through its doors and the stories these walls have witnessed over time.</p>
+        <p>There is something special about laundromats. They are places where people of different ages and backgrounds naturally cross paths. We hope Spinwave will become a place where neighbors not only come to do their laundry, but also feel connected, welcomed, and part of a community.</p>
+        <p>For 30 years, we have shared many dreams — some big, some small — and today we are excited to begin a new one.</p>
+        <p class="about-signoff">Thank you for joining us on this journey.</p>
+      </div>
+    </div>
+
+    <details class="about-spanish">
+      <summary>También en español</summary>
+      <div class="about-spanish-content">
+        <p><strong>Bienvenidos a Spinwave.</strong></p>
+        <p>Hola, somos <strong>Mariana y Ricardo</strong>, y estamos muy emocionados de compartir con ustedes este nuevo proyecto: Spinwave.</p>
+        <p>Más que una lavandería, soñamos con un espacio donde las personas se sientan bienvenidas, donde los vecinos puedan encontrarse, donde surjan conversaciones y donde poco a poco se fortalezca el sentido de comunidad.</p>
+        <p>Queremos ofrecer un lugar limpio, cómodo, eficiente y agradable para todos.</p>
+        <p>Nos sentimos muy afortunados de formar parte de la historia de este edificio, que ha sido parte de esta comunidad durante <strong>106 años</strong>. Nos encanta pensar en todas las personas que han pasado por aquí y en las historias que estas paredes han visto a lo largo del tiempo.</p>
+        <p>Las lavanderías tienen algo especial. Son lugares donde personas de diferentes edades e historias coinciden de manera natural. Nos gustaría que Spinwave fuera un lugar donde los vecinos no solo vengan a lavar su ropa, sino donde también se reconozcan, se conecten y se sientan parte de una comunidad.</p>
+        <p>Durante 30 años hemos compartido muchos sueños, algunos grandes, otros pequeños, y hoy nos emociona comenzar uno nuevo.</p>
+        <p class="about-signoff">Gracias por acompañarnos en esta aventura.</p>
+      </div>
+    </details>
+
+    <div class="about-history">
+      <div class="about-history-head">
+        <span class="eyebrow">Pacific Avenue, San Pedro</span>
+        <h3 data-en="106 years of community history." data-es="106 años de historia comunitaria.">106 years of community history.</h3>
+        <p data-en="The building has been a part of this neighborhood for over a century. We're honored to add the next chapter." data-es="El edificio ha sido parte de este vecindario por más de un siglo. Es un honor para nosotros añadir el siguiente capítulo.">The building has been a part of this neighborhood for over a century. We're honored to add the next chapter.</p>
+      </div>
+      <div class="about-history-gallery">
+        <figure>
+          <img src="pacific-ave-historical-1.jpg" alt="Historical photo of Pacific Avenue in San Pedro, California" loading="lazy" />
+          <figcaption>Pacific Avenue, San Pedro — in earlier years</figcaption>
+        </figure>
+        <figure>
+          <img src="pacific-ave-historical-2.jpg" alt="Historical photo of Pacific Avenue in San Pedro, California" loading="lazy" />
+          <figcaption>The street as it once stood</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== FAQ =================== -->
+<section id="faq" class="faq">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" data-en="Frequently Asked" data-es="Preguntas Frecuentes">Frequently Asked</span>
+      <h2 data-en="Questions, answered." data-es="Preguntas, respondidas.">Questions, answered.</h2>
+      <p data-en="Everything you might want to know before opening day." data-es="Todo lo que quieras saber antes del día de apertura.">Everything you might want to know before opening day.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary data-en="When is Spinwave Laundry opening?" data-es="¿Cuándo abre Spinwave Laundry?">When is Spinwave Laundry opening?</summary>
+        <p data-en="Spinwave Laundry is coming soon to San Pedro at &lt;strong&gt;112 S. Pacific Ave.&lt;/strong&gt; We don't have a public opening date yet — sign up using the Notify form below and we'll email you the moment we open." data-es="Spinwave Laundry abrirá pronto en San Pedro en &lt;strong&gt;112 S. Pacific Ave.&lt;/strong&gt; Aún no tenemos una fecha pública de apertura — regístrate en el formulario Avísame y te enviaremos un correo en cuanto abramos.">Spinwave Laundry is coming soon to San Pedro at <strong>112 S. Pacific Ave.</strong> We don't have a public opening date yet — sign up using the Notify form below and we'll email you the moment we open.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-en="Where is Spinwave Laundry located?" data-es="¿Dónde se ubica Spinwave Laundry?">Where is Spinwave Laundry located?</summary>
+        <p data-en="Spinwave Laundry is at &lt;strong&gt;112 S. Pacific Ave., San Pedro, CA 90731&lt;/strong&gt;, in the heart of downtown San Pedro." data-es="Spinwave Laundry está en &lt;strong&gt;112 S. Pacific Ave., San Pedro, CA 90731&lt;/strong&gt;, en el corazón del centro de San Pedro.">Spinwave Laundry is at <strong>112 S. Pacific Ave., San Pedro, CA 90731</strong>, in the heart of downtown San Pedro.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-en="What are Spinwave Laundry's hours?" data-es="¿Cuáles son los horarios de Spinwave Laundry?">What are Spinwave Laundry's hours?</summary>
+        <p data-en="We'll be open &lt;strong&gt;Monday through Sunday, 6:00 AM to 10:00 PM&lt;/strong&gt; — seven days a week, 16 hours a day." data-es="Estaremos abiertos de &lt;strong&gt;lunes a domingo, de 6:00 AM a 10:00 PM&lt;/strong&gt; — siete días a la semana, 16 horas al día.">We'll be open <strong>Monday through Sunday, 6:00 AM to 10:00 PM</strong> — seven days a week, 16 hours a day.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-en="What sizes of washers and dryers will be available?" data-es="¿Qué tamaños de lavadoras y secadoras estarán disponibles?">What sizes of washers and dryers will be available?</summary>
+        <p data-en="We'll have washers in &lt;strong&gt;20 lb, 30 lb, 40 lb, 60 lb, and 80 lb capacities&lt;/strong&gt;, plus high-speed dryers in &lt;strong&gt;30 lb and 55 lb capacities&lt;/strong&gt;. From a solo load to oversized comforters, every load has a machine sized for it." data-es="Tendremos lavadoras de &lt;strong&gt;20, 30, 40, 60 y 80 libras&lt;/strong&gt;, además de secadoras de alta velocidad de &lt;strong&gt;30 y 55 libras&lt;/strong&gt;. Desde una carga individual hasta edredones grandes, cada carga tiene una máquina del tamaño justo.">We'll have washers in <strong>20 lb, 30 lb, 40 lb, 60 lb, and 80 lb capacities</strong>, plus high-speed dryers in <strong>30 lb and 55 lb capacities</strong>. From a solo load to oversized comforters, every load has a machine sized for it.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-en="Is there free parking at Spinwave Laundry?" data-es="¿Hay estacionamiento gratuito en Spinwave Laundry?">Is there free parking at Spinwave Laundry?</summary>
+        <p data-en="Yes — there's &lt;strong&gt;ample free parking&lt;/strong&gt; right outside the laundromat, well-lit and convenient day or night." data-es="Sí — hay &lt;strong&gt;amplio estacionamiento gratuito&lt;/strong&gt; justo afuera de la lavandería, bien iluminado y conveniente de día o de noche.">Yes — there's <strong>ample free parking</strong> right outside the laundromat, well-lit and convenient day or night.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-en="How do I pay at Spinwave Laundry?" data-es="¿Cómo pago en Spinwave Laundry?">How do I pay at Spinwave Laundry?</summary>
+        <p data-en="We accept &lt;strong&gt;cash (no coins), credit cards, debit cards, and Apple Pay&lt;/strong&gt;. Pay however is most convenient." data-es="Aceptamos &lt;strong&gt;efectivo (sin monedas), tarjetas de crédito, tarjetas de débito y Apple Pay&lt;/strong&gt;. Paga como te resulte más conveniente.">We accept <strong>cash (no coins), credit cards, debit cards, and Apple Pay</strong>. Pay however is most convenient.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-en="Is Spinwave Laundry attended or self-service?" data-es="¿Es Spinwave Laundry atendida o de autoservicio?">Is Spinwave Laundry attended or self-service?</summary>
+        <p data-en="Spinwave is a self-service laundromat that's also &lt;strong&gt;fully attended&lt;/strong&gt;. Friendly staff are on site whenever we're open, so help is always nearby if you need it." data-es="Spinwave es una lavandería de autoservicio que también está &lt;strong&gt;completamente atendida&lt;/strong&gt;. Personal amable está presente siempre que estamos abiertos, así que la ayuda está cerca cuando la necesites.">Spinwave is a self-service laundromat that's also <strong>fully attended</strong>. Friendly staff are on site whenever we're open, so help is always nearby if you need it.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-en="Do you offer Fluff &amp; Fold?" data-es="¿Ofrecen servicio de Fluff &amp; Fold?">Do you offer Fluff &amp; Fold?</summary>
+        <p data-en="&lt;strong&gt;Yes — from day one.&lt;/strong&gt; Our &lt;strong&gt;Drop Off&lt;/strong&gt; service will be ready when we open: leave your laundry with us and we'll wash, dry, and fold it for you." data-es="&lt;strong&gt;Sí — desde el primer día.&lt;/strong&gt; Nuestro servicio de &lt;strong&gt;Drop Off&lt;/strong&gt; estará listo cuando abramos: déjanos tu ropa y nosotros la lavamos, secamos y doblamos.">
+          <strong>Yes — from day one.</strong> Our <strong>Drop Off</strong> service will be ready when we open: leave your laundry with us and we'll wash, dry, and fold it for you.
+        </p>
+      </details>
+      <details class="faq-item">
+        <summary data-en="Does Spinwave Laundry have free WiFi?" data-es="¿Tiene Spinwave Laundry WiFi gratis?">Does Spinwave Laundry have free WiFi?</summary>
+        <p data-en="Yes — &lt;strong&gt;free fast WiFi&lt;/strong&gt; for all guests on every visit. Stream, scroll, or work while you wash." data-es="Sí — &lt;strong&gt;WiFi gratis y rápido&lt;/strong&gt; para todos los visitantes en cada visita. Ve series, navega o trabaja mientras lavas.">Yes — <strong>free fast WiFi</strong> for all guests on every visit. Stream, scroll, or work while you wash.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- =================== INSTAGRAM CTA =================== -->
+<section class="instagram-cta">
+  <div class="container">
+    <div class="ig-card">
+      <div class="ig-icon" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+      </div>
+      <h2 data-en="Follow along on Instagram" data-es="Síguenos en Instagram">Follow along on Instagram</h2>
+      <p data-en="This is where we're posting all the updates — opening-day countdown, behind-the-scenes photos of the buildout, machine unboxing, and everything in between. Come along for the ride." data-es="Aquí publicamos todas las novedades — la cuenta regresiva para el día de apertura, fotos detrás de cámaras de la remodelación, la llegada de las máquinas y todo lo que sucede en el camino. Acompáñanos.">This is where we're posting all the updates — opening-day countdown, behind-the-scenes photos of the buildout, machine unboxing, and everything in between. Come along for the ride.</p>
+      <div class="ig-handle">@spinwavelaundry</div>
+      <a href="https://www.instagram.com/spinwavelaundry/" target="_blank" rel="noopener" class="ig-btn" aria-label="Follow Spinwave Laundry on Instagram">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+        <span data-en="Follow @spinwavelaundry on Instagram" data-es="Sigue @spinwavelaundry en Instagram">Follow @spinwavelaundry on Instagram</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- =================== NOTIFY =================== -->
+<section id="notify" class="notify">
+  <div class="container notify-grid">
+    <div>
+      <span class="eyebrow" style="background:var(--pure-white);color:var(--primary);border-color:transparent" data-en="Stay in the Loop" data-es="Mantente Informado">Stay in the Loop</span>
+      <h2 data-en="Be the first to know when we open." data-es="Sé el primero en saber cuándo abrimos.">Be the first to know when we open.</h2>
+      <p data-en="Sign up and we'll send a single email when Spinwave opens its doors — plus a grand-opening offer just for early supporters." data-es="Regístrate y te enviaremos un solo correo cuando Spinwave abra sus puertas — además de una oferta de inauguración solo para nuestros primeros seguidores.">Sign up and we'll send a single email when Spinwave opens its doors — plus a grand-opening offer just for early supporters.</p>
+    </div>
+
+    <form
+      class="notify-form"
+      id="contactForm"
+      name="notify"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+    >
+      <!-- Required by Netlify Forms to route the submission -->
+      <input type="hidden" name="form-name" value="notify" />
+      <!-- Honeypot: bots fill this in, real humans don't see it -->
+      <p style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true">
+        <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+      </p>
+
+      <div class="field">
+        <label for="name" data-en="Your name" data-es="Tu nombre">Your name</label>
+        <input type="text" id="name" name="name" required placeholder="Jamie Lee" />
+      </div>
+      <div class="field">
+        <label for="email" data-en="Email" data-es="Correo">Email</label>
+        <input type="email" id="email" name="email" required placeholder="you@example.com" />
+      </div>
+      <div class="field">
+        <label for="phone" data-en="Phone &lt;span style=&quot;color:var(--cool-grey);font-weight:400&quot;&gt;(optional — for opening-day text updates)&lt;/span&gt;" data-es="Teléfono &lt;span style=&quot;color:var(--cool-grey);font-weight:400&quot;&gt;(opcional — para avisos por mensaje el día de apertura)&lt;/span&gt;">Phone <span style="color:var(--cool-grey);font-weight:400">(optional — for opening-day text updates)</span></label>
+        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" autocomplete="tel" />
+      </div>
+      <div class="field">
+        <label for="message" data-en="Anything else? &lt;span style=&quot;color:var(--cool-grey);font-weight:400&quot;&gt;(optional)&lt;/span&gt;" data-es="¿Algo más? &lt;span style=&quot;color:var(--cool-grey);font-weight:400&quot;&gt;(opcional)&lt;/span&gt;">Anything else? <span style="color:var(--cool-grey);font-weight:400">(optional)</span></label>
+        <textarea id="message" name="message" placeholder="Questions or suggestions for us..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-arrow" data-en="Notify Me" data-es="Avísame">Notify Me</button>
+      <div class="form-feedback" id="formFeedback" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
+
+<!-- =================== FOOTER =================== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <svg style="color: var(--pure-white)" aria-hidden="true"><use href="#spinwave-wordmark" /></svg>
+        <p class="footer-tag" data-en="Clean. Fast. Friendly. Safe. Coming soon to San Pedro." data-es="Limpio. Rápido. Amable. Seguro. Próximamente en San Pedro.">Clean. Fast. Friendly. Safe. Coming soon to San Pedro.</p>
+      </div>
+      <div>
+        <h4 data-en="Visit" data-es="Visítanos">Visit</h4>
+        <ul>
+          <li>112 S. Pacific Ave.</li>
+          <li>San Pedro, CA 90731</li>
+          <li>Mon–Sun · 6 AM – 10 PM</li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-en="Contact" data-es="Contacto">Contact</h4>
+        <ul>
+          <li><a href="mailto:info@gospinwave.com">info@gospinwave.com</a></li>
+          <li><a href="https://instagram.com/spinwavelaundry" target="_blank" rel="noopener">@spinwavelaundry</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-en="Explore" data-es="Explora">Explore</h4>
+        <ul>
+          <li><a href="#expect">What to Expect</a></li>
+          <li><a href="#machines">Our Machines</a></li>
+          <li><a href="#amenities">Amenities</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="/jobs">Jobs</a></li>
+          <li><a href="#notify">Notify Me</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Spinwave Laundry. All rights reserved.</span>
+      <span>Made with care in San Pedro.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Language toggle — swaps text via data-en / data-es attributes.
+  (function() {
+    var STORAGE_KEY = 'spinwave-lang';
+    var buttons = document.querySelectorAll('.lang-toggle button');
+    if (!buttons.length) return;
+
+    function applyLang(lang) {
+      document.documentElement.lang = lang;
+      try { localStorage.setItem(STORAGE_KEY, lang); } catch(e) {}
+      // Update active button state
+      buttons.forEach(function(b) {
+        b.classList.toggle('active', b.dataset.lang === lang);
+      });
+      // Swap text content / HTML on every element that has both translations
+      document.querySelectorAll('[data-en][data-es]').forEach(function(el) {
+        var val = el.dataset[lang];
+        if (val === undefined) return;
+        // If translation contains HTML tags, swap innerHTML; else textContent
+        if (/[<&]/.test(val)) el.innerHTML = val; else el.textContent = val;
+      });
+      // Also handle elements with translatable attributes (placeholder, alt, aria-label)
+      document.querySelectorAll('[data-en-placeholder]').forEach(function(el) {
+        el.placeholder = el.dataset[lang + 'Placeholder'] || el.placeholder;
+      });
+      document.querySelectorAll('[data-en-aria]').forEach(function(el) {
+        el.setAttribute('aria-label', el.dataset[lang + 'Aria'] || el.getAttribute('aria-label'));
+      });
+    }
+
+    buttons.forEach(function(b) {
+      b.addEventListener('click', function() { applyLang(b.dataset.lang); });
+    });
+
+    // Apply saved preference on load
+    var saved = 'en';
+    try { saved = localStorage.getItem(STORAGE_KEY) || 'en'; } catch(e) {}
+    if (saved === 'es') applyLang('es');
+  })();
+
+  // Mobile nav hamburger toggle
+  (function() {
+    var toggle = document.querySelector('.nav-toggle');
+    var links = document.getElementById('navLinks');
+    if (!toggle || !links) return;
+    function close() {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open menu');
+    }
+    function open() {
+      links.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Close menu');
+    }
+    toggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (links.classList.contains('open')) close(); else open();
+    });
+    // Close when tapping outside the menu
+    document.addEventListener('click', function(e) {
+      if (!links.contains(e.target) && !toggle.contains(e.target)) close();
+    });
+    // Close when tapping any nav link
+    links.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', close);
+    });
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') close();
+    });
+  })();
+
+  // ============================================================
+  // Notify form — AJAX submit with validation + bilingual feedback
+  // ============================================================
+  (function() {
+    var form = document.getElementById('contactForm');
+    if (!form) return;
+
+    function emailIsValid(s) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
+    }
+
+    function showError(feedback, text) {
+      feedback.textContent = text;
+      feedback.style.background = '#FEE2E2';
+      feedback.style.color = '#7F1D1D';
+      feedback.classList.add('show');
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var name = (document.getElementById('name').value || '').trim();
+      var email = (document.getElementById('email').value || '').trim();
+      var feedback = document.getElementById('formFeedback');
+      var isEs = document.documentElement.lang === 'es';
+
+      // Validation
+      if (!name) {
+        showError(feedback, isEs
+          ? 'Por favor ingresa tu nombre.'
+          : 'Please enter your name.');
+        return;
+      }
+      if (!email) {
+        showError(feedback, isEs
+          ? 'Por favor ingresa tu correo electrónico.'
+          : 'Please enter your email.');
+        return;
+      }
+      if (!emailIsValid(email)) {
+        showError(feedback, isEs
+          ? 'Por favor ingresa un correo electrónico válido.'
+          : 'Please enter a valid email address.');
+        return;
+      }
+
+      var btn = form.querySelector('button[type=submit]');
+      var originalBtnText = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = isEs ? 'Enviando…' : 'Sending…';
+      feedback.classList.remove('show');
+
+      var formData = new FormData(form);
+
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      })
+      .then(function(response) {
+        if (!response.ok) throw new Error('Submission failed (' + response.status + ')');
+        feedback.textContent = isEs
+          ? '🎉 ¡Gracias! Te avisaremos por correo en cuanto Spinwave abra sus puertas.'
+          : "🎉 Thanks! We'll email you the moment Spinwave opens its doors.";
+        feedback.style.background = '#D7EBE9';
+        feedback.style.color = '#1F3F3D';
+        feedback.classList.add('show');
+        form.reset();
+        btn.innerHTML = isEs ? 'Listo ✓' : 'Got it ✓';
+        setTimeout(function() {
+          btn.disabled = false;
+          btn.innerHTML = originalBtnText;
+        }, 6000);
+      })
+      .catch(function() {
+        showError(feedback, isEs
+          ? 'Algo salió mal. Inténtalo de nuevo o escríbenos a info@gospinwave.com.'
+          : 'Oops — something went wrong. Please try again or email info@gospinwave.com.');
+        btn.disabled = false;
+        btn.innerHTML = originalBtnText;
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
