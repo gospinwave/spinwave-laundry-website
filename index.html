@@ -1847,7 +1847,10 @@
       </div>
       <div class="field">
         <label for="email" data-en="Email" data-es="Correo">Email</label>
-        <input type="email" id="email" name="email" required placeholder="you@example.com" />
+        <input type="email" id="email" name="email" required
+               pattern="[^@\s]+@[^@\s]+\.[A-Za-z]{2,}"
+               title="Please enter a complete email address, like you@example.com"
+               placeholder="you@example.com" />
       </div>
       <div class="field">
         <label for="phone" data-en="Phone &lt;span style=&quot;color:var(--cool-grey);font-weight:400&quot;&gt;(optional — for opening-day text updates)&lt;/span&gt;" data-es="Teléfono &lt;span style=&quot;color:var(--cool-grey);font-weight:400&quot;&gt;(opcional — para avisos por mensaje el día de apertura)&lt;/span&gt;">Phone <span style="color:var(--cool-grey);font-weight:400">(optional — for opening-day text updates)</span></label>
@@ -1909,11 +1912,20 @@
 </footer>
 
 <script>
+  // NodeList.prototype.forEach is missing in older Safari / Android WebViews.
+  // Array.prototype.forEach.call works everywhere. Using it — plus the guards
+  // below — stops one failure up here from aborting the whole script block and
+  // leaving the notify form's submit handler unattached.
+  function each(list, fn) { Array.prototype.forEach.call(list || [], fn); }
+
   // Footer year
-  document.getElementById('year').textContent = new Date().getFullYear();
+  try {
+    var yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+  } catch (e) {}
 
   // Language toggle — swaps text via data-en / data-es attributes.
-  (function() {
+  try { (function() {
     var STORAGE_KEY = 'spinwave-lang';
     var buttons = document.querySelectorAll('.lang-toggle button');
     if (!buttons.length) return;
@@ -1922,26 +1934,26 @@
       document.documentElement.lang = lang;
       try { localStorage.setItem(STORAGE_KEY, lang); } catch(e) {}
       // Update active button state
-      buttons.forEach(function(b) {
+      each(buttons, function(b) {
         b.classList.toggle('active', b.dataset.lang === lang);
       });
       // Swap text content / HTML on every element that has both translations
-      document.querySelectorAll('[data-en][data-es]').forEach(function(el) {
+      each(document.querySelectorAll('[data-en][data-es]'), function(el) {
         var val = el.dataset[lang];
         if (val === undefined) return;
         // If translation contains HTML tags, swap innerHTML; else textContent
         if (/[<&]/.test(val)) el.innerHTML = val; else el.textContent = val;
       });
       // Also handle elements with translatable attributes (placeholder, alt, aria-label)
-      document.querySelectorAll('[data-en-placeholder]').forEach(function(el) {
+      each(document.querySelectorAll('[data-en-placeholder]'), function(el) {
         el.placeholder = el.dataset[lang + 'Placeholder'] || el.placeholder;
       });
-      document.querySelectorAll('[data-en-aria]').forEach(function(el) {
+      each(document.querySelectorAll('[data-en-aria]'), function(el) {
         el.setAttribute('aria-label', el.dataset[lang + 'Aria'] || el.getAttribute('aria-label'));
       });
     }
 
-    buttons.forEach(function(b) {
+    each(buttons, function(b) {
       b.addEventListener('click', function() { applyLang(b.dataset.lang); });
     });
 
@@ -1949,10 +1961,10 @@
     var saved = 'en';
     try { saved = localStorage.getItem(STORAGE_KEY) || 'en'; } catch(e) {}
     if (saved === 'es') applyLang('es');
-  })();
+  })(); } catch (e) {}
 
   // Mobile nav hamburger toggle
-  (function() {
+  try { (function() {
     var toggle = document.querySelector('.nav-toggle');
     var links = document.getElementById('navLinks');
     if (!toggle || !links) return;
@@ -1975,14 +1987,14 @@
       if (!links.contains(e.target) && !toggle.contains(e.target)) close();
     });
     // Close when tapping any nav link
-    links.querySelectorAll('a').forEach(function(a) {
+    each(links.querySelectorAll('a'), function(a) {
       a.addEventListener('click', close);
     });
     // Close on Escape key
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') close();
     });
-  })();
+  })(); } catch (e) {}
 
   // ============================================================
   // Notify form — AJAX submit with validation + bilingual feedback
@@ -1992,8 +2004,44 @@
     if (!form) return;
 
     function emailIsValid(s) {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
+      return /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/.test(s);
     }
+
+    // ---- domain typo guard -----------------------------------------
+    // A regex cannot catch "gmail.vom" or "gmial.com" — both are
+    // structurally valid. Compare the typed domain against the common
+    // ones and offer a correction before the submission is accepted.
+    var COMMON_DOMAINS = ['gmail.com','yahoo.com','hotmail.com','outlook.com','icloud.com',
+      'aol.com','me.com','msn.com','live.com','comcast.net','sbcglobal.net','att.net',
+      'verizon.net','charter.net','cox.net','protonmail.com','mac.com','ymail.com'];
+
+    function editDistance(a, b) {
+      var m = a.length, n = b.length, prev = [], cur = [], i, j;
+      for (j = 0; j <= n; j++) prev[j] = j;
+      for (i = 1; i <= m; i++) {
+        cur[0] = i;
+        for (j = 1; j <= n; j++) {
+          cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1,
+                            prev[j - 1] + (a.charAt(i - 1) === b.charAt(j - 1) ? 0 : 1));
+        }
+        for (j = 0; j <= n; j++) prev[j] = cur[j];
+      }
+      return prev[n];
+    }
+
+    function domainSuggestion(email) {
+      var at = email.lastIndexOf('@');
+      if (at < 0) return null;
+      var dom = email.slice(at + 1).toLowerCase();
+      if (!dom || COMMON_DOMAINS.indexOf(dom) !== -1) return null;
+      for (var i = 0; i < COMMON_DOMAINS.length; i++) {
+        var d = editDistance(dom, COMMON_DOMAINS[i]);
+        if (d > 0 && d <= 2) return email.slice(0, at + 1) + COMMON_DOMAINS[i];
+      }
+      return null;
+    }
+
+    var typoAcknowledgedFor = null;
 
     function showError(feedback, text) {
       feedback.textContent = text;
@@ -2026,6 +2074,31 @@
         showError(feedback, isEs
           ? 'Por favor ingresa un correo electrónico válido.'
           : 'Please enter a valid email address.');
+        return;
+      }
+
+      var suggestion = domainSuggestion(email);
+      if (suggestion && typoAcknowledgedFor !== email) {
+        typoAcknowledgedFor = email;
+        feedback.innerHTML = (isEs
+          ? '¿Quisiste decir <strong>' + suggestion + '</strong>? '
+          : 'Did you mean <strong>' + suggestion + '</strong>? ')
+          + '<a href="#" id="useSuggestionNotify" style="color:#1F3F3D;text-decoration:underline;font-weight:700;">'
+          + (isEs ? 'Sí, corrígelo' : 'Yes, fix it') + '</a>'
+          + (isEs
+              ? ' — o envía de nuevo para dejarlo como está.'
+              : ' — or press send again to keep what you typed.');
+        feedback.style.background = '#FEF3C7';
+        feedback.style.color = '#78350F';
+        feedback.classList.add('show');
+        var useBtn = document.getElementById('useSuggestionNotify');
+        if (useBtn) useBtn.addEventListener('click', function(ev) {
+          ev.preventDefault();
+          document.getElementById('email').value = suggestion;
+          typoAcknowledgedFor = suggestion;
+          feedback.classList.remove('show');
+          form.querySelector('button[type=submit]').click();
+        });
         return;
       }
 
