@@ -619,7 +619,6 @@
       method="POST"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
-      novalidate
     >
       <input type="hidden" name="form-name" value="vip-club" />
       <div class="honeypot" aria-hidden="true">
@@ -664,7 +663,10 @@
 
       <div class="field">
         <label for="email" data-en="Email &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;" data-es="Correo &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;">Email <span class="req">*</span></label>
-        <input type="email" id="email" name="email" required placeholder="you@example.com" autocomplete="email" />
+        <input type="email" id="email" name="email" required
+               pattern="[^@\s]+@[^@\s]+\.[A-Za-z]{2,}"
+               title="Please enter a complete email address, like you@example.com"
+               placeholder="you@example.com" autocomplete="email" />
       </div>
 
       <div class="consent">
@@ -731,39 +733,48 @@
 </footer>
 
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+  // NodeList.prototype.forEach is missing in older Safari / Android WebViews.
+  // Array.prototype.forEach.call works everywhere. Using it means a browser
+  // that lacks the former can no longer throw here and leave the form's
+  // submit handler unattached (which is how blank emails got through).
+  function each(list, fn) { Array.prototype.forEach.call(list || [], fn); }
+
+  try {
+    var yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+  } catch (e) {}
 
   // Language toggle — swaps text via data-en / data-es attributes.
-  (function() {
+  try { (function() {
     var STORAGE_KEY = 'spinwave-lang';
     var buttons = document.querySelectorAll('.lang-toggle button');
     if (!buttons.length) return;
     function applyLang(lang) {
       document.documentElement.lang = lang;
       try { localStorage.setItem(STORAGE_KEY, lang); } catch(e) {}
-      buttons.forEach(function(b) {
+      each(buttons, function(b) {
         b.classList.toggle('active', b.dataset.lang === lang);
       });
-      document.querySelectorAll('[data-en][data-es]').forEach(function(el) {
+      each(document.querySelectorAll('[data-en][data-es]'), function(el) {
         var val = el.dataset[lang];
         if (val === undefined) return;
         if (/[<&]/.test(val)) el.innerHTML = val; else el.textContent = val;
       });
-      document.querySelectorAll('[data-en-placeholder]').forEach(function(el) {
+      each(document.querySelectorAll('[data-en-placeholder]'), function(el) {
         el.placeholder = el.dataset[lang + 'Placeholder'] || el.placeholder;
       });
     }
-    buttons.forEach(function(b) {
+    each(buttons, function(b) {
       b.addEventListener('click', function() { applyLang(b.dataset.lang); });
     });
     var saved = 'en';
     try { saved = localStorage.getItem(STORAGE_KEY) || 'en'; } catch(e) {}
     if (saved === 'es') applyLang('es');
-  })();
+  })(); } catch (e) {}
 
   // Format phone number as user types (US format: (555) 123-4567)
   var phoneInput = document.getElementById('phone');
-  phoneInput.addEventListener('input', function(e) {
+  if (phoneInput) phoneInput.addEventListener('input', function(e) {
     var digits = e.target.value.replace(/\D/g, '').slice(0, 10);
     if (digits.length >= 7) {
       e.target.value = '(' + digits.slice(0, 3) + ') ' + digits.slice(3, 6) + '-' + digits.slice(6);
@@ -775,6 +786,42 @@
       e.target.value = '';
     }
   });
+
+  // ---- domain typo guard -------------------------------------------
+  // A regex cannot catch "gmail.vom" or "gmial.com" — both are structurally
+  // valid addresses. Compare the typed domain against the common ones and
+  // offer a correction before the submission is accepted.
+  var COMMON_DOMAINS = ['gmail.com','yahoo.com','hotmail.com','outlook.com','icloud.com',
+    'aol.com','me.com','msn.com','live.com','comcast.net','sbcglobal.net','att.net',
+    'verizon.net','charter.net','cox.net','protonmail.com','mac.com','ymail.com'];
+
+  function editDistance(a, b) {
+    var m = a.length, n = b.length, prev = [], cur = [], i, j;
+    for (j = 0; j <= n; j++) prev[j] = j;
+    for (i = 1; i <= m; i++) {
+      cur[0] = i;
+      for (j = 1; j <= n; j++) {
+        cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1,
+                          prev[j - 1] + (a.charAt(i - 1) === b.charAt(j - 1) ? 0 : 1));
+      }
+      for (j = 0; j <= n; j++) prev[j] = cur[j];
+    }
+    return prev[n];
+  }
+
+  function domainSuggestion(email) {
+    var at = email.lastIndexOf('@');
+    if (at < 0) return null;
+    var dom = email.slice(at + 1).toLowerCase();
+    if (!dom || COMMON_DOMAINS.indexOf(dom) !== -1) return null;
+    for (var i = 0; i < COMMON_DOMAINS.length; i++) {
+      var d = editDistance(dom, COMMON_DOMAINS[i]);
+      if (d > 0 && d <= 2) return email.slice(0, at + 1) + COMMON_DOMAINS[i];
+    }
+    return null;
+  }
+
+  var typoAcknowledgedFor = null;
 
   // AJAX submit to Netlify Forms
   document.getElementById('vipForm').addEventListener('submit', function(e) {
@@ -792,6 +839,32 @@
       feedback.classList.add('show');
       return;
     }
+    var suggestion = domainSuggestion(email);
+    if (suggestion && typoAcknowledgedFor !== email) {
+      typoAcknowledgedFor = email;
+      var isEsTypo = document.documentElement.lang === 'es';
+      feedback.innerHTML = (isEsTypo
+        ? '¿Quisiste decir <strong>' + suggestion + '</strong>? '
+        : 'Did you mean <strong>' + suggestion + '</strong>? ')
+        + '<a href="#" id="useSuggestion" style="color:#1F3F3D;text-decoration:underline;font-weight:700;">'
+        + (isEsTypo ? 'Sí, corrígelo' : 'Yes, fix it') + '</a>'
+        + (isEsTypo
+            ? ' — o presiona Únete otra vez para dejarlo como está.'
+            : ' — or press Join again to keep what you typed.');
+      feedback.style.background = '#FEF3C7';
+      feedback.style.color = '#78350F';
+      feedback.classList.add('show');
+      var useBtn = document.getElementById('useSuggestion');
+      if (useBtn) useBtn.addEventListener('click', function(ev) {
+        ev.preventDefault();
+        document.getElementById('email').value = suggestion;
+        typoAcknowledgedFor = suggestion;
+        feedback.classList.remove('show');
+        form.querySelector('button[type=submit]').click();
+      });
+      return;
+    }
+
     if (phone.length !== 10) {
       feedback.textContent = "Please enter a 10-digit US mobile number.";
       feedback.style.background = '#FEE2E2';
@@ -831,4 +904,23 @@
       feedback.style.color = '#1F3F3D';
       feedback.classList.add('show');
       form.reset();
-      btn.innerHTML = 'Joi
+      btn.innerHTML = isEs ? '¡Listo!' : 'Joined!';
+      btn.disabled = false;
+      setTimeout(function() { btn.innerHTML = originalBtnText; }, 4000);
+    })
+    .catch(function() {
+      var isEsErr = document.documentElement.lang === 'es';
+      feedback.textContent = isEsErr
+        ? 'Algo salió mal. Inténtalo de nuevo o escríbenos a info@gospinwave.com.'
+        : 'Something went wrong. Please try again, or email us at info@gospinwave.com.';
+      feedback.style.background = '#FEE2E2';
+      feedback.style.color = '#7F1D1D';
+      feedback.classList.add('show');
+      btn.disabled = false;
+      btn.innerHTML = originalBtnText;
+    });
+  });
+</script>
+
+</body>
+</html>
