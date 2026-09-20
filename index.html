@@ -479,6 +479,86 @@
   .feature p { margin: 0; font-size: 0.97rem; }
 
   /* ===================================================================
+     CONSTRUCTION PROGRESS
+     Bridges the cream of #expect into the white of #machines.
+     =================================================================== */
+  .progress { background: linear-gradient(180deg, var(--linen-cream) 0%, var(--pure-white) 100%); }
+  .progress figure { margin: 0; }
+  .progress img {
+    display: block; width: 100%; height: auto;
+    border-radius: var(--radius-lg); box-shadow: var(--shadow-md);
+  }
+  .progress figcaption {
+    margin-top: 12px; font-size: .92rem; line-height: 1.55;
+    color: var(--cool-grey); text-align: center;
+  }
+  .progress figcaption i { color: var(--spinwave-blue-2); }
+
+  .progress-hero { max-width: 900px; margin: 0 auto 50px; }
+
+  .progress-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  @media (max-width: 860px) { .progress-grid { grid-template-columns: 1fr; gap: 36px; } }
+
+  .progress-kicker {
+    font-family: var(--font-display); font-weight: 700; font-size: .78rem;
+    letter-spacing: .15em; text-transform: uppercase;
+    color: var(--spinwave-blue-2); margin-bottom: 20px;
+  }
+
+  .done-list { list-style: none; margin: 0; padding: 0; }
+  .done-list li { position: relative; padding-left: 42px; margin-bottom: 24px; }
+  .done-list li:last-child { margin-bottom: 0; }
+  .done-list li::before {
+    content: "\2713"; position: absolute; left: 0; top: 1px;
+    width: 27px; height: 27px; border-radius: 50%;
+    background: var(--light-blue); color: var(--pure-white);
+    display: flex; align-items: center; justify-content: center;
+    font-size: .82rem; font-weight: 700;
+  }
+  .done-list b {
+    display: block; font-family: var(--font-display); font-weight: 600;
+    font-size: 1.06rem; margin-bottom: 3px;
+  }
+  .done-list span { font-size: .95rem; line-height: 1.55; color: #5d5c5a; }
+
+  .progress-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 520px) { .progress-pair { grid-template-columns: 1fr; } }
+  .progress-pair figcaption { font-size: .85rem; margin-top: 10px; }
+
+  .progress-callout {
+    max-width: 900px; margin: 50px auto 0; background: var(--pure-white);
+    border-radius: var(--radius-xl); box-shadow: var(--shadow-md);
+    padding: 34px 38px; border-left: 6px solid var(--accent);
+  }
+  @media (max-width: 560px) { .progress-callout { padding: 26px 22px; } }
+  .progress-callout h3 { font-size: 1.28rem; font-weight: 700; margin-bottom: 14px; }
+  .progress-callout p { margin: 0; font-size: 1.02rem; line-height: 1.75; }
+  .progress-callout p + p { margin-top: 14px; font-size: .95rem; font-style: italic; color: var(--cool-grey); }
+
+  .progress-next { max-width: 900px; margin: 44px auto 0; }
+  .progress-next h3 { font-size: 1.28rem; font-weight: 700; margin-bottom: 14px; }
+  .progress-next p { font-size: 1.02rem; line-height: 1.75; }
+  .progress-next .es { font-size: .95rem; font-style: italic; color: var(--cool-grey); }
+  .progress-next .honest {
+    margin-top: 22px; padding: 18px 22px; border-radius: var(--radius-md);
+    background: #FFF6EE; color: #8a4a22; font-size: .99rem; line-height: 1.65;
+  }
+  .progress-next .honest .es { color: #a9754f; }
+
+  .progress-promise {
+    max-width: 900px; margin: 50px auto 0; text-align: center;
+    background: var(--spinwave-blue); color: var(--pure-white);
+    border-radius: var(--radius-xl); padding: 44px 34px; box-shadow: var(--shadow-lg);
+  }
+  @media (max-width: 560px) { .progress-promise { padding: 32px 22px; } }
+  .progress-promise h3 { color: var(--pure-white); font-size: 1.65rem; font-weight: 800; margin-bottom: 8px; }
+  .progress-promise p { margin: 18px auto 0; max-width: 640px; font-size: 1.02rem; line-height: 1.75; color: #EAF2FD; }
+  .progress-promise p.es { font-size: .95rem; color: #BFD8F6; }
+  .progress-promise .btn { margin-top: 26px; background: var(--pure-white); color: var(--spinwave-blue); box-shadow: 0 10px 24px rgba(0,0,0,.14); }
+
+  .fluff-cta .btn { margin: 6px; }
+
+  /* ===================================================================
      FLUFF & FOLD — day-one drop-off service
      =================================================================== */
   .fluff {
@@ -1441,7 +1521,7 @@
         <p data-en="Neatly folded, fresh, and ready to go." data-es="Perfectamente doblada, fresca y lista para llevar.">Neatly folded, fresh, and ready to go.</p>
       </div>
     </div>
-    <p class="fluff-cta"><a href="#notify" class="btn btn-primary btn-arrow" data-en="Get Opening Updates" data-es="Recibir Avisos de Apertura">Get Opening Updates</a></p>
+    <p class="fluff-cta"><a href="#notify" class="btn btn-primary btn-arrow" data-en="Get Opening Updates" data-es="Recibir Avisos de Apertura">Get Opening Updates</a><a href="/calculator" class="btn btn-ghost" data-en="Which bag do I need?" data-es="¿Qué bolsa necesito?">Which bag do I need?</a></p>
   </div>
 </section>
 
@@ -1486,6 +1566,85 @@
         <h3 data-en="Safe" data-es="Seguro">Safe</h3>
         <p data-en="Security cameras throughout, bright LED lighting, and a well-lit parking area. Peace of mind, day or night." data-es="Cámaras de seguridad por todas partes, iluminación LED brillante y un estacionamiento bien iluminado. Tranquilidad de día y de noche.">Security cameras throughout, bright LED lighting, and a well-lit parking area. Peace of mind, day or night.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== CONSTRUCTION PROGRESS =================== -->
+<section id="progress" class="progress">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" data-en="Construction Progress" data-es="Actualización de Obra">Construction Progress</span>
+      <h2 data-en="This old building is coming back to life" data-es="Este viejo edificio está volviendo a la vida">This old building is coming back to life</h2>
+      <p data-en="The last time we gave a progress report, the old equipment had just come out and the space was empty. A lot has changed since then — so here's an honest look at where we are at 112 S. Pacific Ave." data-es="La última vez que dimos un informe de avance, apenas habíamos sacado el equipo viejo y el local estaba vacío. Han cambiado muchas cosas — aquí te contamos con honestidad cómo vamos.">The last time we gave a progress report, the old equipment had just come out and the space was empty. A lot has changed since then — so here's an honest look at where we are at 112 S. Pacific Ave.</p>
+    </div>
+
+    <figure class="progress-hero">
+      <img src="/email/spinwave-2026-09-lights.jpg" width="1024" height="768" loading="lazy" decoding="async"
+           alt="The new ceiling and LED lighting installed at Spinwave Laundry, with the machine bases already set on the floor" />
+      <figcaption>
+        <span data-en="The lights are on. New ceiling, new lighting — and the machine bases already set." data-es="Ya encendimos las luces: techo y luces nuevas, y las bases de las máquinas ya colocadas.">The lights are on. New ceiling, new lighting — and the machine bases already set.</span>
+      </figcaption>
+    </figure>
+
+    <div class="progress-grid">
+      <div>
+        <div class="progress-kicker" data-en="Done" data-es="Ya está hecho">Done</div>
+        <ul class="done-list">
+          <li>
+            <b data-en="Demolition is finished." data-es="La demolición terminó.">Demolition is finished.</b>
+            <span data-en="The old store is gone, down to the bones of the building." data-es="La tienda vieja ya no existe — quedamos hasta los huesos del edificio.">The old store is gone, down to the bones of the building.</span>
+          </li>
+          <li>
+            <b data-en="All-new plumbing is in the ground." data-es="Plomería completamente nueva bajo el piso.">All-new plumbing is in the ground.</b>
+            <span data-en="Every line replaced — not patched." data-es="Cada línea reemplazada — no remendada.">Every line replaced — not patched.</span>
+          </li>
+          <li>
+            <b data-en="The Drop Off room is framed and drywalled." data-es="El área de Drop Off ya tiene paredes.">The Drop Off room is framed and drywalled.</b>
+            <span data-en="This is where we'll wash, dry and fold your laundry for you." data-es="Aquí lavamos, secamos y doblamos tu ropa por ti.">This is where we'll wash, dry and fold your laundry for you.</span>
+          </li>
+          <li>
+            <b data-en="New ceiling and bright, modern lighting are installed." data-es="Techo nuevo e iluminación moderna y brillante.">New ceiling and bright, modern lighting are installed.</b>
+            <span data-en="This is the single biggest change when you walk in." data-es="Es el cambio más grande que notarás al entrar.">This is the single biggest change when you walk in.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="progress-pair">
+        <figure>
+          <img src="/email/spinwave-2026-09-plumbing.jpg" width="600" height="600" loading="lazy" decoding="async"
+               alt="A plumber fitting new black drain lines into the trench at Spinwave Laundry" />
+          <figcaption>
+            <span data-en="Brand-new pipe, every run." data-es="Tubería nueva en todo el local.">Brand-new pipe, every run.</span>
+          </figcaption>
+        </figure>
+        <figure>
+          <img src="/email/spinwave-2026-09-dropoff.jpg" width="600" height="600" loading="lazy" decoding="async"
+               alt="The new Drop Off room at Spinwave Laundry, framed and drywalled with a service pass-through window" />
+          <figcaption>
+            <span data-en="The Drop Off room takes shape." data-es="El área de Drop Off toma forma.">The Drop Off room takes shape.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="progress-callout">
+      <h3 data-en="Why we tore out every pipe" data-es="Por qué cambiamos toda la tubería">Why we tore out every pipe</h3>
+      <p data-en="We could have patched the old plumbing. Nobody would have seen it, and nobody would have known. We replaced all of it instead — the newest, cleanest pipe we could buy, so the water runs fast and everything smells new. It is one of the largest investments in this whole project, and it is the one you will never see. That's exactly why we're telling you about it." data-es="Pudimos haber remendado la plomería vieja y nadie se habría dado cuenta. Preferimos cambiarla toda: tubería nueva y limpia, para que el agua corra rápido y todo huela a nuevo. Es una de las inversiones más grandes del proyecto y la única que nunca vas a ver — por eso te la contamos.">We could have patched the old plumbing. Nobody would have seen it, and nobody would have known. We replaced all of it instead — the newest, cleanest pipe we could buy, so the water runs fast and everything smells new. It is one of the largest investments in this whole project, and it is the one you will never see. That's exactly why we're telling you about it.</p>
+    </div>
+
+    <div class="progress-next">
+      <h3 data-en="Next up" data-es="Lo que sigue">Next up</h3>
+      <p data-en="Work on the bulkheads has just started. New A/C units go in after that. And the washers and dryers — the part we're most impatient about — are on their way." data-es="Ya empezamos los bulkheads, después vienen las unidades de aire acondicionado, y las lavadoras y secadoras ya vienen en camino.">Work on the bulkheads has just started. New A/C units go in after that. And the washers and dryers — the part we're most impatient about — are on their way.</p>
+      <div class="honest">
+        <span data-en="One honest note: permits have taken longer than we hoped. They're moving, and we'd rather tell you that than pretend otherwise." data-es="Con honestidad: los permisos han tardado más de lo que esperábamos. Van avanzando, y preferimos decírtelo.">One honest note: permits have taken longer than we hoped. They're moving, and we'd rather tell you that than pretend otherwise.</span>
+      </div>
+    </div>
+
+    <div class="progress-promise">
+      <h3 data-en="You'll know before anyone else." data-es="Tú lo sabrás antes que nadie.">You'll know before anyone else.</h3>
+      <p data-en="We're aiming to open in early November. We're not going to put a date on a calendar we don't control yet — but here's what we can promise: the day we open, you get a text. Before the signs go up, before the neighbors know." data-es="Queremos abrir a principios de noviembre. No vamos a prometer una fecha exacta que todavía no controlamos, pero sí esto: el día que abramos, te llega un mensaje de texto — antes que a nadie.">We're aiming to open in early November. We're not going to put a date on a calendar we don't control yet — but here's what we can promise: the day we open, you get a text. Before the signs go up, before the neighbors know.</p>
+      <a href="/vip" class="btn" data-en="Join the VIP list →" data-es="Únete a la lista VIP →">Join the VIP list →</a>
     </div>
   </div>
 </section>
@@ -1893,6 +2052,8 @@
         <h4 data-en="Explore" data-es="Explora">Explore</h4>
         <ul>
           <li><a href="#expect">What to Expect</a></li>
+          <li><a href="#progress" data-en="Construction Progress" data-es="Actualización de Obra">Construction Progress</a></li>
+          <li><a href="/calculator" data-en="Which bag do I need?" data-es="¿Qué bolsa necesito?">Which bag do I need?</a></li>
           <li><a href="#machines">Our Machines</a></li>
           <li><a href="#amenities">Amenities</a></li>
           <li><a href="#faq">FAQ</a></li>
