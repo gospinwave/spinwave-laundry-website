@@ -117,6 +117,8 @@
      =================================================================== */
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
+  /* clearance so the sticky nav never covers a section heading we jump to */
+  section[id], header[id] { scroll-margin-top: 100px; }
   body {
     margin: 0;
     font-family: var(--font-body);
@@ -2300,6 +2302,35 @@
       });
     });
   })();
+</script>
+
+<script>
+/* --------------------------------------------------------------------
+   Deep-link fix. Lazy-loaded images change the document height AFTER the
+   browser performs its initial jump to #hash, so a cold load of
+   /#progress lands short of the section (or not at all). Re-run the jump
+   once the page has loaded, and again shortly after, by which point the
+   layout has settled. In-page nav clicks keep their smooth scrolling.
+   -------------------------------------------------------------------- */
+(function () {
+  function jumpToHash() {
+    if (!location.hash || location.hash.length < 2) return;
+    var el;
+    try { el = document.querySelector(location.hash); } catch (e) { return; }
+    if (!el) return;
+    var root = document.documentElement;
+    var prev = root.style.scrollBehavior;
+    root.style.scrollBehavior = 'auto';
+    el.scrollIntoView();
+    root.style.scrollBehavior = prev;
+  }
+  try {
+    window.addEventListener('load', function () {
+      jumpToHash();
+      setTimeout(jumpToHash, 300);
+    });
+  } catch (e) {}
+})();
 </script>
 
 </body>
