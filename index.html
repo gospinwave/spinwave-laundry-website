@@ -859,6 +859,50 @@
   }
   .field textarea { resize: vertical; min-height: 90px; }
   .notify-form .btn { width: 100%; justify-content: center; }
+  .consent-box {
+    border: 2px solid rgba(78,159,235,0.35);
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin: 4px 0 18px;
+    background: rgba(78,159,235,0.04);
+  }
+  .consent-box .consent-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin: 0 0 12px;
+    color: var(--ink);
+  }
+  .consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .consent:last-child { margin-bottom: 0; }
+  .consent input[type="checkbox"] {
+    flex-shrink: 0;
+    width: 20px; height: 20px;
+    margin: 2px 0 0;
+    accent-color: var(--primary);
+    cursor: pointer;
+  }
+  .consent label {
+    font-size: 0.92rem;
+    line-height: 1.5;
+    cursor: pointer;
+    margin: 0;
+  }
+  .sms-disclosure {
+    border-top: 1px solid rgba(56,56,55,0.15);
+    margin-top: 20px;
+    padding-top: 16px;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: var(--cool-grey);
+  }
+  .sms-disclosure p { margin: 0 0 10px; }
+  .sms-disclosure p:last-child { margin-bottom: 0; }
+  .sms-disclosure a { color: var(--primary); }
   .form-feedback {
     margin-top: 14px; padding: 12px 16px; border-radius: var(--radius-md);
     background: #D7EBE9; color: #1F3F3D; font-weight: 500;
@@ -2015,15 +2059,33 @@
                placeholder="you@example.com" />
       </div>
       <div class="field">
-        <label for="phone" data-en="Phone &lt;span style=&quot;color:var(--cool-grey);font-weight:400&quot;&gt;(optional — for opening-day text updates)&lt;/span&gt;" data-es="Teléfono &lt;span style=&quot;color:var(--cool-grey);font-weight:400&quot;&gt;(opcional — para avisos por mensaje el día de apertura)&lt;/span&gt;">Phone <span style="color:var(--cool-grey);font-weight:400">(optional — for opening-day text updates)</span></label>
+        <label for="phone" data-en="Mobile number &lt;span style=&quot;color:var(--cool-grey);font-weight:400&quot;&gt;(optional — so we can text you back)&lt;/span&gt;" data-es="Número de celular &lt;span style=&quot;color:var(--cool-grey);font-weight:400&quot;&gt;(opcional — para poder responderte por mensaje)&lt;/span&gt;">Mobile number <span style="color:var(--cool-grey);font-weight:400">(optional — so we can text you back)</span></label>
         <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" autocomplete="tel" />
       </div>
       <div class="field">
         <label for="message" data-en="Anything else? &lt;span style=&quot;color:var(--cool-grey);font-weight:400&quot;&gt;(optional)&lt;/span&gt;" data-es="¿Algo más? &lt;span style=&quot;color:var(--cool-grey);font-weight:400&quot;&gt;(opcional)&lt;/span&gt;">Anything else? <span style="color:var(--cool-grey);font-weight:400">(optional)</span></label>
         <textarea id="message" name="message" placeholder="Questions or suggestions for us..."></textarea>
       </div>
+      <input type="hidden" name="sms_consent" id="smsConsentValue" value="not_given" />
+      <div class="consent-box">
+        <p class="consent-title" data-en="If you gave us a mobile number, please choose one:" data-es="Si nos diste un número de celular, elige una opción:">If you gave us a mobile number, please choose one:</p>
+        <div class="consent">
+          <input type="checkbox" id="careYes" name="care_consent_yes" value="yes" />
+          <label for="careYes" data-en="Yes, I consent to receive customer care messages from Spinwave Laundry" data-es="Sí, doy mi consentimiento para recibir mensajes de atención al cliente de Spinwave Laundry">Yes, I consent to receive customer care messages from Spinwave Laundry</label>
+        </div>
+        <div class="consent">
+          <input type="checkbox" id="careNo" name="care_consent_no" value="yes" />
+          <label for="careNo" data-en="No, I do not want to receive any text messages from Spinwave Laundry" data-es="No, no deseo recibir ningún mensaje de texto de Spinwave Laundry">No, I do not want to receive any text messages from Spinwave Laundry</label>
+        </div>
+      </div>
+
       <button type="submit" class="btn btn-primary btn-arrow" data-en="Notify Me" data-es="Avísame">Notify Me</button>
       <div class="form-feedback" id="formFeedback" role="status" aria-live="polite"></div>
+
+      <div class="sms-disclosure">
+        <p data-en="Go Spinwave LLC (doing business as Spinwave Laundry) would like your consent to send customer care text message communications from (310) 893-1767 to your mobile number listed above, in response to your questions or to provide information relevant to your relationship with us." data-es="Go Spinwave LLC (que opera como Spinwave Laundry) solicita su consentimiento para enviar mensajes de texto de atención al cliente desde el (310) 893-1767 al número de celular indicado arriba, en respuesta a sus preguntas o para brindarle información relevante sobre su relación con nosotros.">Go Spinwave LLC (doing business as Spinwave Laundry) would like your consent to send customer care text message communications from (310) 893-1767 to your mobile number listed above, in response to your questions or to provide information relevant to your relationship with us.</p>
+        <p data-en="Consent is not a condition of purchase. Message frequency varies. Message and data rates may apply. Reply 'STOP' to unsubscribe at any time. Reply 'HELP' for assistance or more information. We do not share your mobile opt-in information with anyone. Our combined Privacy Policy and Messaging Terms and Conditions are available at &lt;a href=&quot;/privacy#sms&quot;&gt;https://spinwavelaundry.com/privacy#sms&lt;/a&gt;." data-es="El consentimiento no es condición de compra. La frecuencia de los mensajes varía. Pueden aplicarse tarifas de mensajes y datos. Responda 'STOP' para cancelar la suscripción en cualquier momento. Responda 'HELP' para obtener ayuda o más información. No compartimos su información de suscripción móvil con nadie. Nuestra Política de Privacidad y los Términos y Condiciones de Mensajería combinados están disponibles en &lt;a href=&quot;/privacy#sms&quot;&gt;https://spinwavelaundry.com/privacy#sms&lt;/a&gt;.">Consent is not a condition of purchase. Message frequency varies. Message and data rates may apply. Reply 'STOP' to unsubscribe at any time. Reply 'HELP' for assistance or more information. We do not share your mobile opt-in information with anyone. Our combined Privacy Policy and Messaging Terms and Conditions are available at <a href="/privacy#sms">https://spinwavelaundry.com/privacy#sms</a>.</p>
+      </div>
     </form>
   </div>
 </section>
@@ -2206,6 +2268,34 @@
 
     var typoAcknowledgedFor = null;
 
+    // --- Customer-care SMS consent: mutually exclusive, never pre-checked ---
+    var careYes = document.getElementById('careYes');
+    var careNo  = document.getElementById('careNo');
+    var careVal = document.getElementById('smsConsentValue');
+    function syncConsent() {
+      try {
+        if (!careVal) return;
+        if (careYes && careYes.checked && !(careNo && careNo.checked)) careVal.value = 'yes';
+        else if (careNo && careNo.checked && !(careYes && careYes.checked)) careVal.value = 'no';
+        else careVal.value = 'not_given';
+      } catch (err) {}
+    }
+    try {
+      if (careYes && careNo) {
+        careYes.checked = false;
+        careNo.checked = false;
+        careYes.addEventListener('change', function() {
+          if (careYes.checked) careNo.checked = false;
+          syncConsent();
+        });
+        careNo.addEventListener('change', function() {
+          if (careNo.checked) careYes.checked = false;
+          syncConsent();
+        });
+        syncConsent();
+      }
+    } catch (err) {}
+
     function showError(feedback, text) {
       feedback.textContent = text;
       feedback.style.background = '#FEE2E2';
@@ -2239,6 +2329,21 @@
           : 'Please enter a valid email address.');
         return;
       }
+      var phoneEl = document.getElementById('phone');
+      var phoneVal = phoneEl ? (phoneEl.value || '').trim() : '';
+      if (phoneVal && careYes && careNo && !careYes.checked && !careNo.checked) {
+        showError(feedback, isEs
+          ? 'Ya que nos diste un número de celular, elige Sí o No para los mensajes de texto.'
+          : 'Since you gave us a mobile number, please choose Yes or No for text messages.');
+        return;
+      }
+      if (careYes && careNo && careYes.checked && careNo.checked) {
+        showError(feedback, isEs
+          ? 'Elige solo una opción: Sí o No.'
+          : 'Please choose only one: Yes or No.');
+        return;
+      }
+      syncConsent();
 
       var suggestion = domainSuggestion(email);
       if (suggestion && typoAcknowledgedFor !== email) {
