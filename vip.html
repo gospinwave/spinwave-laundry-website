@@ -662,8 +662,8 @@
       </div>
 
       <div class="field">
-        <label for="email" data-en="Email &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;" data-es="Correo &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;">Email <span class="req">*</span></label>
-        <input type="email" id="email" name="email" required
+        <label for="email" data-en="Email &lt;span class=&quot;opt&quot;&gt;(recommended)&lt;/span&gt;" data-es="Correo &lt;span class=&quot;opt&quot;&gt;(recomendado)&lt;/span&gt;">Email <span class="opt">(recommended)</span></label>
+        <input type="email" id="email" name="email"
                pattern="[^@\s]+@[^@\s]+\.[A-Za-z]{2,}"
                title="Please enter a complete email address, like you@example.com"
                placeholder="you@example.com" autocomplete="email" />
@@ -832,7 +832,8 @@
     var consent = document.getElementById('smsConsent').checked;
     var feedback = document.getElementById('vipFeedback');
 
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    // Email is optional. Validate the format only when something was typed.
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       feedback.textContent = "Please enter a valid email address.";
       feedback.style.background = '#FEE2E2';
       feedback.style.color = '#7F1D1D';
